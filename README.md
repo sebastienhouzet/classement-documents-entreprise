@@ -149,5 +149,5 @@ régulièrement.
 
 ## Licence
 
-À définir par l'auteur — suggestion : [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.fr)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.fr)
 (réutilisation et adaptation libres, avec mention de la source), adaptée à un contenu documentaire.
