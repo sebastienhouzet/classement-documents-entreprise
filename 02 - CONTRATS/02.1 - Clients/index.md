@@ -25,7 +25,7 @@ Les engagements pris avec chaque client : contrat cadre, devis et propositions c
 
 ## Méthode de classement
 
-**Un sous-dossier par client** nommé de façon stable (`Peps Home`, pas `peps-home.fr`). Si un client a de nombreux projets : `Client/AAAA - Nom du projet/`. Fichiers : `AAAA-MM-JJ_Devis-D2026-014_Refonte-site_signe.pdf`.
+**Un sous-dossier par client** nommé de façon stable (`Dupont`, pas `dupont.fr`). Si un client a de nombreux projets : `Client/AAAA - Nom du projet/`. Fichiers : `AAAA-MM-JJ_Devis-D2026-014_Refonte-site_signe.pdf`.
 
 ## Durée de conservation
 
