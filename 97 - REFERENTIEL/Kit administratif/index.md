@@ -1,6 +1,6 @@
 # Kit administratif
 
-> Chemin : `00 - REFERENTIEL/Kit administratif`
+> Chemin : `97 - REFERENTIEL/Kit administratif`
 
 ## À quoi sert ce dossier
 
@@ -36,4 +36,4 @@ Un seul exemplaire de chaque document, nommé avec sa date d'émission (`Kbis_20
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

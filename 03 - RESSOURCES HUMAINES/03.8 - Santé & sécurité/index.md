@@ -36,4 +36,4 @@ Base : Code du travail art. R.4624-1 et s., L.4121-3-1 (40 ans) ; Code de la sé
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

@@ -38,4 +38,4 @@ Base : Code du travail art. R.4224-17, R.4226-16 et s. ; Code de la construction
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

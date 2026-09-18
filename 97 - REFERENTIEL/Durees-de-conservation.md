@@ -63,6 +63,20 @@ professionnel pour une situation particulière.
 | Levées de fonds | 5 ans | Permanent | `05.4` |
 | Mandats SEPA | 14 mois après le dernier prélèvement | 10 ans | `05.5` |
 
+## Placements & participations
+
+| Document | Minimum légal | Recommandé | Dossier |
+|---|---|---|---|
+| Note de décision d'investissement, politique de placement | 5 ans | Permanent (elle porte l'intention de détention) | `08.1` |
+| Contrat de compte à terme, relevés | 5 ans ; 10 ans comme pièce comptable | 10 ans après le dénouement | `08.2` |
+| Avis d'opéré d'achat et de vente de titres | 10 ans après la clôture de l'exercice | Détention + 10 ans, jamais purgé tant que la ligne est détenue | `08.3` |
+| Contrat de capitalisation | 2 ans après la fin (prescription assurance) | Durée + 10 ans, avec le taux de référence de souscription | `08.4` |
+| Crypto-actifs : historique des transactions | 10 ans (pièce comptable), 6 ans (fiscal) | Historique complet tant que des actifs sont détenus, puis 10 ans | `08.5` |
+| SCPI, parts de SCI, immeuble de placement | 30 ans pour les actes immobiliers ; 10 ans pour les pièces comptables | Permanent pour les actes et bulletins de souscription | `08.6` |
+| Fonds, financement participatif, prêts consentis | 10 ans ; contrats 5 ans après la fin | Détention + 10 ans (conserver tous les appels de capitaux) | `08.7` |
+| Titres de participation, conventions intragroupe | 5 ans pour les cessions ; 6 ans pour le fiscal ; 10 ans comptable | Permanent | `08.8` |
+| Valorisations et états annuels de clôture | 10 ans | Permanent pour l'état récapitulatif annuel | `08.9` |
+
 ## Assurances
 
 | Document | Minimum légal | Recommandé | Dossier |
@@ -90,5 +104,7 @@ professionnel pour une situation particulière.
 - Code de la sécurité sociale, art. L.244-3 (charges sociales : 3 ans)
 - Code des assurances, art. L.114-1 (prescription : 2 ans)
 - Code civil, art. 2224 (prescription de droit commun : 5 ans) et 2227 (immobilier : 30 ans)
+- Règlement ANC 2026-01 sur les crypto-actifs, obligatoire pour les exercices ouverts à compter du 1er janvier 2027 (application anticipée possible), en remplacement du règlement ANC 2018-07
+- RGPD, art. 5.1.e (limitation de la durée de conservation) et art. 17 (droit à l'effacement)
 - CNIL, référentiel « gestion du personnel » (candidatures : 2 ans)
 - Fiche service-public.fr « Durée de conservation des documents d'une entreprise » (synthèse officielle, mise à jour régulièrement — à consulter pour vérifier une durée)

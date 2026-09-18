@@ -19,6 +19,7 @@ La structure du capital et les relations entre associés : qui détient quoi, à
 ## Ne pas ranger ici
 
 - Documents de levée de fonds (term sheet, contrat d'investissement) → `05.4` (le pacte signé reste ici)
+- Titres que **votre** société détient dans d'autres sociétés → `08.8` (ici, il s'agit uniquement de votre propre capital)
 
 ## Méthode de classement
 
@@ -35,4 +36,4 @@ Base : Code civil art. 2224 ; Code de commerce art. L.228-1 et s.
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

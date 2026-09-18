@@ -35,4 +35,4 @@ Base : Code de commerce art. L.110-4 ; Code de la consommation art. L.215-1 (rec
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

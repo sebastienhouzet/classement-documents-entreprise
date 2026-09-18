@@ -1,6 +1,6 @@
-# 00 - Référentiel
+# 97 - Référentiel
 
-> Chemin : `00 - REFERENTIEL`
+> Chemin : `97 - REFERENTIEL`
 
 ## À quoi sert ce dossier
 
@@ -26,4 +26,4 @@ Ce dossier décrit le système de classement lui-même : la convention de nommag
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

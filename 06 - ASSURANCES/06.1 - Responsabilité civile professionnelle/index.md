@@ -10,7 +10,7 @@ La RC Pro (et RC exploitation) couvre les dommages causés aux clients et aux ti
 
 - Conditions particulières, conditions générales (de la version applicable), avenants
 - Questionnaire de souscription et déclarations d'activité (activités couvertes, chiffre d'affaires déclaré chaque année)
-- Attestations annuelles d'assurance (copie de l'année en cours dans `00/Kit administratif`)
+- Attestations annuelles d'assurance (copie de l'année en cours dans `97/Kit administratif`)
 - Quittances / appels de prime (factures → `04.3`)
 - Courriers de l'assureur ou du courtier, avis d'échéance, résiliation
 
@@ -33,4 +33,4 @@ Base : Code des assurances art. L.114-1, L.124-5.
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

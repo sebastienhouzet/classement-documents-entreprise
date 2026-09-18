@@ -21,7 +21,7 @@ Un dossier par salarié (CDI, CDD, dirigeant assimilé salarié) qui suit la per
 
 ## Méthode de classement
 
-**Un sous-dossier par salarié** `NOM Prénom`, contenant les trois sous-dossiers `01 Embauche`, `02 Vie du contrat`, `03 Sortie`. Fichiers `AAAA-MM-JJ_Type_Objet.pdf`. Au départ du salarié : déplacer tout son dossier dans `08 - ARCHIVES/AAAA/03 - RH/`.
+**Un sous-dossier par salarié** `NOM Prénom`, contenant les trois sous-dossiers `01 Embauche`, `02 Vie du contrat`, `03 Sortie`. Fichiers `AAAA-MM-JJ_Type_Objet.pdf`. Au départ du salarié : déplacer tout son dossier dans `98 - ARCHIVES/AAAA/03 - RH/`.
 
 ## Durée de conservation
 
@@ -38,4 +38,4 @@ Base : Code du travail art. L.1332-5 (sanctions 3 ans), L.3245-1 (salaires 3 ans
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

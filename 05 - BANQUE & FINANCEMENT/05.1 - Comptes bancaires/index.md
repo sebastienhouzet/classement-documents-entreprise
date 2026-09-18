@@ -19,6 +19,7 @@ Chaque compte bancaire de l'entreprise (compte courant, compte d'épargne, compt
 ## Ne pas ranger ici
 
 - Relevés des prestataires de paiement (Stripe, PayPal…) → `05.5`
+- Comptes à terme, livrets et autres supports de placement → `08.2`
 
 ## Méthode de classement
 
@@ -35,4 +36,4 @@ Base : Code de commerce art. L.110-4 ; Code monétaire et financier art. L.312-1
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

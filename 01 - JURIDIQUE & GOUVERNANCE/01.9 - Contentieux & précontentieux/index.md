@@ -23,7 +23,7 @@ Les litiges, avérés ou en germe : impayés en recouvrement contentieux, mises 
 
 ## Méthode de classement
 
-**Un sous-dossier par affaire** : `AAAA - Partie adverse - Objet` (ex. `2026 - SAS Dupont - Impaye facture F2025-0087`). À l'intérieur, classement chronologique `AAAA-MM-JJ_Type_Objet.pdf`. Un dossier `Clos` pour les affaires terminées, avant transfert vers `08 - ARCHIVES`.
+**Un sous-dossier par affaire** : `AAAA - Partie adverse - Objet` (ex. `2026 - SAS Dupont - Impaye facture F2025-0087`). À l'intérieur, classement chronologique `AAAA-MM-JJ_Type_Objet.pdf`. Un dossier `Clos` pour les affaires terminées, avant transfert vers `98 - ARCHIVES`.
 
 ## Durée de conservation
 
@@ -36,4 +36,4 @@ Base : Code civil art. 2224 ; Code des procédures civiles d'exécution art. L.1
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

@@ -25,17 +25,17 @@ Les engagements pris avec chaque client : contrat cadre, devis et propositions c
 
 ## Méthode de classement
 
-**Un sous-dossier par client** nommé de façon stable (`Dupont`, pas `dupont.fr`). Si un client a de nombreux projets : `Client/AAAA - Nom du projet/`. Fichiers : `AAAA-MM-JJ_Devis-D2026-014_Refonte-site_signe.pdf`.
+**Un sous-dossier par client** nommé de façon stable (`Peps Home`, pas `peps-home.fr`). Si un client a de nombreux projets : `Client/AAAA - Nom du projet/`. Fichiers : `AAAA-MM-JJ_Devis-D2026-014_Refonte-site_signe.pdf`.
 
 ## Durée de conservation
 
 | | |
 |---|---|
 | **Minimum légal** | 5 ans après la fin du contrat (10 ans si contrat électronique ≥ 120 €). |
-| **Recommandé** | 10 ans après la fin de la relation. Un client sans contrat actif depuis 3 ans → déplacer son dossier vers `08 - ARCHIVES`. |
+| **Recommandé** | 10 ans après la fin de la relation. Un client sans contrat actif depuis 3 ans → déplacer son dossier vers `98 - ARCHIVES`. |
 
 Base : Code de commerce art. L.110-4 ; Code de la consommation art. L.213-1.
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

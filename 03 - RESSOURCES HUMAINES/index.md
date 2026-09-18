@@ -28,7 +28,7 @@ Par thème. Les dossiers individuels sont par personne (`NOM Prénom`), la paie 
 | | |
 |---|---|
 | **Minimum légal** | Voir chaque sous-dossier ; socle : 5 ans après le départ du salarié pour la plupart des pièces ; 40 ans pour le DUERP. |
-| **Recommandé** | Restreindre l'accès ; archiver le dossier d'un salarié dans `08 - ARCHIVES` à son départ, avec sa date de destruction prévue. |
+| **Recommandé** | Restreindre l'accès ; archiver le dossier d'un salarié dans `98 - ARCHIVES` à son départ, avec sa date de destruction prévue. |
 
 Base : Code du travail ; RGPD ; référentiel CNIL « gestion du personnel ».
 
@@ -39,4 +39,4 @@ Base : Code du travail ; RGPD ; référentiel CNIL « gestion du personnel ».
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

@@ -12,7 +12,7 @@ Les certifications, labels, agréments et référencements de l'entreprise : Qua
 - Dossier de candidature / demande initiale, devis et contrat de l'organisme certificateur
 - Preuves fournies à l'audit (copies ou index pointant vers les dossiers d'origine)
 - Rapports d'audit (initial, de surveillance, de renouvellement), non-conformités et plans d'actions
-- Certificat en cours de validité (copie dans `00/Kit administratif` si demandé par les clients) et certificats précédents
+- Certificat en cours de validité (copie dans `97/Kit administratif` si demandé par les clients) et certificats précédents
 - Correspondance avec l'organisme, calendrier des audits
 - Référencements clients : questionnaires fournisseur remplis, chartes signées, scoring reçus
 
@@ -36,4 +36,4 @@ Base : Référentiel de chaque certification ; Code du travail art. L.6316-1 (Qu
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

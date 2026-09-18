@@ -14,12 +14,14 @@ Toutes les déclarations et tous les échanges avec l'administration fiscale : T
 - **Autres taxes** : taxe sur les salaires, taxe sur les véhicules de société (TVS / taxes annuelles), taxe d'apprentissage, C3S, TASCOM, droits d'enregistrement
 - **Contrôles et rescrits** : avis de vérification, demandes de renseignements, propositions de rectification, réponses, réclamations, décisions, rescrits fiscaux (JEI, CIR…)
 - **Attestations** : attestation de régularité fiscale (par date), attestation de résidence fiscale
+- **Comptes et actifs à l'étranger** : formulaires 3916 / 3916-bis déposés le cas échéant — l'obligation vise les sociétés civiles, les associations et les GIE, mais pas les sociétés commerciales (SAS, SARL, SA)
 - Courriers du SIE, mandats de télédéclaration, options fiscales (régime, franchise, TVA sur les débits)
 
 ## Ne pas ranger ici
 
 - Liasses fiscales → `04.1` (avec l'exercice)
 - Dossiers CIR / CII / JEI complets → `05.3` (le rescrit reste ici en copie)
+- Calculs de plus-values et valorisations de placements → `08.9` (seules les déclarations restent ici)
 
 ## Méthode de classement
 
@@ -32,8 +34,8 @@ Toutes les déclarations et tous les échanges avec l'administration fiscale : T
 | **Minimum légal** | 6 ans à compter de la dernière opération ou de la date d'établissement (délai de reprise 3 ans, porté à 6 ans en cas de manquement, 10 ans en cas d'activité occulte). |
 | **Recommandé** | 10 ans (aligné sur la comptabilité) ; permanent pour les dossiers de contrôle et les rescrits. |
 
-Base : LPF art. L.102 B, L.169, L.176 ; CGI art. 1649 quater B quater (télédéclaration).
+Base : LPF art. L.102 B, L.169, L.176 ; CGI art. 1649 A et 1649 bis C (comptes bancaires et comptes d'actifs numériques ouverts à l'étranger) ; CGI art. 1649 quater B quater (télédéclaration).
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

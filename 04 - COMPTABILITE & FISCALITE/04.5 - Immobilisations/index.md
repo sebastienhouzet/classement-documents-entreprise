@@ -19,6 +19,7 @@ Les biens durables de l'entreprise (matériel informatique, mobilier, véhicules
 
 - Inventaire physique et attribution du matériel aux salariés → `07.6`
 - Véhicules (carte grise, entretien) → `07.4`
+- Immobilisations **financières** (titres, participations, placements durables) → `08`
 
 ## Méthode de classement
 
@@ -35,4 +36,4 @@ Base : Code de commerce art. L.123-22 ; PCG art. 214-1 et s.
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

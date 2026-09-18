@@ -22,7 +22,7 @@ Les actifs immatériels de l'entreprise et la preuve qu'elle en est bien titulai
 
 ## Méthode de classement
 
-**Un sous-dossier par actif** (`Marque`, `Domaine`, `Logiciel`…). À l'intérieur : `Depot`, `Renouvellements`, `Cessions et licences`, `Litiges`.
+**Un sous-dossier par actif** (`Marque Yoozio`, `Domaine yoozio.com`, `Logiciel Flowkiwi`…). À l'intérieur : `Depot`, `Renouvellements`, `Cessions et licences`, `Litiges`.
 
 ## Durée de conservation
 
@@ -35,4 +35,4 @@ Base : Code de la propriété intellectuelle ; Code civil art. 2224.
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.

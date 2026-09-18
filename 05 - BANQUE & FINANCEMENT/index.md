@@ -4,7 +4,7 @@
 
 ## À quoi sert ce dossier
 
-Les relations avec les banques et tous les financements de l'entreprise : comptes, emprunts, aides et subventions, investisseurs, moyens de paiement, garanties. Les relevés sont des pièces comptables ; les contrats de prêt et de garantie engagent souvent le dirigeant personnellement.
+Les relations avec les banques et tous les financements de l'entreprise : comptes, emprunts, aides et subventions, investisseurs, moyens de paiement, garanties. Ce domaine traite de l'argent qui **entre** ; ce que l'entreprise fait de sa trésorerie une fois qu'elle est là relève du domaine `08 - PLACEMENTS & PARTICIPATIONS`. Les relevés sont des pièces comptables ; les contrats de prêt et de garantie engagent souvent le dirigeant personnellement.
 
 ## Documents à y ranger
 
@@ -14,6 +14,10 @@ Les relations avec les banques et tous les financements de l'entreprise : compte
 - 05.4 Investisseurs & levées de fonds — un dossier par opération
 - 05.5 Moyens de paiement — cartes, TPE, prestataires de paiement, mandats SEPA
 - 05.6 Cautions & garanties — données et reçues
+
+## Ne pas ranger ici
+
+- Comptes à terme, titres, contrats de capitalisation, crypto-actifs, SCPI, participations → `08`
 
 ## Méthode de classement
 
@@ -34,4 +38,4 @@ Base : Code de commerce art. L.110-4 et L.123-22 ; Code civil art. 2224.
 
 ---
 
-Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `00 - REFERENTIEL/Convention-de-nommage.md`.
+Convention de nommage des fichiers : `AAAA-MM-JJ_Type_Tiers_Objet.ext` — voir `97 - REFERENTIEL/Convention-de-nommage.md`.
