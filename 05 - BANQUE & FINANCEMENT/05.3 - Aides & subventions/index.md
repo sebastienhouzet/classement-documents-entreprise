@@ -4,7 +4,7 @@
 
 ## À quoi sert ce dossier
 
-Les financements publics et assimilés : subventions (Région Hauts-de-France, Bpifrance, ADEME, Europe), aides à l'embauche, crédit d'impôt recherche / innovation (CIR / CII), statut JEI, exonérations. Ces dossiers doivent pouvoir être rejoués intégralement en cas de contrôle, souvent longtemps après.
+Les financements publics et assimilés : subventions (conseil régional, Bpifrance, ADEME, fonds européens), aides à l'embauche, crédit d'impôt recherche / innovation (CIR / CII), statut JEI, exonérations. Ces dossiers doivent pouvoir être rejoués intégralement en cas de contrôle, souvent longtemps après.
 
 ## Documents à y ranger
 

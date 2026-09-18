@@ -18,12 +18,12 @@ Chaque compte bancaire de l'entreprise (compte courant, compte d'épargne, compt
 
 ## Ne pas ranger ici
 
-- Relevés des prestataires de paiement (Stripe, PayPal…) → `05.5`
+- Relevés des prestataires de paiement en ligne → `05.5`
 - Comptes à terme, livrets et autres supports de placement → `08.2`
 
 ## Méthode de classement
 
-**Un sous-dossier par compte** `Banque - Type de compte` (ex. `Qonto - Compte courant`). À l'intérieur : `Convention et mandats`, `Releves/AAAA/AAAA-MM_Releve.pdf`, `Courriers/AAAA`, `KYC`.
+**Un sous-dossier par compte** `Banque - Type de compte` (ex. `Banque Alpha - Compte courant`). À l'intérieur : `Convention et mandats`, `Releves/AAAA/AAAA-MM_Releve.pdf`, `Courriers/AAAA`, `KYC`.
 
 ## Durée de conservation
 

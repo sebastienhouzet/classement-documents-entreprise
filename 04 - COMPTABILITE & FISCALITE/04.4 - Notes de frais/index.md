@@ -16,7 +16,7 @@ Les dépenses avancées par le dirigeant ou les salariés et remboursées par l'
 
 ## Méthode de classement
 
-**Par année, puis par mois** : `AAAA/AAAA-MM/`, un PDF par personne et par mois regroupant la note et ses justificatifs : `2026-03_NDF_DUPONT-Jean.pdf`. Si l'entreprise a un outil de notes de frais, exporter l'archive mensuelle ici.
+**Par année, puis par mois** : `AAAA/AAAA-MM/`, un PDF par personne et par mois regroupant la note et ses justificatifs : `2026-03_NDF_NOM-Prenom.pdf`. Si l'entreprise a un outil de notes de frais, exporter l'archive mensuelle ici.
 
 ## Durée de conservation
 

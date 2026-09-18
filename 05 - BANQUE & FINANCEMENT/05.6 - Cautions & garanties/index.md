@@ -23,7 +23,7 @@ Les engagements de garantie, dans les deux sens : ceux que l'entreprise ou son d
 
 ## Méthode de classement
 
-Deux sous-dossiers `Donnees` et `Recues`, puis **un sous-dossier par contrepartie ou par contrat garanti**, nommé comme le contrat correspondant (`2024 - Credit Agricole - Pret equipement`).
+Deux sous-dossiers `Donnees` et `Recues`, puis **un sous-dossier par contrepartie ou par contrat garanti**, nommé comme le contrat correspondant (`2024 - Banque Alpha - Pret equipement`).
 
 ## Durée de conservation
 

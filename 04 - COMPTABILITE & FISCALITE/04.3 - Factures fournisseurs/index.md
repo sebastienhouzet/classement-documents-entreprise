@@ -23,7 +23,7 @@ Toutes les factures reçues : achats, prestations, abonnements, loyers, honorair
 
 ## Méthode de classement
 
-**Par année, puis par mois de la date de facture** : `AAAA/AAAA-MM/`. Nommage : `AAAA-MM-JJ_Fournisseur_Objet_MontantTTC.pdf` (ex. `2026-03-04_OVH_Hebergement-mars_35.88.pdf`). Un sous-dossier `AAAA/A traiter` peut servir de boîte d'entrée avant classement.
+**Par année, puis par mois de la date de facture** : `AAAA/AAAA-MM/`. Nommage : `AAAA-MM-JJ_Fournisseur_Objet_MontantTTC.pdf` (ex. `2026-03-04_Hebergeur-Alpha_Hebergement-mars_35.88.pdf`). Un sous-dossier `AAAA/A traiter` peut servir de boîte d'entrée avant classement.
 
 ## Durée de conservation
 

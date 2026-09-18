@@ -4,7 +4,7 @@
 
 ## À quoi sert ce dossier
 
-Les outils d'encaissement et de décaissement : cartes bancaires, terminaux de paiement, prestataires de paiement en ligne (Stripe, GoCardless, PayPal…), prélèvements SEPA, chéquiers. Les relevés des prestataires de paiement sont des pièces comptables au même titre que les relevés bancaires.
+Les outils d'encaissement et de décaissement : cartes bancaires, terminaux de paiement, prestataires de paiement en ligne, prélèvements SEPA, chéquiers. Les relevés des prestataires de paiement sont des pièces comptables au même titre que les relevés bancaires.
 
 ## Documents à y ranger
 
@@ -22,7 +22,7 @@ Les outils d'encaissement et de décaissement : cartes bancaires, terminaux de p
 
 ## Méthode de classement
 
-**Un sous-dossier par moyen ou prestataire** (`Cartes`, `TPE`, `Stripe`, `GoCardless`, `Prelevements SEPA`, `Cheques`). Relevés en `Releves/AAAA/AAAA-MM_Releve.pdf` ; mandats SEPA un fichier par client `Mandat-SEPA_Client_RUM.pdf`.
+**Un sous-dossier par moyen ou prestataire** (`Cartes`, `TPE`, `PSP Alpha`, `PSP Beta`, `Prelevements SEPA`, `Cheques`). Relevés en `Releves/AAAA/AAAA-MM_Releve.pdf` ; mandats SEPA un fichier par client `Mandat-SEPA_Client_RUM.pdf`.
 
 ## Durée de conservation
 

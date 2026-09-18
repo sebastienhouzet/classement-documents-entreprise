@@ -25,7 +25,7 @@ La vie quotidienne des locaux : sécurité, accès, maintenance, vérifications 
 
 ## Méthode de classement
 
-**Un sous-dossier par site** (`Siege - Lille`), puis `Securite et verifications/AAAA`, `Plans et consignes`, `Acces`, `Services/AAAA`.
+**Un sous-dossier par site** (`Siege`, `Atelier`), puis `Securite et verifications/AAAA`, `Plans et consignes`, `Acces`, `Services/AAAA`.
 
 ## Durée de conservation
 

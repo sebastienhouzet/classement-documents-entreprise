@@ -22,7 +22,7 @@ Les actifs immatériels de l'entreprise et la preuve qu'elle en est bien titulai
 
 ## Méthode de classement
 
-**Un sous-dossier par actif** (`Marque Yoozio`, `Domaine yoozio.com`, `Logiciel Flowkiwi`…). À l'intérieur : `Depot`, `Renouvellements`, `Cessions et licences`, `Litiges`.
+**Un sous-dossier par actif** (`Marque Alpha`, `Domaine example.com`, `Logiciel Beta`…). À l'intérieur : `Depot`, `Renouvellements`, `Cessions et licences`, `Litiges`.
 
 ## Durée de conservation
 

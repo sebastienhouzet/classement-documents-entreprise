@@ -22,7 +22,7 @@ Les engagements récurrents : logiciels SaaS, licences, télécom, hébergement,
 
 ## Méthode de classement
 
-**Un sous-dossier par service** (`Google Workspace`, `OVH`, `Orange Pro`…). Fichiers `AAAA-MM-JJ_Type_Objet.pdf`. Pour les services sans contrat formel, un simple PDF de la page de tarification et des CGU acceptées, daté, suffit.
+**Un sous-dossier par service** (`Suite bureautique`, `Hebergement web`, `Telephonie mobile`…). Fichiers `AAAA-MM-JJ_Type_Objet.pdf`. Pour les services sans contrat formel, un simple PDF de la page de tarification et des CGU acceptées, daté, suffit.
 
 ## Durée de conservation
 

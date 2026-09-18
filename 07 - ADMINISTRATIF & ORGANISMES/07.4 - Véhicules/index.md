@@ -25,7 +25,7 @@ Chaque véhicule détenu ou loué par l'entreprise : documents d'immatriculation
 
 ## Méthode de classement
 
-**Un sous-dossier par véhicule** : `Immatriculation - Marque Modèle` (ex. `GA-123-BC - Renault Kangoo`), puis `Documents`, `Entretien et CT`, `Amendes`, `Fin`.
+**Un sous-dossier par véhicule** : `Immatriculation - Marque Modèle` (ex. `AA-123-AA - Utilitaire`), puis `Documents`, `Entretien et CT`, `Amendes`, `Fin`.
 
 ## Durée de conservation
 

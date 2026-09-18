@@ -24,7 +24,7 @@ Chaque financement bancaire ou assimilé : prêt d'équipement, prêt de trésor
 
 ## Méthode de classement
 
-**Un sous-dossier par financement** : `AAAA - Établissement - Objet - Montant` (ex. `2024 - Crédit Agricole - Prêt équipement - 40k`). À l'intérieur : `Demande`, `Contrat et garanties`, `Vie du pret/AAAA`, `Fin`.
+**Un sous-dossier par financement** : `AAAA - Établissement - Objet - Montant` (ex. `2024 - Banque Alpha - Pret equipement - 40k`). À l'intérieur : `Demande`, `Contrat et garanties`, `Vie du pret/AAAA`, `Fin`.
 
 ## Durée de conservation
 

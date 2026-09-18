@@ -23,7 +23,7 @@ Les biens durables de l'entreprise (matériel informatique, mobilier, véhicules
 
 ## Méthode de classement
 
-**Un sous-dossier par bien** : `AAAA - Désignation - Fournisseur` (ex. `2025 - MacBook Pro 16 - Apple`). Pour les petits matériels nombreux, un sous-dossier par lot annuel (`2025 - Materiel informatique`).
+**Un sous-dossier par bien** : `AAAA - Désignation - Fournisseur` (ex. `2025 - Ordinateur portable - Fournisseur Alpha`). Pour les petits matériels nombreux, un sous-dossier par lot annuel (`2025 - Materiel informatique`).
 
 ## Durée de conservation
 

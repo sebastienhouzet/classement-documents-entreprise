@@ -26,7 +26,7 @@ Tout ce qui lie l'entreprise à ses locaux : bail commercial ou professionnel, c
 
 ## Méthode de classement
 
-**Un sous-dossier par local** (`Siege - 12 rue X Lille`). À l'intérieur : `Bail`, `Etats des lieux`, `Loyers et charges/AAAA`, `Travaux`, `Fin de bail`.
+**Un sous-dossier par local** (`Siege - 12 rue de la Gare`). À l'intérieur : `Bail`, `Etats des lieux`, `Loyers et charges/AAAA`, `Travaux`, `Fin de bail`.
 
 ## Durée de conservation
 

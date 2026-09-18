@@ -25,7 +25,7 @@ Les placements sans risque en capital logés chez une banque : comptes à terme 
 
 ## Méthode de classement
 
-**Un sous-dossier par ligne** : `AAAA - Banque - Support - Montant - Échéance` (ex. `2026 - Qonto - CAT 12 mois - 50k - 2027-03`). À l'intérieur : `Contrat`, `Releves/AAAA`, `Cloture`. L'attestation d'intérêts courus au 31/12 se range dans `Releves/AAAA` avec le mot `Valorisation` dans le nom du fichier.
+**Un sous-dossier par ligne** : `AAAA - Banque - Support - Montant - Échéance` (ex. `2026 - Banque Alpha - CAT 12 mois - 50k - 2027-03`). À l'intérieur : `Contrat`, `Releves/AAAA`, `Cloture`. L'attestation d'intérêts courus au 31/12 se range dans `Releves/AAAA` avec le mot `Valorisation` dans le nom du fichier.
 
 ## Durée de conservation
 

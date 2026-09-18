@@ -29,7 +29,7 @@ Les actifs numériques détenus par l'entreprise : bitcoin, ether, stablecoins, 
 
 ## Méthode de classement
 
-**Un sous-dossier par prestataire ou portefeuille** (`Coinbase`, `Kraken`, `Ledger - portefeuille froid`), puis `Contrat et KYC`, `Exports/AAAA` (un export daté par trimestre, au minimum un par clôture), `Cloture/AAAA` (valorisation, cours retenus, calculs). Un sous-dossier `Consolidation/AAAA` à la racine réunit l'inventaire global et le calcul consolidé de l'exercice.
+**Un sous-dossier par prestataire ou portefeuille** (`Plateforme Alpha`, `Plateforme Beta`, `Portefeuille froid`), puis `Contrat et KYC`, `Exports/AAAA` (un export daté par trimestre, au minimum un par clôture), `Cloture/AAAA` (valorisation, cours retenus, calculs). Un sous-dossier `Consolidation/AAAA` à la racine réunit l'inventaire global et le calcul consolidé de l'exercice.
 
 ## Durée de conservation
 

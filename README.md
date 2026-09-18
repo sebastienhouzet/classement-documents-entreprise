@@ -73,9 +73,9 @@ l'existant ni casser les renvois entre dossiers. La bande `97` à `99` est rése
 
 | Logique | Où | Exemple |
 |---|---|---|
-| **Par tiers** | Clients, fournisseurs, salariés, contrats d'assurance, comptes bancaires, lignes de placement | `02.1 - Clients/Peps Home/` |
+| **Par tiers** | Clients, fournisseurs, salariés, contrats d'assurance, comptes bancaires, lignes de placement | `02.1 - Clients/Client Alpha/` |
 | **Par année, puis par mois** | Factures, relevés, paie, notes de frais, courrier | `04.3 - Factures fournisseurs/2026/2026-03/` |
-| **Par opération ou affaire** | AG, modifications statutaires, litiges, sinistres, prêts, levées de fonds, lots de suppression | `01.9 - Contentieux/2026 - SAS Dupont - Impayé/` |
+| **Par opération ou affaire** | AG, modifications statutaires, litiges, sinistres, prêts, levées de fonds, lots de suppression | `01.9 - Contentieux/2026 - Client Beta - Impayé/` |
 
 Un document n'a qu'**une seule place**. Quand il est utile ailleurs, on y met une copie nommée `_copie` ou un
 simple renvoi ; chaque `index.md` indique, dans sa section « Ne pas ranger ici », où va ce qui n'y a pas sa place.
@@ -116,12 +116,15 @@ vue d'ensemble là où les dossiers ne suffisent pas :
 ```
 AAAA-MM-JJ_Type_Tiers_Objet.ext
 
-2026-03-15_Contrat_Peps-Home_Refonte-site_signe.pdf
-2026-04-02_Facture_OVH_Hebergement-mars_35.88.pdf
+2026-03-15_Contrat_Client-Alpha_Refonte-site_signe.pdf
+2026-04-02_Facture_Hebergeur-Alpha_Hebergement-mars_35.88.pdf
 2026-06-30_PV-AGO_Approbation-comptes-2025.pdf
 ```
 
 Date du document en tête (tri chronologique automatique), type en un mot, nom stable du tiers, objet court.
+Tous les exemples de ce dépôt utilisent des noms fictifs (`Client Alpha`, `Banque Alpha`, `NOM-Prenom`…) :
+aucune entreprise, banque ou personne réelle n'y est citée, en dehors des organismes publics et des dispositifs
+officiels (URSSAF, INPI, Bpifrance, OPCO…) mentionnés au titre de la réglementation.
 Pas d'accent ni de caractère spécial dans les noms de fichiers. Les dossiers par année s'écrivent `AAAA`, par
 mois `AAAA-MM`. Le détail est dans [`Convention-de-nommage.md`](97%20-%20REFERENTIEL/Convention-de-nommage.md).
 
