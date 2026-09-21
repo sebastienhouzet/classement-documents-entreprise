@@ -32,7 +32,9 @@ Les dossiers **clos** dont la durée de conservation n'est pas encore écoulée 
 ## Conseils
 
 - Quand on hésite entre deux durées, prendre la plus longue : le coût du stockage est nul, le coût d'une pièce manquante en contrôle ne l'est pas.
-- Les archives contiennent des données personnelles (anciens salariés) : mêmes restrictions d'accès que `03`.
+- **Ce dossier n'a pas les mêmes droits que les dossiers courants.** Le RGPD impose que l'archivage intermédiaire soit séparé de la base active, accessible aux seules personnes spécifiquement habilitées, et que les accès soient tracés. Concrètement : droits restreints au dirigeant et à la personne chargée du sujet, lecture seule par défaut, journalisation des accès et des suppressions.
+- Les archives contiennent des données personnelles d'anciens salariés : les personnes concernées conservent leurs droits d'accès et d'effacement sur cette base comme sur les autres.
+- À l'issue de la durée, la destruction doit être **sécurisée** : effacement irréversible ou destruction physique du support, et non simple mise à la corbeille. L'anonymisation est une alternative, à condition d'être irréversible — une pseudonymisation ne suffit pas.
 
 ---
 

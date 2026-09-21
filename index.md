@@ -26,9 +26,9 @@ contient aucun document d'entreprise.
    lignes de placement).
 4. **On ne supprime rien sans trace.** Les dossiers clos vont dans `98 - ARCHIVES` avec leur date de destruction
    prévue ; la destruction elle-même passe par `99 - SUPPRESSION`, proposée par une personne et validée par une autre.
-5. **On numérise tout** (PDF, sans retouche) : une copie numérique fidèle a la même valeur que l'original
-   papier pour la comptabilité et le fisc. Les originaux papier à valeur juridique (actes signés, LRAR reçus)
-   sont gardés dans un classeur qui suit le même plan.
+5. **On numérise tout** (PDF/A, sans retouche), mais on ne détruit le papier qu'à des conditions précises —
+   empreinte, horodatage, procédé documenté — décrites dans
+   `97 - REFERENTIEL/Numerisation-et-valeur-probante.md`, qui liste aussi les originaux à ne jamais détruire.
 
 ## Arborescence
 
@@ -54,11 +54,16 @@ l'existant ni casser les renvois entre dossiers.
 
 | Dossier | Accès |
 |---|---|
-| `03 - RESSOURCES HUMAINES` et ses archives | Dirigeant + personne chargée de la paie/RH uniquement (données personnelles, santé) |
+| `03 - RESSOURCES HUMAINES` | Dirigeant + personne chargée de la paie/RH uniquement (données personnelles, santé) |
 | `04`, `05`, `08` | Dirigeant + comptabilité ; expert-comptable en lecture |
 | `01.6`, `05.4`, `06.6`, `08.8` | Dirigeant (et associés pour `01.6`) |
+| `98 - ARCHIVES` | **Plus restrictif que les dossiers courants** : lecture seule par défaut, habilitations nominatives, accès journalisés — c'est ce que le RGPD exige de l'archivage intermédiaire |
 | `99 - SUPPRESSION` | Dépôt ouvert à l'équipe de gestion, validation réservée au dirigeant |
 | Le reste | Équipe de gestion |
+
+La sauvegarde, les droits d'accès, les formats pérennes et la destruction sécurisée sont traités dans
+`97 - REFERENTIEL/Securite-et-sauvegarde.md`. Le minimum : une sauvegarde **hors ligne**, un test de
+restauration annuel, et l'authentification multifacteur sur le service qui héberge ce dossier.
 
 ## Routine
 
@@ -69,9 +74,24 @@ l'existant ni casser les renvois entre dossiers.
 - **Chaque mois** : télécharger les relevés bancaires, de paiement et de placement, classer les factures du mois,
   archiver la paie.
 - **Chaque trimestre** : vérifier la validité des pièces du `Kit administratif` (Kbis 3 mois, URSSAF 6 mois).
-- **Chaque année (janvier)** : figer l'exercice clos dans `04.1`, constituer le dossier de clôture des placements
-  dans `08.9`, purger les candidatures de plus de 2 ans, déplacer les dossiers clos vers `98 - ARCHIVES`, et
-  proposer dans `99 - SUPPRESSION` ce qui a dépassé sa date.
+- **Chaque année (janvier)** : figer l'exercice clos dans `04.1`, constituer le dossier de clôture des
+  placements dans `08.9`, mettre à jour le DUERP (obligatoire à partir de 11 salariés), tester une
+  restauration de sauvegarde, purger les candidatures dont le poste a été pourvu il y a plus de 5 ans,
+  déplacer les dossiers clos vers `98 - ARCHIVES`, et proposer dans `99 - SUPPRESSION` ce qui a dépassé sa date.
+- **Chaque année (avant le 30 septembre)** : déclaration OPERAT si vous occupez 1 000 m² de tertiaire ou plus,
+  même en location.
+
+## Ce qui ne vous concerne probablement pas
+
+Utile à savoir pour ne pas s'inquiéter à tort. Ces obligations ont des seuils élevés et **ne visent pas une
+TPE ou une PME** : rapport de durabilité CSRD (1 000 salariés et 450 M€ de chiffre d'affaires, cumulatifs,
+depuis la directive Omnibus de février 2026), devoir de vigilance (5 000 salariés et 1,5 Md€), bilan GES
+réglementaire (500 salariés), NIS2 (non transposée en France à la rédaction de ce gabarit).
+
+Un point à connaître en revanche, parce qu'il se négocie : la directive Omnibus crée un **plafond de chaîne de
+valeur** juridiquement contraignant. Un donneur d'ordre n'a plus le droit d'exiger d'un fournisseur de moins
+de 1 000 salariés des informations excédant le référentiel **VSME**. Un questionnaire ESG démesuré peut être
+refusé, texte à l'appui. Préparer un petit dossier « réponses VSME » reste utile commercialement.
 
 ## Point de départ
 
@@ -79,5 +99,8 @@ l'existant ni casser les renvois entre dossiers.
 2. Créer les sous-dossiers par tiers au fur et à mesure (un client, un fournisseur, un salarié, une ligne de
    placement) — ne pas les créer à l'avance.
 3. Remplir les registres CSV avec l'existant : contrats, assurances, placements, matériel.
-4. Supprimer les sous-dossiers qui ne concernent pas l'entreprise (`03.10` sans CSE, `07.4` sans véhicule,
-   `08.5` sans crypto-actifs…) ou les laisser vides : leur `index.md` explique quand ils deviennent nécessaires.
+4. Remplir le `Tableau-de-gestion.csv` du référentiel : il est prérempli avec les principales typologies et
+   leur sort final, à compléter avec les vôtres. C'est lui qui rend `99 - SUPPRESSION` utilisable.
+5. Supprimer les sous-dossiers qui ne concernent pas l'entreprise (`03.10` sans CSE, `07.4` sans véhicule,
+   `06.8` sans activité de travaux, `07.7` sans marchés publics, `08.5` sans crypto-actifs…) ou les laisser
+   vides : leur `index.md` explique quand ils deviennent nécessaires.

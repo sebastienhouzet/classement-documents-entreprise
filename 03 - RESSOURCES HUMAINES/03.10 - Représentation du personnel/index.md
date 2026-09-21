@@ -10,6 +10,7 @@ Les institutions représentatives du personnel : élections du CSE (obligatoires
 
 - Élections : protocole d'accord préélectoral, listes électorales, candidatures, PV d'élection (Cerfa, transmis au CTEP), PV de carence
 - Réunions du CSE : convocations, ordres du jour, procès-verbaux, avis rendus
+- **Registre des questions du CSE** (entreprises de 11 à 49 salariés) : questions écrites transmises par le CSE et réponses argumentées de l'employeur — consultable par les salariés eux-mêmes et par l'inspection du travail
 - Consultations obligatoires (orientations stratégiques, situation économique, politique sociale), BDESE (≥ 50)
 - Heures de délégation, formation des élus, budget de fonctionnement et des ASC (≥ 50)
 - Accords d'entreprise signés avec le CSE ou les délégués syndicaux (dépôt TéléAccords) — copie, l'original dans `03.1`

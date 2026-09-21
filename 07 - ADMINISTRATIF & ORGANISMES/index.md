@@ -14,6 +14,7 @@ Le « reste » de la gestion : relations avec les administrations non fiscales e
 - 07.4 Véhicules — un dossier par véhicule
 - 07.5 Certifications & labels — un dossier par certification
 - 07.6 Matériel & inventaire — parc, attributions, licences
+- 07.7 Marchés publics — dossier de candidature et suivi des consultations
 
 ## Méthode de classement
 

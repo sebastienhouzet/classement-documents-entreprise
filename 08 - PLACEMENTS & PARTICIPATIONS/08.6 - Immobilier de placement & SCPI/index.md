@@ -29,7 +29,7 @@ L'immobilier détenu comme placement, et non pour être occupé : parts de SCPI,
 
 | | |
 |---|---|
-| **Minimum légal** | Actes de propriété immobilière : 30 ans. Pièces comptables : 10 ans. Documents fiscaux : 6 ans. |
+| **Minimum légal** | Actes de propriété immobilière : 30 ans. Pièces comptables : 10 ans. Documents fiscaux : 10 ans. |
 | **Recommandé** | Permanent pour les actes de propriété et les bulletins de souscription ; durée de détention + 10 ans pour le reste. |
 
 Base : Code civil art. 2227 (prescription en matière immobilière) ; Code monétaire et financier art. L.214-86 et s. (SCPI) ; Code de commerce art. L.123-22.

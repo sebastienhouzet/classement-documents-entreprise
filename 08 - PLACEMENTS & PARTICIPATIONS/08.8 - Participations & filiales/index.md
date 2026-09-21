@@ -35,7 +35,7 @@ Les titres détenus dans d'autres sociétés avec l'intention de les conserver d
 
 | | |
 |---|---|
-| **Minimum légal** | Actes de cession de titres : 5 ans. Pièces comptables : 10 ans après la sortie. Documents fiscaux et conventions intragroupe : 6 ans après la dernière application. |
+| **Minimum légal** | Actes de cession de titres : 5 ans. Pièces comptables : 10 ans après la sortie. Documents fiscaux et conventions intragroupe : 10 ans après la dernière application. |
 | **Recommandé** | Permanent. La chaîne de propriété des titres et les conventions intragroupe sont les premières pièces demandées lors d'une cession, d'un contrôle fiscal ou d'une due diligence. |
 
 Base : Code de commerce art. L.123-22 et R.123-197 (tableau des filiales et participations) ; CGI art. 145 et 216 (régime mère-fille), art. 219 I-a quinquies (plus-values sur titres de participation), art. 223 A et s. (intégration fiscale).

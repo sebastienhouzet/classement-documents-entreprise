@@ -29,10 +29,10 @@ La relation avec chaque organisme social : immatriculations, attestations, courr
 
 | | |
 |---|---|
-| **Minimum légal** | Documents relatifs aux charges sociales : 3 ans. Contrôle URSSAF : 5 ans après (délai de reprise 3 ans, 5 en cas de travail dissimulé). DUE et notices : durée du régime + 5 ans. |
+| **Minimum légal** | Documents nécessaires au contrôle des cotisations : 6 ans. Contrôle URSSAF : 5 ans après (délai de reprise 3 ans, 5 en cas de travail dissimulé). DUE et notices : durée du régime + 5 ans. |
 | **Recommandé** | 10 ans. Permanent pour les adhésions, DUE et dossiers de contrôle. |
 
-Base : Code de la sécurité sociale art. L.244-3, L.243-7 ; Code du travail art. L.8222-1.
+Base : Code de la sécurité sociale art. L243-16 (conservation pour le contrôle, 6 ans), L244-3 (prescription du recouvrement, 3 ans) et L243-7 ; Code du travail art. L8222-1.
 
 ---
 

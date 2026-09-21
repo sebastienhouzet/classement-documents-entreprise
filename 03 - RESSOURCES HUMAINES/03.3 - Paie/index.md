@@ -15,6 +15,7 @@ Les documents produits chaque mois par la paie : bulletins (double employeur), j
 - Bordereaux et appels de cotisations (URSSAF, retraite, prévoyance, mutuelle) si non rangés dans `03.4`
 - Variables de paie du mois (fichier transmis au gestionnaire de paie), notes de frais → `04.4`
 - Récapitulatifs annuels : état annuel des salaires, taxe sur les salaires, attestation fiscale
+- Bulletins électroniques : preuve de la mise à disposition et engagement du prestataire sur sa durée — obligation distincte du double conservé par l'employeur
 
 ## Ne pas ranger ici
 
@@ -29,10 +30,15 @@ Les documents produits chaque mois par la paie : bulletins (double employeur), j
 
 | | |
 |---|---|
-| **Minimum légal** | Bulletins de paie (double employeur) : 5 ans. Documents relatifs aux charges sociales : 3 ans. DSN : 5 ans. |
+| **Minimum légal** | Bulletins de paie, double conservé par l'employeur : 5 ans. **Mise à disposition du bulletin électronique au salarié : 50 ans, ou jusqu'à ses 75 ans.** Documents nécessaires au contrôle des cotisations, assiette et DSN : 6 ans. |
 | **Recommandé** | 10 ans (ces pièces justifient des écritures comptables). En pratique, beaucoup d'entreprises gardent les bulletins sans limite : ils servent aux salariés pour reconstituer leur carrière. |
 
-Base : Code du travail art. L.3243-4 (5 ans) ; Code de la sécurité sociale art. L.244-3 (3 ans) ; Code de commerce art. L.123-22 (10 ans).
+Base : Code du travail art. L3243-4 (double employeur, 5 ans) et D3243-8 (bulletin électronique, 50 ans ou 75 ans du salarié) ; Code de la sécurité sociale art. L243-16 (conservation pour le contrôle) ; Code de commerce art. L123-22 (10 ans).
+
+## Conseils
+
+- Ne pas confondre les deux durées du bulletin de paie : **5 ans** pour le double que l'employeur conserve, **50 ans** pour la mise à disposition du bulletin dématérialisé au salarié. Si la paie est externalisée, vérifier noir sur blanc ce que le prestataire s'engage à conserver, et pendant combien de temps.
+- Les 3 ans souvent cités pour les charges sociales correspondent à la prescription du **recouvrement** URSSAF (art. L244-3). La conservation pour le **contrôle** relève de l'art. L243-16, et la CNIL retient 6 ans : c'est la durée à appliquer.
 
 ---
 

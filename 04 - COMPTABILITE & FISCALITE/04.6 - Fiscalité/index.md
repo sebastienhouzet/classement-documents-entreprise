@@ -31,10 +31,15 @@ Toutes les déclarations et tous les échanges avec l'administration fiscale : T
 
 | | |
 |---|---|
-| **Minimum légal** | 6 ans à compter de la dernière opération ou de la date d'établissement (délai de reprise 3 ans, porté à 6 ans en cas de manquement, 10 ans en cas d'activité occulte). |
-| **Recommandé** | 10 ans (aligné sur la comptabilité) ; permanent pour les dossiers de contrôle et les rescrits. |
+| **Minimum légal** | **10 ans** à compter de la dernière opération ou de la date d'établissement, depuis la réforme du 25 juin 2026 (6 ans auparavant). Le délai de reprise de l'administration reste de 3 ans, porté à 6 ans en cas de manquement et 10 ans en cas d'activité occulte. |
+| **Recommandé** | 10 ans, ce qui aligne désormais le fiscal sur le comptable ; permanent pour les dossiers de contrôle et les rescrits. |
 
-Base : LPF art. L.102 B, L.169, L.176 ; CGI art. 1649 A et 1649 bis C (comptes bancaires et comptes d'actifs numériques ouverts à l'étranger) ; CGI art. 1649 quater B quater (télédéclaration).
+Base : LPF art. L102 B (modifié par l'art. 36 de la loi n° 2026-534 du 25 juin 2026), L169, L176 ; CGI art. 1649 A et 1649 bis C (comptes bancaires et comptes d'actifs numériques ouverts à l'étranger) ; CGI art. 1649 quater B quater (télédéclaration).
+
+## Conseils
+
+- L'allongement du délai fiscal de 6 à 10 ans est récent et sa date d'entrée en vigueur fait l'objet de sources divergentes ; le BOFiP n'avait pas suivi à la rédaction. En pratique, conserver 10 ans règle la question dans tous les cas.
+- Une société **commerciale** (SAS, SARL, SA) n'a pas à déposer de formulaire 3916 ou 3916-bis pour ses comptes bancaires ou ses comptes d'actifs numériques ouverts à l'étranger : l'article 1649 A du CGI ne vise que les personnes physiques, les associations et les sociétés n'ayant pas la forme commerciale. Une SCI, une association ou un GIE, en revanche, doit déclarer.
 
 ---
 

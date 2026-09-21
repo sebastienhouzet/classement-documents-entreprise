@@ -30,7 +30,7 @@ Les investissements dans des actifs non cotés et peu liquides, sans prise de co
 
 | | |
 |---|---|
-| **Minimum légal** | Pièces comptables : 10 ans. Contrats : 5 ans après la fin. Documents fiscaux : 6 ans. |
+| **Minimum légal** | Pièces comptables : 10 ans. Contrats : 5 ans après la fin. Documents fiscaux : 10 ans. |
 | **Recommandé** | Durée de détention + 10 ans. Les fonds fermés vivent souvent dix ans : conserver l'intégralité des appels de capitaux, sans lesquels le prix de revient est introuvable au moment de la sortie. |
 
 Base : Code de commerce art. L.110-4 et L.123-22 ; Code monétaire et financier art. L.214-27 et s. (FCPR) ; LPF art. L.102 B.

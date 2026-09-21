@@ -28,10 +28,10 @@ Chaque sinistre déclaré, quel que soit le contrat concerné : dégât des eaux
 
 | | |
 |---|---|
-| **Minimum légal** | 2 ans à compter de l'événement (prescription assurance, interrompue par chaque échange) ; 10 ans pour une réclamation d'un tiers. |
-| **Recommandé** | 10 ans après le règlement définitif. |
+| **Minimum légal** | 2 ans à compter de l'événement (prescription biennale de l'assurance, interrompue par chaque échange). **Dommage corporel : 10 ans à compter de la consolidation du dommage.** 10 ans pour une réclamation d'un tiers. |
+| **Recommandé** | 10 ans après le règlement définitif ; pour un sinistre corporel, 10 ans après la consolidation, ce qui peut être bien plus tardif que le règlement. |
 
-Base : Code des assurances art. L.113-2 (délais de déclaration), L.114-1 et L.114-2 (prescription).
+Base : Code des assurances art. L113-2 (délais de déclaration), L114-1 et L114-2 (prescription biennale) ; Code civil art. 2226 (dommage corporel, 10 ans à compter de la consolidation).
 
 ---
 

@@ -25,6 +25,11 @@ qui a sa propre organisation ailleurs.
    - [`index.md`](index.md) — le guide de classement : le cycle de vie d'un document, les règles, la routine, les accès ;
    - [`97 - REFERENTIEL/Convention-de-nommage.md`](97%20-%20REFERENTIEL/Convention-de-nommage.md) — comment nommer fichiers et dossiers ;
    - [`97 - REFERENTIEL/Durees-de-conservation.md`](97%20-%20REFERENTIEL/Durees-de-conservation.md) — le tableau des durées légales et recommandées.
+
+   Deux autres fichiers du référentiel se lisent au moment où la question se pose :
+   [`Numerisation-et-valeur-probante.md`](97%20-%20REFERENTIEL/Numerisation-et-valeur-probante.md) avant de détruire
+   du papier, et [`Securite-et-sauvegarde.md`](97%20-%20REFERENTIEL/Securite-et-sauvegarde.md) au moment de choisir
+   où héberger le dossier.
 3. **Remplir les registres CSV** avec l'existant (contrats, assurances, placements, matériel) : ce sont eux qui
    donnent la vue d'ensemble et les dates d'échéance.
 4. **Ranger au fil de l'eau** : déposer les documents entrants dans `00 - INBOX`, puis les traiter par lot. En cas
@@ -63,7 +68,7 @@ Template Entreprise/
 └── 99 - SUPPRESSION/                  ← lots proposés à la suppression, en attente de validation
 ```
 
-Chaque domaine est découpé en sous-dossiers numérotés (`01.1`, `01.2`…), soit **75 dossiers** au total.
+Chaque domaine est découpé en sous-dossiers numérotés (`01.1`, `01.2`…), soit **78 dossiers** au total.
 L'arborescence complète, avec le contenu de chaque sous-dossier, est décrite dans [`index.md`](index.md).
 
 Les numéros `09` à `96` sont volontairement laissés libres : un nouveau domaine métier s'insère sans renuméroter
@@ -98,8 +103,8 @@ permet au dépôt de contenir l'arborescence complète.
 
 ## Les registres
 
-Sept fichiers CSV vides (séparateur `;`, encodage UTF-8, ouvrables dans Excel, Numbers ou LibreOffice) servent de
-vue d'ensemble là où les dossiers ne suffisent pas :
+Huit fichiers CSV (séparateur `;`, encodage UTF-8, ouvrables dans Excel, Numbers ou LibreOffice) servent de
+vue d'ensemble là où les dossiers ne suffisent pas. Sept sont vides ; le tableau de gestion est prérempli :
 
 | Registre | Emplacement | À quoi il sert |
 |---|---|---|
@@ -110,6 +115,7 @@ vue d'ensemble là où les dossiers ne suffisent pas :
 | `Inventaire-du-materiel.csv` | `07.6 - Matériel & inventaire/` | Qui a quoi, numéros de série, restitutions |
 | `Registre-des-placements.csv` | `08 - PLACEMENTS & PARTICIPATIONS/` | Lignes détenues, prix de revient, échéances, valeur à la dernière clôture |
 | `Registre-des-archives.csv` | `98 - ARCHIVES/` | Dossiers clos et **dates de destruction prévues** |
+| `Tableau-de-gestion.csv` | `97 - REFERENTIEL/` | Une ligne par typologie : producteur, durée, **sort final** (conserver / détruire / trier), référence juridique |
 
 ## Convention de nommage (résumé)
 
@@ -137,14 +143,15 @@ sur les 10 ans de la comptabilité), avec l'article de référence. Le tableau c
 | Documents | Minimum légal |
 |---|---|
 | Pièces et livres comptables | 10 ans après la clôture |
-| Déclarations fiscales | 6 ans |
+| Déclarations fiscales | 10 ans (6 ans avant la loi du 25 juin 2026) |
 | Contrats commerciaux | 5 ans après la fin |
 | Bulletins de paie, contrats de travail | 5 ans (après le départ pour le contrat) |
 | DUERP | 40 ans |
-| Candidatures non retenues | 2 ans maximum |
+| Candidatures non retenues | 5 ans à compter du pourvoi du poste |
 | Statuts, PV d'AG, registres | 5 ans après la radiation — en pratique, toujours |
 | Contrats d'assurance | 2 ans après la fin (10 ans recommandés pour la RC) |
 | Avis d'achat de titres, historique crypto | 10 ans — et jamais purgés tant que la ligne est détenue |
+| Assurance décennale, PV de réception | 10 ans après la réception du chantier |
 
 ## Adapter le gabarit à votre entreprise
 
@@ -173,8 +180,14 @@ Ouvrez une *issue* ou une *pull request* en précisant la source (article de cod
 Ce gabarit est une aide à l'organisation, pas un conseil juridique, comptable ou fiscal. Les durées de
 conservation et les règles citées correspondent aux textes en vigueur à la date de rédaction (septembre 2026)
 et sont données à titre indicatif ; vérifiez-les pour votre situation, notamment auprès de votre expert-comptable
-ou de votre avocat, et consultez la fiche officielle « Durée de conservation des documents d'une entreprise »
-sur service-public.fr, mise à jour régulièrement.
+ou de votre avocat, et consultez le simulateur officiel « Combien de temps une entreprise doit conserver ses
+documents » sur service-public.gouv.fr.
+
+Le fichier [`AUDIT-CONFORMITE-2026-09.md`](AUDIT-CONFORMITE-2026-09.md) documente la confrontation du gabarit
+aux sources officielles, avec les références de chaque durée, les points vérifiés et ceux qui restent à
+confirmer. Deux réserves y sont signalées et méritent d'être connues : l'allongement du délai fiscal de 6 à
+10 ans est récent et sa date d'entrée en vigueur fait l'objet de sources divergentes, et la CNIL est en
+contradiction avec elle-même sur la durée de conservation des candidatures.
 
 ## Licence
 

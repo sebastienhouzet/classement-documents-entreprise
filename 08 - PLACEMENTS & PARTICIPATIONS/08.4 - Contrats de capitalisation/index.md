@@ -31,7 +31,7 @@ Les contrats de capitalisation souscrits par la personne morale. Une société n
 
 | | |
 |---|---|
-| **Minimum légal** | Contrat d'assurance : 2 ans après la fin (prescription biennale). Pièce comptable : 10 ans. Documents fiscaux : 6 ans. |
+| **Minimum légal** | Contrat d'assurance : 2 ans après la fin (prescription biennale). Pièce comptable : 10 ans. Documents fiscaux : 10 ans. |
 | **Recommandé** | Durée du contrat + 10 ans. Conserver impérativement le **taux de référence retenu à la souscription** et l'historique des impositions annuelles déjà acquittées : ils servent au calcul de la régularisation lors du rachat, parfois quinze ans plus tard. |
 
 Base : Code des assurances art. L.114-1 ; CGI art. 238 septies E (imposition annuelle des primes de remboursement pour les personnes morales) ; Code de commerce art. L.123-22.

@@ -30,7 +30,7 @@ Le dossier de clôture des placements : une fois par an, on réunit ici l'état 
 
 | | |
 |---|---|
-| **Minimum légal** | Pièces comptables : 10 ans à compter de la clôture de l'exercice. Documents fiscaux : 6 ans. |
+| **Minimum légal** | Pièces comptables : 10 ans à compter de la clôture de l'exercice. Documents fiscaux : 10 ans. |
 | **Recommandé** | 10 ans ; permanent pour l'état récapitulatif annuel, qui permet de reconstituer l'historique du portefeuille avec un seul fichier par année. |
 
 Base : Code de commerce art. L.123-22 ; PCG (règlement ANC 2014-03), articles 221-1 et s. sur l'évaluation des actifs financiers.

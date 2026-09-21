@@ -15,6 +15,7 @@ Tous les contrats d'assurance de l'entreprise et les sinistres. Chaque contrat a
 - 06.5 Cyber-risques
 - 06.6 Homme-clé & RC des dirigeants
 - 06.7 Sinistres — un dossier par sinistre
+- 06.8 Décennale & garanties de construction — uniquement si l'entreprise réalise des travaux
 - `Registre-des-assurances.csv` à la racine : contrat, assureur, n°, garanties principales, plafonds, franchise, prime, échéance, préavis, courtier
 
 ## Méthode de classement

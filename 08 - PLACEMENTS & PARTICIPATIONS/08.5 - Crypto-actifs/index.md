@@ -35,7 +35,7 @@ Les actifs numériques détenus par l'entreprise : bitcoin, ether, stablecoins, 
 
 | | |
 |---|---|
-| **Minimum légal** | Pièces comptables : 10 ans à compter de la clôture de l'exercice. Documents fiscaux : 6 ans (délai de reprise porté à 10 ans en cas d'activité occulte). |
+| **Minimum légal** | Pièces comptables : 10 ans à compter de la clôture de l'exercice. Documents fiscaux : 10 ans depuis la réforme du 25 juin 2026 (délai de reprise de l'administration porté à 10 ans en cas d'activité occulte). |
 | **Recommandé** | **Historique complet conservé sans purge tant que des actifs sont détenus**, puis 10 ans après la cession totale. Une ligne achetée en 2021 et vendue en 2031 impose de produire en 2031 le justificatif de 2021 : aucune plateforme ne le garantit, c'est à l'entreprise de le conserver. |
 
 Base : Règlement ANC 2026-01 (obligatoire pour les exercices ouverts à compter du 1er janvier 2027, application anticipée possible ; remplace le règlement ANC 2018-07) ; règlement européen MiCA ; Code de commerce art. L.123-22 ; LPF art. L.102 B.

@@ -15,6 +15,7 @@ Les certifications, labels, agréments et référencements de l'entreprise : Qua
 - Certificat en cours de validité (copie dans `97/Kit administratif` si demandé par les clients) et certificats précédents
 - Correspondance avec l'organisme, calendrier des audits
 - Référencements clients : questionnaires fournisseur remplis, chartes signées, scoring reçus
+- **Activités déclarées ou réglementées** : déclaration d'activité de formation (numéro de déclaration d'activité), **bilan pédagogique et financier** déposé chaque année avant le 31 mai — sa non-transmission rend la déclaration caduque —, carte professionnelle, agrément, garantie financière selon l'activité
 
 ## Ne pas ranger ici
 
@@ -32,7 +33,12 @@ Les certifications, labels, agréments et référencements de l'entreprise : Qua
 | **Minimum légal** | Durée de validité + 5 ans ; certaines certifications imposent de garder les preuves du cycle précédent (Qualiopi : cycle de 3 ans). |
 | **Recommandé** | Permanent pour les certificats et rapports d'audit ; 10 ans pour les preuves. |
 
-Base : Référentiel de chaque certification ; Code du travail art. L.6316-1 (Qualiopi).
+Base : Référentiel de chaque certification ; Code du travail art. L6316-1 (Qualiopi) et L6351-1 (déclaration d'activité).
+
+## Conseils
+
+- Pour un organisme de formation, la **caducité de la déclaration d'activité** faute de bilan pédagogique et financier est l'accident administratif classique : l'échéance du 31 mai mérite une ligne dans le registre des contrats.
+- Le référentiel Qualiopi a été renforcé par un décret du 1er août 2026, applicable aux audits à compter du 1er novembre 2026 : de nouvelles preuves documentaires sont attendues, notamment sur la méthode de calcul des indicateurs de résultats, l'effectivité du distanciel et la formalisation contractuelle de la sous-traitance.
 
 ---
 

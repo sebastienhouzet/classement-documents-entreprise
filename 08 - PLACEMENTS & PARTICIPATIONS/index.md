@@ -34,7 +34,7 @@ Par nature de placement (sous-dossiers), puis **un sous-dossier par ligne** — 
 
 | | |
 |---|---|
-| **Minimum légal** | Pièces justificatives comptables : 10 ans à compter de la clôture de l'exercice. Documents fiscaux : 6 ans. Contrats : 5 ans après la fin. |
+| **Minimum légal** | Pièces justificatives comptables : 10 ans à compter de la clôture de l'exercice. Documents fiscaux : 10 ans. Contrats : 5 ans après la fin. |
 | **Recommandé** | Durée de détention + 10 ans. Pour les crypto-actifs et le non coté, conserver l'historique complet tant que des actifs sont détenus, puis 10 ans après la cession totale : le prix d'acquisition peut remonter très loin. |
 
 Base : Code de commerce art. L.123-22 ; LPF art. L.102 B ; PCG (règlement ANC 2014-03) ; règlement ANC 2026-01 pour les crypto-actifs.

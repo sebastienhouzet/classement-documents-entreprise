@@ -6,6 +6,83 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le ve
 [SemVer](https://semver.org/lang/fr/) : une version majeure signale un changement d'arborescence qui
 oblige à renommer ou déplacer des dossiers existants.
 
+## [2.1.0] — 2026-09-21
+
+Mise en conformité du gabarit à la suite d'un audit mené contre les sources officielles françaises
+(service-public, BOFiP, CNIL, ANSSI, AFNOR, France Archives). Le détail, avec les références de chaque point
+et les réserves de vérification, est dans `AUDIT-CONFORMITE-2026-09.md`.
+
+Aucun changement d'arborescence incompatible : les domaines et sous-dossiers existants gardent leurs numéros.
+
+### Corrigé — durées de conservation devenues fausses
+
+- **Candidatures non retenues : 2 ans → 5 ans à compter du pourvoi du poste.** C'est la correction la plus
+  importante de cette version : le gabarit conseillait de détruire des pièces qui servent à se défendre d'une
+  action en discrimination. Le délai de 2 ans ne vaut plus que pour la CV-thèque, à compter du dernier contact
+  (Code du travail art. L1134-5 ; référentiel CNIL du 2 avril 2026, qui en fait une obligation).
+- **Charges sociales et DSN : 3 ans → 6 ans.** Les 3 ans correspondent à la prescription du recouvrement URSSAF
+  (art. L244-3 CSS) ; la conservation pour le *contrôle* relève de l'art. L243-16 CSS.
+- **Documents fiscaux : 6 ans → 10 ans** (art. 36 de la loi n° 2026-534 du 25 juin 2026, modifiant l'art. L102 B
+  du LPF). Sans effet pratique pour qui suivait déjà la recommandation de 10 ans de ce gabarit.
+- **Bulletin de paie : ajout de la seconde durée.** 5 ans pour le double conservé par l'employeur (L3243-4),
+  **50 ans ou jusqu'aux 75 ans du salarié** pour la mise à disposition du bulletin électronique (D3243-8).
+- **Sinistre corporel : 10 ans à compter de la consolidation du dommage** (Code civil art. 2226).
+
+### Corrigé — qualifications erronées
+
+- Le « registre des conventions réglementées » **n'existe pas** : aucun texte ne l'impose en SAS ni en SARL.
+  L'obligation est le *rapport* présenté à l'assemblée d'approbation des comptes. La mention a été retirée de
+  `01.4` et remplacée par un renvoi.
+- Le « registre des demandes d'exercice des droits » n'est pas davantage un registre légal nommé : c'est une
+  preuve d'*accountability* au sens des art. 5.2 et 24 du RGPD. Requalifié dans `01.8`.
+- Le tri des déchets se fait désormais à **8 flux** et non 7 : les huiles alimentaires usagées ont été ajoutées.
+
+### Ajouté — trois sous-dossiers
+
+- **`04.9 - Facturation électronique & piste d'audit fiable`** — contrat de plateforme agréée et sa durée de
+  rétention contractuelle, identifiants de routage, statuts de cycle de vie des factures, preuves de
+  e-reporting, et surtout la **documentation de la piste d'audit fiable**, obligatoire au titre de l'art. 289
+  VII 1° du CGI et dont l'absence expose à un refus de déduction de la TVA. Le dossier rappelle que la
+  conservation reste la responsabilité de l'entreprise, pas celle de la plateforme.
+- **`06.8 - Décennale & garanties de construction`** — assurance décennale et activités déclarées, PV de
+  réception (qui fait courir le délai décennal), garanties de parfait achèvement et biennale, DOE, DIUO,
+  vigilance des sous-traitants. Dossier conditionnel : sans activité de travaux, il reste vide.
+- **`07.7 - Marchés publics`** — dossier permanent de candidature (DC1, DC2, DUME, mémoire technique,
+  certificats de capacité) et suivi par consultation.
+
+### Ajouté — documents obligatoires qui n'avaient pas de place
+
+- `03.1` : registre des vérifications des installations électriques, registre des dangers graves et imminents,
+  registre des alertes en matière de santé publique et d'environnement, registre spécial du repos hebdomadaire,
+  tableau du travail en équipes, registre des travailleurs à domicile, PAPRIPACT.
+- `03.1` : **sanctions administratives DUERP** instaurées par l'art. 48 de la loi du 25 juin 2026 — jusqu'à
+  4 000 € par travailleur, doublés en récidive — et précision du seuil de **11 salariés** à partir duquel la
+  mise à jour annuelle devient obligatoire. Mention de l'art. L4711-5, qui autorise le regroupement des
+  registres en un registre unique.
+- `03.10` : registre des questions du CSE (11 à 49 salariés), seul registre consultable par les salariés.
+- `07.3` : registre public d'accessibilité (tout ERP), attestation annuelle de valorisation des déchets,
+  registre de suivi des déchets, déclaration **OPERAT** pour les locaux tertiaires de 1 000 m² et plus, y
+  compris en location.
+- `07.5` : déclaration d'activité et **bilan pédagogique et financier** des organismes de formation.
+- `01.8` : **accessibilité numérique** (seuil d'exemption à 10 salariés seulement), **médiateur de la
+  consommation**, et **règlement européen sur l'IA** — inventaire des systèmes, charte d'usage, littératie.
+
+### Ajouté — référentiel et méthode
+
+- **`97 - REFERENTIEL/Tableau-de-gestion.csv`** — l'outil qui manquait : une ligne par typologie documentaire
+  avec producteur, durée d'utilité administrative, **sort final** (conserver / détruire / trier) et référence
+  juridique. Prérempli avec 27 typologies. C'est lui qui rend `99 - SUPPRESSION` utilisable, et il tient lieu
+  de référentiel des durées au sens du RGPD.
+- **`97 - REFERENTIEL/Numerisation-et-valeur-probante.md`** — les conditions réelles de la copie fiable
+  (empreinte, horodatage, procédé documenté), le régime particulier des factures, la liste des originaux à ne
+  jamais détruire, et le rappel qu'aucune norme d'archivage n'est obligatoire pour une PME.
+- **`97 - REFERENTIEL/Securite-et-sauvegarde.md`** — règle 3-2-1 avec copie hors ligne, chiffrement, test de
+  restauration annuel, droits d'accès et journalisation, formats pérennes, destruction sécurisée.
+- `98 - ARCHIVES` : droits d'accès explicitement plus restrictifs que les dossiers courants, avec
+  journalisation — ce que le RGPD exige de l'archivage intermédiaire.
+- Guide racine : section sur la sécurité, et encadré « ce qui ne vous concerne probablement pas » (CSRD, devoir
+  de vigilance, bilan GES, NIS2) avec le **plafond VSME** opposable aux donneurs d'ordre.
+
 ## [2.0.0] — 2026-09-18
 
 Ajout de trois dossiers de niveau 1, dont un domaine métier complet sur les placements financiers, et

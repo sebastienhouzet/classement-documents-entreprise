@@ -34,7 +34,7 @@ Les titres cotés détenus par l'entreprise via un compte-titres : actions, obli
 
 | | |
 |---|---|
-| **Minimum légal** | Pièces comptables : 10 ans après la clôture de l'exercice. Documents fiscaux : 6 ans. Relevés bancaires : 5 ans. |
+| **Minimum légal** | Pièces comptables : 10 ans après la clôture de l'exercice. Documents fiscaux : 10 ans. Relevés bancaires : 5 ans. |
 | **Recommandé** | Durée de détention + 10 ans — et **ne jamais purger un avis d'achat tant que la ligne est détenue**, c'est lui qui porte le prix de revient. |
 
 Base : Code de commerce art. L.123-22 ; LPF art. L.102 B ; PCG, comptes 50 (valeurs mobilières de placement) et 27 (titres immobilisés) selon l'intention de détention.
