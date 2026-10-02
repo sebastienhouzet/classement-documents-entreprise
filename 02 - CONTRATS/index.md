@@ -1,3 +1,17 @@
+---
+schema: classement-documents/3.0
+id: "02"
+parent: null
+niveau: domaine
+titre: 02 - Contrats
+usage: >-
+  Tous les engagements contractuels de l'entreprise, à l'exception des contrats de travail (→
+  03), des contrats bancaires et de financement (→ 05) et des contrats d'assurance (→ 06).
+classement: par-tiers
+sensibilite: normale
+documents: []
+---
+
 # 02 - Contrats
 
 > Chemin : `02 - CONTRATS`

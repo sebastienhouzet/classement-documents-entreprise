@@ -1,3 +1,75 @@
+---
+schema: classement-documents/3.0
+id: "04.9"
+parent: "04"
+niveau: sous-dossier
+titre: "04.9 - Facturation électronique & piste d'audit fiable"
+usage: >-
+  Factures électroniques émises et reçues au format structuré, statuts de cycle de vie, preuves
+  de e-reporting et documentation de la piste d'audit fiable. Le dossier qui prouve la
+  conformité à la réforme de la facturation électronique.
+classement: chronologique
+sensibilite: confidentielle
+documents:
+  - type: documentation-piste-audit-fiable
+    libelle: "Documentation de la piste d'audit fiable"
+    description: "Description des contrôles, des acteurs, des responsabilités, du calendrier, et de la façon dont chaque facture est reliée à la livraison sous-jacente. Document vivant, versionné."
+    indices: ["piste d'audit fiable", paf, contrôles, responsabilités, rejet de facture, anomalie]
+    champs: [date, reference, objet, signataire]
+    nommage: "{date}_Piste-audit-fiable_{reference}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: derniere-operation
+      base: CGI art. 289 VII 1°
+      sort-final: D
+    registre: null
+  - type: export-statuts-cycle-de-vie
+    libelle: Export des statuts de cycle de vie
+    description: "Export périodique des statuts de cycle de vie des factures émises et reçues (déposée, rejetée, encaissée). Preuve fiscale."
+    indices: [statut de cycle de vie, plateforme agréée, pa, pdp, export, déposée, rejetée]
+    champs: [periode, plateforme, numero, quantite, statut-facture]
+    nommage: "{periode}_Statuts-cycle-de-vie_{plateforme}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: LPF L102 B
+      sort-final: D
+    registre: null
+  - type: preuve-e-reporting
+    libelle: Preuve de e-reporting
+    description: "Données de transaction et de paiement transmises à l'administration, avec leurs accusés."
+    indices: [e-reporting, données de transaction, accusé, transmission, administration]
+    champs: [periode, plateforme, organisme, numero, montant-ht]
+    nommage: "{periode}_E-reporting_{plateforme}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: LPF L102 B
+      sort-final: D
+    registre: null
+  - type: immatriculation-plateforme-agreee
+    libelle: "Preuve d'immatriculation de la plateforme agréée"
+    description: "Relevé de la liste officielle publiée par l'administration, avec la date de consultation, et le paramétrage de routage (SIRET, annuaire)."
+    indices: [plateforme agréée, pa, immatriculation, annuaire de facturation, siret, routage]
+    champs: [date, plateforme, numero, reference]
+    nommage: "{date}_Immatriculation-plateforme_{plateforme}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: date-document
+      base: Décret n° 2026-677 et arrêté du 27 juillet 2026
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: Les factures elles-mêmes
+    vers: "04.2"
+  - motif: "Le logiciel de facturation ou de comptabilité, quand il n'est pas lui-même la plateforme agréée"
+    vers: "02.5"
+---
+
 # 04.9 - Facturation électronique & piste d'audit fiable
 
 > Chemin : `04 - COMPTABILITE & FISCALITE/04.9 - Facturation électronique & piste d'audit fiable`

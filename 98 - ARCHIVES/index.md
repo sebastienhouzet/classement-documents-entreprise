@@ -1,3 +1,37 @@
+---
+schema: classement-documents/3.0
+id: "98"
+parent: null
+niveau: systeme
+titre: 98 - Archives
+usage: >-
+  Les dossiers clos dont la durée de conservation n'est pas encore écoulée : anciens salariés,
+  contrats terminés, exercices anciens, litiges réglés, véhicules revendus, contrats d'assurance
+  résiliés.
+classement: chronologique
+sensibilite: confidentielle
+documents:
+  - type: dossier-clos-archive
+    libelle: Dossier clos archivé
+    description: "Dossier clos déplacé tel quel, par année de clôture et en reproduisant son chemin d'origine. Sa durée de conservation n'est pas propre à ce dossier — elle est héritée du domaine d'origine (voir 97 - REFERENTIEL/Durees-de-conservation.md), et la date de destruction prévue est portée au Registre-des-archives.csv ainsi que dans le nom du dossier entre crochets."
+    indices: [dossier clos, salarie parti, contrat termine, exercice ancien, litige regle, vehicule revendu, contrat resilie]
+    champs: [date, reference, objet, echeance, duree]
+    nommage: "{date}_Dossier-clos-archive_{reference}"
+    conservation:
+      legale: aucune
+      recommandee: aucune
+      declencheur: aucun
+      sort-final: T
+    registre: { fichier: Registre-des-archives.csv, cle: reference }
+va-ailleurs:
+  - motif: Les dossiers encore actifs
+    vers: null
+  - motif: "Ce qui ne se détruit jamais (statuts, PV, registres, bilans, pactes)"
+    vers: null
+  - motif: Les dossiers dont la date de destruction est atteinte
+    vers: "99"
+---
+
 # 98 - Archives
 
 > Chemin : `98 - ARCHIVES`

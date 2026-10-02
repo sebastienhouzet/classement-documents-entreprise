@@ -1,3 +1,88 @@
+---
+schema: classement-documents/3.0
+id: "08.4"
+parent: "08"
+niveau: sous-dossier
+titre: 08.4 - Contrats de capitalisation
+usage: >-
+  Les contrats de capitalisation souscrits par la personne morale. Une société ne peut pas
+  souscrire d'assurance-vie, réservée aux personnes physiques : le contrat de capitalisation en
+  est l'équivalent pour une entreprise.
+classement: par-contrat
+sensibilite: confidentielle
+documents:
+  - type: bulletin-souscription-capitalisation
+    libelle: "Bulletin de souscription d'un contrat de capitalisation"
+    description: "Bulletin de souscription, conditions générales et particulières, note d'information et attestation d'adhésion. Porte le taux de référence retenu à la souscription, indispensable au calcul du rachat."
+    indices: [contrat de capitalisation, bulletin de souscription, "attestation d'adhesion", taux de reference, fonds en euros, unite de compte]
+    champs: [date-signature, assureur, numero-contrat, designation, support, montant, taux]
+    nommage: "{date}_Bulletin-souscription-capitalisation_{assureur}_{designation}"
+    conservation:
+      legale: 2a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code des assurances art. L.114-1
+      sort-final: C
+    registre: { fichier: Registre-des-placements.csv, cle: designation }
+  - type: avenant-versement-arbitrage-capitalisation
+    libelle: "Avenant, versement ou arbitrage"
+    description: "Avenant au contrat de capitalisation — versement complémentaire, arbitrage entre supports, changement d'option."
+    indices: [versement complementaire, arbitrage, "changement d'option", avenant au contrat, unite de compte]
+    champs: [date, assureur, numero-contrat, designation, support, montant]
+    nommage: "{date}_Avenant-capitalisation_{assureur}_{designation}"
+    conservation:
+      legale: 2a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code des assurances art. L.114-1
+      sort-final: D
+    registre: { fichier: Registre-des-placements.csv, cle: designation }
+  - type: releve-situation-capitalisation
+    libelle: Relevé de situation et de valorisation
+    description: "Relevés de situation périodiques, relevé de valorisation au 31/12 et relevé annuel de frais du contrat de capitalisation."
+    indices: [releve de situation, releve de valorisation, valorisation au 31/12, releve annuel de frais]
+    champs: [date, assureur, numero-contrat, exercice, montant]
+    nommage: "{date}_Releve-situation-capitalisation_{assureur}_{exercice}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Code de commerce art. L.123-22
+      sort-final: D
+    registre: null
+  - type: calcul-imposition-annuelle-capitalisation
+    libelle: "Calcul de l'imposition annuelle forfaitaire"
+    description: "Éléments de calcul de l'imposition annuelle forfaitaire propre aux personnes morales à l'IS — taux de référence retenu à la souscription, base, montant déclaré. Sert au calcul de la régularisation lors du rachat."
+    indices: [imposition annuelle forfaitaire, "personne morale a l'is", taux de reference, base taxable, regularisation au rachat]
+    champs: [date, exercice, numero-contrat, taux, montant]
+    nommage: "{date}_Calcul-imposition-capitalisation_{exercice}_{numero-contrat}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: CGI art. 238 septies E
+      sort-final: C
+    registre: null
+  - type: rachat-contrat-capitalisation
+    libelle: Rachat partiel ou total
+    description: "Demande de rachat partiel ou total, décompte, avis de règlement et calcul de la plus-value nette de l'imposition déjà acquittée."
+    indices: [rachat partiel, rachat total, decompte de rachat, avis de reglement, plus-value nette]
+    champs: [date, assureur, numero-contrat, designation, montant, motif]
+    nommage: "{date}_Rachat-capitalisation_{assureur}_{designation}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code de commerce art. L.123-22
+      sort-final: D
+    registre: { fichier: Registre-des-placements.csv, cle: designation }
+va-ailleurs:
+  - motif: "Assurances de l'entreprise (RC Pro, multirisque, cyber)"
+    vers: "06"
+  - motif: Prévoyance et retraite des dirigeants et salariés
+    vers: "06.4"
+---
+
 # 08.4 - Contrats de capitalisation
 
 > Chemin : `08 - PLACEMENTS & PARTICIPATIONS/08.4 - Contrats de capitalisation`

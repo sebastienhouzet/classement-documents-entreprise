@@ -1,3 +1,76 @@
+---
+schema: classement-documents/3.0
+id: "03.8"
+parent: "03"
+niveau: sous-dossier
+titre: "03.8 - Santé & sécurité"
+usage: >-
+  La prévention des risques professionnels et le suivi médical : visites médicales, accidents du
+  travail, plans de prévention, formations sécurité.
+classement: par-tiers
+sensibilite: rh
+documents:
+  - type: declaration-accident-travail
+    libelle: "Déclaration d'accident du travail"
+    description: "DAT adressée à la CPAM dans les 48 heures, avec les courriers et la décision de prise en charge."
+    indices: [accident du travail, dat, maladie professionnelle, cpam, prise en charge, taux at/mp]
+    champs: [date, salarie, organisme, numero-dossier, lieu]
+    nommage: "{date}_DAT_{salarie}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code de la sécurité sociale L441-2
+      sort-final: C
+    registre: null
+  - type: avis-medical-aptitude
+    libelle: "Avis d'aptitude ou d'inaptitude"
+    description: "Attestation de suivi médical, avis d'aptitude ou d'inaptitude et aménagements de poste préconisés. Accès restreint."
+    indices: [visite médicale, "visite d'information et de prévention", "avis d'aptitude", inaptitude, aménagement de poste]
+    champs: [date, salarie, organisme, nature, intitule-poste]
+    nommage: "{date}_Avis-medical_{salarie}"
+    conservation:
+      legale: 5a
+      recommandee: 5a
+      declencheur: depart-salarie
+      base: Code du travail R4624-1
+      sort-final: D
+    registre: null
+  - type: fiche-exposition-risques
+    libelle: "Document d'exposition aux risques"
+    description: "Pièce documentant l'exposition d'un salarié à un risque professionnel, conservée aussi longtemps que le DUERP."
+    indices: [exposition, risque professionnel, fiche de données de sécurité, plan de prévention, protocole de sécurité]
+    champs: [date, salarie, nature, intitule-poste, lieu]
+    nommage: "{date}_Fiche-exposition_{salarie}"
+    conservation:
+      legale: 40a
+      recommandee: 40a
+      declencheur: date-document
+      base: Code du travail L4121-3-1
+      sort-final: C
+    registre: null
+  - type: registre-accidents-benins
+    libelle: Registre des accidents bénins
+    description: Registre des accidents sans arrêt de travail et enquêtes internes attachées.
+    indices: [registre des accidents bénins, accident bénin, enquête interne, signalement, danger grave]
+    champs: [date, salarie, lieu, nature]
+    nommage: "{date}_Registre-accidents-benins"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code de la sécurité sociale L441-2
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: DUERP
+    vers: "03.1"
+  - motif: "Contrats d'assurance prévoyance"
+    vers: "06.4"
+  - motif: Arrêts de travail
+    vers: "03.7"
+---
+
 # 03.8 - Santé & sécurité
 
 > Chemin : `03 - RESSOURCES HUMAINES/03.8 - Santé & sécurité`

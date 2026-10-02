@@ -1,3 +1,66 @@
+---
+schema: classement-documents/3.0
+id: "04.8"
+parent: "04"
+niveau: sous-dossier
+titre: "04.8 - Budget & reporting"
+usage: >-
+  Les documents de pilotage financier, sans valeur légale mais essentiels pour diriger : budget
+  annuel, plan de trésorerie, tableaux de bord, prévisionnels transmis aux banques et
+  investisseurs.
+classement: chronologique
+sensibilite: confidentielle
+documents:
+  - type: budget-annuel
+    libelle: Budget annuel
+    description: "Budget de l'exercice, ses hypothèses, la version validée et ses révisions. Sans valeur légale."
+    indices: [budget, prévisionnel, hypothèses, révision, pilotage]
+    champs: [exercice, date, objet, montant]
+    nommage: "{exercice}_Budget"
+    conservation:
+      legale: aucune
+      recommandee: 5a
+      declencheur: cloture-exercice
+      sort-final: D
+    registre: null
+  - type: plan-de-tresorerie
+    libelle: Plan de trésorerie
+    description: Export mensuel daté du plan de trésorerie glissant.
+    indices: [plan de trésorerie, trésorerie, glissant, export, encaissements]
+    champs: [periode, date, montant]
+    nommage: "{periode}_Plan-de-tresorerie"
+    conservation:
+      legale: aucune
+      recommandee: 5a
+      declencheur: cloture-exercice
+      sort-final: D
+    registre: null
+  - type: tableau-de-bord-financier
+    libelle: Tableau de bord financier
+    description: "Tableau de bord mensuel ou trimestriel (CA, marge, trésorerie, encours clients) et balance âgée."
+    indices: [tableau de bord, reporting interne, marge, balance âgée, encours]
+    champs: [periode, objet, montant-ht, taux]
+    nommage: "{periode}_Tableau-de-bord"
+    conservation:
+      legale: aucune
+      recommandee: 5a
+      declencheur: cloture-exercice
+      sort-final: D
+    registre: null
+  - type: business-plan-previsionnel
+    libelle: Business plan et prévisionnel transmis
+    description: "Business plan ou prévisionnel financier, dans la version transmise à une banque, un financeur ou un investisseur."
+    indices: [business plan, prévisionnel, seuil de rentabilité, financeur, investisseur]
+    champs: [date, destinataire, objet, duree, montant]
+    nommage: "{date}_Business-plan_{destinataire}"
+    conservation:
+      legale: aucune
+      recommandee: 5a
+      declencheur: date-document
+      sort-final: D
+    registre: null
+---
+
 # 04.8 - Budget & reporting
 
 > Chemin : `04 - COMPTABILITE & FISCALITE/04.8 - Budget & reporting`

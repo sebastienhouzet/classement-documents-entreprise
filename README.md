@@ -60,6 +60,8 @@ Template Entreprise/
 ├── documentation.html                 ← le plan complet en une page, cherchable (à ouvrir dans un navigateur)
 ├── CHANGELOG.md                       ← historique des versions
 ├── AUDIT-CONFORMITE-2026-09.md        ← confrontation du gabarit aux sources officielles
+├── referentiel/dossiers.json          ← les 78 en-têtes YAML compilés en un seul fichier
+├── scripts/                           ← lint, compilateur, migration, génération de la documentation
 ├── 00 - INBOX/                        ← sas d'entrée : tout document reçu, en attente de classement
 ├── 01 - JURIDIQUE & GOUVERNANCE/      ← constitution, statuts, AG, registres, dirigeants, associés, PI, conformité, contentieux
 ├── 02 - CONTRATS/                     ← clients, fournisseurs, sous-traitance, baux, abonnements, NDA, modèles
@@ -93,7 +95,60 @@ simple renvoi ; chaque `index.md` indique, dans sa section « Ne pas ranger ici 
 
 ## Anatomie d'un `index.md`
 
-Chaque dossier contient un `index.md` construit sur le même modèle :
+Chaque `index.md` a deux étages : un **en-tête YAML** que les programmes lisent, et un **corps
+Markdown** que les humains lisent. Les deux disent la même chose, dans deux langues.
+
+### L'en-tête YAML (depuis la 3.0)
+
+```yaml
+---
+schema: classement-documents/3.0
+id: "04.3"
+parent: "04"
+niveau: sous-dossier
+titre: 04.3 - Factures fournisseurs
+usage: >-
+  Toutes les factures reçues : achats, prestations, abonnements, loyers, honoraires…
+classement: chronologique
+sensibilite: confidentielle
+documents:
+  - type: facture-fournisseur
+    libelle: Facture fournisseur
+    indices: [facture, fournisseur, tva, net a payer]
+    champs: [date, fournisseur, numero, montant-ht, montant-tva, montant-ttc]
+    nommage: "{date}_Facture_{fournisseur}_{objet}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Code de commerce L123-22
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: Notes de frais avancées par un salarié
+    vers: "04.4"
+---
+```
+
+| Champ | Ce qu'il porte |
+|---|---|
+| `id`, `parent`, `niveau` | La position du dossier dans l'arbre. L'`id` ne change jamais, même si le dossier est renommé — **toujours entre guillemets**, sans quoi `04.3` serait lu comme le nombre 4,3 |
+| `titre`, `usage` | Le nom affiché et un texte court, destiné à être vectorisé pour pré-sélectionner les dossiers candidats |
+| `classement` | `chronologique`, `par-tiers`, `par-contrat`, `par-operation` ou `alphabetique` |
+| `sensibilite` | `normale`, `confidentielle` ou `rh` — sert à restreindre l'accès et à anonymiser avant de passer un document à un modèle |
+| `documents[]` | **Les typologies que le dossier accueille** : clé stable, champs à extraire, gabarit de nom de fichier, durées, sort final, registre alimenté |
+| `va-ailleurs[]` | Les règles négatives, avec l'`id` de la vraie destination |
+
+Les valeurs sont énumérées : kebab-case, sans accent. Le catalogue des champs extractibles est dans
+[`97 - REFERENTIEL/champs.yaml`](97%20-%20REFERENTIEL/champs.yaml) (78 champs, chacun avec son type et
+son format) et le format de l'en-tête lui-même dans
+[`97 - REFERENTIEL/schema-index.json`](97%20-%20REFERENTIEL/schema-index.json) (JSON Schema
+draft 2020-12). Un champ absent du catalogue fait échouer le lint : c'est ce qui garantit qu'un même
+numéro de contrat s'appelle `numero-contrat` dans les 78 dossiers.
+
+### Le corps Markdown
+
+Inchangé depuis la 1.0, et toujours la référence rédactionnelle :
 
 | Section | Contenu |
 |---|---|
@@ -107,8 +162,25 @@ Chaque dossier contient un `index.md` construit sur le même modèle :
 Les `index.md` ont aussi un rôle technique : Git ne versionne pas les dossiers vides, c'est leur présence qui
 permet au dépôt de contenir l'arborescence complète.
 
-Ce sont eux la source de vérité : `documentation.html` et `AGENT-ROUTAGE.md` en sont **générés**, et
-ne peuvent donc pas diverger du contenu des dossiers.
+Ce sont eux la source de vérité : `documentation.html`, `AGENT-ROUTAGE.md`, `routage.json` et
+`referentiel/dossiers.json` en sont **générés**, et ne peuvent donc pas diverger du contenu des
+dossiers.
+
+## Outillage
+
+Quatre scripts, sans dépendance au-delà de `pyyaml` et `jsonschema` :
+
+| Commande | Ce qu'elle fait |
+|---|---|
+| `python3 scripts/lint.py .` | Contrôle les 78 en-têtes : schéma, unicité des `id` et des clés `type`, champs hors catalogue, variables de nommage orphelines, renvois `va-ailleurs` cassés, registres inexistants, concordance des sorts finaux avec le tableau de gestion |
+| `python3 scripts/compiler.py .` | Compile les en-têtes en `referentiel/dossiers.json`, avec deux index : `index_types` donne le dossier d'un type documentaire en une lecture, `index_chemins` donne son chemin |
+| `python3 scripts/migrer-frontmatter.py <votre-copie>` | Pose l'en-tête 3.0 sur une copie personnalisée du gabarit **sans toucher au corps Markdown**. Essai à blanc par défaut, `--ecrire` pour appliquer, sauvegardes en `*.avant-3.0` |
+| `python3 scripts/gendoc.py .` | Régénère `documentation.html`, `AGENT-ROUTAGE.md` et `routage.json` |
+
+Le lint tourne en intégration continue à chaque poussée
+([`.github/workflows/lint.yml`](.github/workflows/lint.yml)), et vérifie au passage que
+`referentiel/dossiers.json` est bien à jour. Si vous modifiez un `index.md`, relancez le
+compilateur avant de pousser.
 
 ## Les registres
 
@@ -124,17 +196,17 @@ vue d'ensemble là où les dossiers ne suffisent pas. Sept sont vides ; le table
 | `Inventaire-du-materiel.csv` | `07.6 - Matériel & inventaire/` | Qui a quoi, numéros de série, restitutions |
 | `Registre-des-placements.csv` | `08 - PLACEMENTS & PARTICIPATIONS/` | Lignes détenues, prix de revient, échéances, valeur à la dernière clôture |
 | `Registre-des-archives.csv` | `98 - ARCHIVES/` | Dossiers clos et **dates de destruction prévues** |
-| `Tableau-de-gestion.csv` | `97 - REFERENTIEL/` | Une ligne par typologie : producteur, durée, **sort final** (conserver / détruire / trier), référence juridique |
+| `Tableau-de-gestion.csv` | `97 - REFERENTIEL/` | Une ligne par typologie : producteur, durée, **sort final** (conserver / détruire / trier), référence juridique, et la **clé de type** qui relie la ligne à l'en-tête YAML du dossier |
 
 ## Pour un agent qui classe automatiquement
 
 Le fichier [`97 - REFERENTIEL/AGENT-ROUTAGE.md`](97%20-%20REFERENTIEL/AGENT-ROUTAGE.md) est la
-version compacte du plan, écrite pour un agent d'ingestion : une procédure en sept points, une table
+version compacte du plan, écrite pour un agent d'ingestion : une procédure en huit points, une table
 de décision de 69 destinations avec leurs déclencheurs et leurs arbitrages, les pièges de
 classement les plus coûteux, un barème de confiance et un contrat de sortie JSON.
 
-Il est conçu pour être chargé en préfixe stable d'un prompt. Coût mesuré : environ **8 800 tokens**
-pour le fichier entier, ou **3 100 au pire** en deux temps — aiguillage vers un domaine, puis
+Il est conçu pour être chargé en préfixe stable d'un prompt. Coût mesuré : environ **11 700 tokens**
+pour le fichier entier, ou **5 800 au pire** en deux temps — aiguillage vers un domaine, puis
 chargement du seul bloc de ce domaine. Le fichier porte lui-même le détail de ces mesures.
 
 Les mêmes données sont disponibles dans
@@ -144,6 +216,14 @@ préfiltrage déterministe par mots-clés, puis appel au modèle sur les seuls c
 Règle de sûreté intégrée : en dessous de 0,7 de confiance, l'agent ne classe pas, il dépose dans
 `00 - INBOX` avec le motif du doute. Un document mal classé coûte plus cher qu'un document resté
 dans le sas.
+
+Le classement se fait en deux passes, et c'est ce qui le rend économe. La première choisit le
+dossier, avec `AGENT-ROUTAGE.md` seul. La seconde qualifie la pièce : l'agent lit, dans
+[`referentiel/dossiers.json`](referentiel/dossiers.json), le seul dossier retenu — il y trouve les
+typologies possibles, les champs à extraire, le gabarit de nom et la durée de conservation. Il n'a
+jamais besoin de charger les 298 typologies du gabarit pour en reconnaître une. Sa sortie JSON porte
+alors la clé `type`, les `champs` extraits et le `sort_final`, directement joignables au tableau de
+gestion.
 
 ## Convention de nommage (résumé)
 

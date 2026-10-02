@@ -1,6 +1,8 @@
 {
- "version": "2.2.0",
+ "version": "3.0.0",
+ "schema_entete": "classement-documents/3.0",
  "convention_nom": "AAAA-MM-JJ_Type_Tiers_Objet.ext",
+ "catalogue_types": "referentiel/dossiers.json",
  "repli": "00",
  "seuil_confiance": 0.7,
  "destinations": [
@@ -17,7 +19,10 @@
    "motif_sous_chemin": "A classer | A traiter | Scans bruts",
    "conservation": "sas, 30j max",
    "registre": null,
-   "arbitrages": "destination de repli obligatoire quand la confiance est faible"
+   "arbitrages": "destination de repli obligatoire quand la confiance est faible",
+   "types": [
+    "document-entrant-non-classe"
+   ]
   },
   {
    "code": "01.1",
@@ -36,7 +41,14 @@
    "motif_sous_chemin": "à plat",
    "conservation": "permanent",
    "registre": null,
-   "arbitrages": "statuts modifiés depuis la création → 01.2"
+   "arbitrages": "statuts modifiés depuis la création → 01.2",
+   "types": [
+    "statuts-constitutifs",
+    "attestation-depot-capital",
+    "recepisse-immatriculation",
+    "formulaire-creation-m0",
+    "declaration-non-condamnation"
+   ]
   },
   {
    "code": "01.2",
@@ -56,7 +68,12 @@
    "motif_sous_chemin": "AAAA-MM-JJ - Objet de la modification/",
    "conservation": "permanent",
    "registre": null,
-   "arbitrages": "le PV qui décide la modification → 01.3 (copie ici)"
+   "arbitrages": "le PV qui décide la modification → 01.3 (copie ici)",
+   "types": [
+    "statuts-a-jour",
+    "formalite-modification-greffe",
+    "annonce-legale-modification"
+   ]
   },
   {
    "code": "01.3",
@@ -80,7 +97,14 @@
    "motif_sous_chemin": "AAAA/",
    "conservation": "permanent",
    "registre": null,
-   "arbitrages": "comptes annuels eux-mêmes → 04.1"
+   "arbitrages": "comptes annuels eux-mêmes → 04.1",
+   "types": [
+    "pv-assemblee-generale",
+    "convocation-assemblee",
+    "rapport-de-gestion-dirigeant",
+    "feuille-presence-pouvoirs",
+    "recepisse-depot-comptes"
+   ]
   },
   {
    "code": "01.4",
@@ -98,7 +122,13 @@
    "motif_sous_chemin": "un sous-dossier par registre",
    "conservation": "permanent",
    "registre": null,
-   "arbitrages": "conventions réglementées : pas de registre légal, le rapport → 01.3"
+   "arbitrages": "conventions réglementées : pas de registre légal, le rapport → 01.3",
+   "types": [
+    "registre-mouvements-titres",
+    "ordre-mouvement-titres",
+    "registre-des-decisions-sociales",
+    "declaration-beneficiaires-effectifs"
+   ]
   },
   {
    "code": "01.5",
@@ -119,7 +149,14 @@
    "motif_sous_chemin": "NOM Prénom/",
    "conservation": "permanent",
    "registre": null,
-   "arbitrages": "RCMS, assurance du dirigeant → 06.6 ; bulletin du dirigeant assimilé salarié → 03.3"
+   "arbitrages": "RCMS, assurance du dirigeant → 06.6 ; bulletin du dirigeant assimilé salarié → 03.3",
+   "types": [
+    "decision-nomination-dirigeant",
+    "convention-reglementee-dirigeant",
+    "decision-remuneration-dirigeant",
+    "delegation-pouvoir-signature",
+    "kyc-dirigeant"
+   ]
   },
   {
    "code": "01.6",
@@ -141,7 +178,14 @@
    "motif_sous_chemin": "un sous-dossier par thème ou par opération",
    "conservation": "permanent",
    "registre": null,
-   "arbitrages": "titres détenus dans une AUTRE société → 08.8 ; levée de fonds → 05.4"
+   "arbitrages": "titres détenus dans une AUTRE société → 08.8 ; levée de fonds → 05.4",
+   "types": [
+    "pacte-associes",
+    "acte-cession-titres",
+    "operation-sur-capital",
+    "attribution-bspce-bsa",
+    "convention-compte-courant-associe"
+   ]
   },
   {
    "code": "01.7",
@@ -164,7 +208,14 @@
    "motif_sous_chemin": "un sous-dossier par actif",
    "conservation": "permanent tant qu'exploité",
    "registre": null,
-   "arbitrages": "facture de dépôt → 04.3"
+   "arbitrages": "facture de dépôt → 04.3",
+   "types": [
+    "certificat-enregistrement-marque",
+    "renouvellement-marque",
+    "preuve-propriete-nom-domaine",
+    "cession-droits-auteur",
+    "depot-probatoire"
+   ]
   },
   {
    "code": "01.8",
@@ -192,7 +243,14 @@
    "motif_sous_chemin": "RGPD | CGV-CGU | Mediation-consommation | Accessibilite-numerique | Intelligence-artificielle | Politiques et chartes",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "charte signée par un salarié → 03.2 ; contrat client renvoyant aux CGV → 02.1"
+   "arbitrages": "charte signée par un salarié → 03.2 ; contrat client renvoyant aux CGV → 02.1",
+   "types": [
+    "version-cgv-cgu",
+    "registre-traitements-rgpd",
+    "registre-violations-donnees",
+    "dpa-sous-traitance-donnees",
+    "charte-usage-interne"
+   ]
   },
   {
    "code": "01.9",
@@ -215,7 +273,14 @@
    "motif_sous_chemin": "AAAA - Partie adverse - Objet/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "relance amiable d'une facture que NOUS avons émise → 04.2 ; mise en demeure reçue d'un fournisseur → ici ; sinistre assuré → 06.7"
+   "arbitrages": "relance amiable d'une facture que NOUS avons émise → 04.2 ; mise en demeure reçue d'un fournisseur → ici ; sinistre assuré → 06.7",
+   "types": [
+    "mise-en-demeure-contentieux",
+    "acte-de-procedure",
+    "jugement-ordonnance",
+    "protocole-transactionnel",
+    "convention-honoraires-avocat"
+   ]
   },
   {
    "code": "02.1",
@@ -236,7 +301,14 @@
    "motif_sous_chemin": "Client/",
    "conservation": "10a",
    "registre": "contrats",
-   "arbitrages": "facture émise → 04.2 ; litige → 01.9 ; livrables → hors périmètre"
+   "arbitrages": "facture émise → 04.2 ; litige → 01.9 ; livrables → hors périmètre",
+   "types": [
+    "contrat-client",
+    "devis-accepte-client",
+    "avenant-contrat-client",
+    "pv-recette-client",
+    "resiliation-contrat-client"
+   ]
   },
   {
    "code": "02.2",
@@ -254,7 +326,13 @@
    "motif_sous_chemin": "Fournisseur/",
    "conservation": "10a",
    "registre": "contrats",
-   "arbitrages": "facture reçue → 04.3 ; abonnement récurrent → 02.5 ; lettre de mission comptable → 04.7"
+   "arbitrages": "facture reçue → 04.3 ; abonnement récurrent → 02.5 ; lettre de mission comptable → 04.7",
+   "types": [
+    "contrat-fournisseur",
+    "attestation-vigilance-fournisseur",
+    "devis-accepte-fournisseur",
+    "resiliation-contrat-fournisseur"
+   ]
   },
   {
    "code": "02.3",
@@ -276,7 +354,13 @@
    "motif_sous_chemin": "Partenaire ou sous-traitant/",
    "conservation": "10a",
    "registre": "contrats",
-   "arbitrages": "prestataire sans lien avec un client → 02.2"
+   "arbitrages": "prestataire sans lien avec un client → 02.2",
+   "types": [
+    "contrat-sous-traitance",
+    "attestation-vigilance-sous-traitant",
+    "contrat-partenariat",
+    "convention-groupement-consortium"
+   ]
   },
   {
    "code": "02.4",
@@ -300,7 +384,14 @@
    "motif_sous_chemin": "Local/",
    "conservation": "10a",
    "registre": "contrats",
-   "arbitrages": "assurance du local → 06.2 ; énergie et ménage → 02.5 ; immeuble détenu comme placement → 08.6"
+   "arbitrages": "assurance du local → 06.2 ; énergie et ménage → 02.5 ; immeuble détenu comme placement → 08.6",
+   "types": [
+    "bail-commercial",
+    "contrat-domiciliation",
+    "etat-des-lieux-local",
+    "revision-loyer-charges",
+    "conge-resiliation-bail"
+   ]
   },
   {
    "code": "02.5",
@@ -325,7 +416,13 @@
    "motif_sous_chemin": "Service/",
    "conservation": "5a",
    "registre": "contrats",
-   "arbitrages": "facture de l'abonnement → 04.3 ; matériel acheté → 07.6"
+   "arbitrages": "facture de l'abonnement → 04.3 ; matériel acheté → 07.6",
+   "types": [
+    "contrat-abonnement-saas",
+    "contrat-leasing-materiel",
+    "contrat-energie-telecom",
+    "preuve-resiliation-abonnement"
+   ]
   },
   {
    "code": "02.6",
@@ -339,7 +436,12 @@
    "motif_sous_chemin": "à plat, ou Contrepartie/",
    "conservation": "10a",
    "registre": "contrats",
-   "arbitrages": "NDA inclus dans un contrat plus large → avec ce contrat"
+   "arbitrages": "NDA inclus dans un contrat plus large → avec ce contrat",
+   "types": [
+    "nda-mutuel",
+    "nda-unilateral",
+    "levee-de-confidentialite"
+   ]
   },
   {
    "code": "02.7",
@@ -355,7 +457,13 @@
    "motif_sous_chemin": "un sous-dossier par type de modèle",
    "conservation": "tant qu'un contrat signé en dépend",
    "registre": null,
-   "arbitrages": "modèles RH → 03.1"
+   "arbitrages": "modèles RH → 03.1",
+   "types": [
+    "modele-contrat-prestation",
+    "modele-devis-commercial",
+    "modele-nda-dpa",
+    "modele-courrier-juridique"
+   ]
   },
   {
    "code": "03.1",
@@ -384,7 +492,13 @@
    "motif_sous_chemin": "un sous-dossier par registre ou famille",
    "conservation": "DUERP 40a, reste 5a",
    "registre": null,
-   "arbitrages": "registre des questions du CSE → 03.10 ; dossier individuel → 03.2"
+   "arbitrages": "registre des questions du CSE → 03.10 ; dossier individuel → 03.2",
+   "types": [
+    "registre-unique-personnel",
+    "duerp",
+    "rapport-verification-electrique",
+    "accord-collectif-et-reglement-interieur"
+   ]
   },
   {
    "code": "03.2",
@@ -413,7 +527,14 @@
    "motif_sous_chemin": "NOM Prénom/01 Embauche | 02 Vie du contrat | 03 Sortie",
    "conservation": "5a après départ",
    "registre": null,
-   "arbitrages": "bulletin de paie → 03.3 ; arrêt de travail et congés → 03.7 ; avis médical → 03.8"
+   "arbitrages": "bulletin de paie → 03.3 ; arrêt de travail et congés → 03.7 ; avis médical → 03.8",
+   "types": [
+    "contrat-de-travail",
+    "avenant-contrat-travail",
+    "sanction-disciplinaire",
+    "solde-tout-compte",
+    "certificat-de-travail"
+   ]
   },
   {
    "code": "03.3",
@@ -433,7 +554,14 @@
    "motif_sous_chemin": "AAAA/AAAA-MM/",
    "conservation": "5a employeur, 50a bulletin électronique",
    "registre": null,
-   "arbitrages": "notes de frais → 04.4 ; contrat mutuelle → 06.4"
+   "arbitrages": "notes de frais → 04.4 ; contrat mutuelle → 06.4",
+   "types": [
+    "bulletin-paie-double-employeur",
+    "preuve-mise-a-disposition-bulletin-electronique",
+    "dsn-mensuelle",
+    "journal-de-paie",
+    "bordereau-cotisations-sociales"
+   ]
   },
   {
    "code": "03.4",
@@ -459,7 +587,13 @@
    "motif_sous_chemin": "Organisme/",
    "conservation": "6a à 10a",
    "registre": null,
-   "arbitrages": "bordereau mensuel → 03.3 ; contrat d'assurance mutuelle → 06.4"
+   "arbitrages": "bordereau mensuel → 03.3 ; contrat d'assurance mutuelle → 06.4",
+   "types": [
+    "attestation-vigilance-entreprise",
+    "controle-urssaf",
+    "due-regime-social",
+    "adhesion-organisme-social"
+   ]
   },
   {
    "code": "03.5",
@@ -480,7 +614,13 @@
    "motif_sous_chemin": "AAAA-MM - Intitulé du poste/ | CV-theque/",
    "conservation": "5a après pourvoi du poste",
    "registre": null,
-   "arbitrages": "candidat retenu → 03.2 ; CV spontané → sous-dossier CV-theque, 2a"
+   "arbitrages": "candidat retenu → 03.2 ; CV spontané → sous-dossier CV-theque, 2a",
+   "types": [
+    "candidature-non-retenue",
+    "cv-theque-spontane",
+    "annonce-emploi",
+    "grille-selection-recrutement"
+   ]
   },
   {
    "code": "03.6",
@@ -500,7 +640,14 @@
    "motif_sous_chemin": "AAAA/AAAA-MM - Intitulé - Organisme/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "facture de formation → 04.3 ; Qualiopi de l'entreprise → 07.5"
+   "arbitrages": "facture de formation → 04.3 ; Qualiopi de l'entreprise → 07.5",
+   "types": [
+    "convention-de-formation",
+    "attestation-formation",
+    "attestation-formation-securite",
+    "prise-en-charge-opco",
+    "plan-developpement-competences"
+   ]
   },
   {
    "code": "03.7",
@@ -526,7 +673,13 @@
    "motif_sous_chemin": "AAAA/Conges | Arrets de travail | Temps de travail",
    "conservation": "5a",
    "registre": null,
-   "arbitrages": "certificat médical détaillé : ne pas conserver ; avis d'aptitude → 03.8"
+   "arbitrages": "certificat médical détaillé : ne pas conserver ; avis d'aptitude → 03.8",
+   "types": [
+    "decompte-temps-travail",
+    "suivi-forfait-jours",
+    "arret-travail-volet-employeur",
+    "attestation-salaire-ijss"
+   ]
   },
   {
    "code": "03.8",
@@ -550,7 +703,13 @@
    "motif_sous_chemin": "Suivi medical/NOM Prénom | Accidents du travail/AAAA | Prevention",
    "conservation": "10a, 40a exposition",
    "registre": null,
-   "arbitrages": "DUERP → 03.1 ; arrêt de travail → 03.7"
+   "arbitrages": "DUERP → 03.1 ; arrêt de travail → 03.7",
+   "types": [
+    "declaration-accident-travail",
+    "avis-medical-aptitude",
+    "fiche-exposition-risques",
+    "registre-accidents-benins"
+   ]
   },
   {
    "code": "03.9",
@@ -574,7 +733,13 @@
    "motif_sous_chemin": "Stagiaires | Alternants | Freelances /NOM Prénom/",
    "conservation": "5a à 10a",
    "registre": null,
-   "arbitrages": "facture du freelance → 04.3 ; prestataire en société → 02.2"
+   "arbitrages": "facture du freelance → 04.3 ; prestataire en société → 02.2",
+   "types": [
+    "convention-de-stage",
+    "contrat-apprentissage",
+    "contrat-mission-freelance",
+    "attestation-vigilance-freelance"
+   ]
   },
   {
    "code": "03.10",
@@ -598,7 +763,13 @@
    "motif_sous_chemin": "Mandature AAAA-AAAA/",
    "conservation": "permanent pour les PV d'élection",
    "registre": null,
-   "arbitrages": "accords d'entreprise → 03.1"
+   "arbitrages": "accords d'entreprise → 03.1",
+   "types": [
+    "pv-election-cse",
+    "pv-carence-cse",
+    "pv-reunion-cse",
+    "consultation-cse"
+   ]
   },
   {
    "code": "04.1",
@@ -624,7 +795,14 @@
    "motif_sous_chemin": "AAAA/ (ou AAAA-MM_AAAA-MM si exercice décalé)",
    "conservation": "permanent pour les états, 10a pour les livres",
    "registre": null,
-   "arbitrages": "déclarations fiscales → 04.6 ; PV d'approbation → 01.3"
+   "arbitrages": "déclarations fiscales → 04.6 ; PV d'approbation → 01.3",
+   "types": [
+    "comptes-annuels",
+    "liasse-fiscale",
+    "grand-livre",
+    "fichier-ecritures-comptables",
+    "inventaire-de-cloture"
+   ]
   },
   {
    "code": "04.2",
@@ -643,7 +821,13 @@
    "motif_sous_chemin": "AAAA/AAAA-MM/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "contrat ou devis signé → 02.1 ; impayé en contentieux → 01.9"
+   "arbitrages": "contrat ou devis signé → 02.1 ; impayé en contentieux → 01.9",
+   "types": [
+    "facture-client",
+    "avoir-client",
+    "facture-acompte-client",
+    "journal-des-ventes"
+   ]
   },
   {
    "code": "04.3",
@@ -664,7 +848,13 @@
    "motif_sous_chemin": "AAAA/AAAA-MM/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "dépense avancée par une personne → 04.4 ; bien amorti au-delà de 500 € HT → copie en 04.5 ; contrat → 02.2 ou 02.5"
+   "arbitrages": "dépense avancée par une personne → 04.4 ; bien amorti au-delà de 500 € HT → copie en 04.5 ; contrat → 02.2 ou 02.5",
+   "types": [
+    "facture-fournisseur",
+    "avoir-fournisseur",
+    "ticket-caisse-achat",
+    "journal-des-achats"
+   ]
   },
   {
    "code": "04.4",
@@ -685,7 +875,12 @@
    "motif_sous_chemin": "AAAA/AAAA-MM/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "facture au nom de l'entreprise → 04.3"
+   "arbitrages": "facture au nom de l'entreprise → 04.3",
+   "types": [
+    "note-de-frais",
+    "releve-indemnites-kilometriques",
+    "politique-frais-professionnels"
+   ]
   },
   {
    "code": "04.5",
@@ -705,7 +900,12 @@
    "motif_sous_chemin": "AAAA - Désignation - Fournisseur/",
    "conservation": "détention + 10a",
    "registre": "immobilisations",
-   "arbitrages": "inventaire physique et attribution → 07.6 ; titres et participations → 08"
+   "arbitrages": "inventaire physique et attribution → 07.6 ; titres et participations → 08",
+   "types": [
+    "tableau-amortissement-immobilisation",
+    "contrat-credit-bail-immobilisation",
+    "sortie-immobilisation"
+   ]
   },
   {
    "code": "04.6",
@@ -738,7 +938,14 @@
    "motif_sous_chemin": "Impôt/AAAA/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "liasse fiscale → 04.1 ; dossier CIR complet → 05.3 ; calcul de plus-value sur placement → 08.9"
+   "arbitrages": "liasse fiscale → 04.1 ; dossier CIR complet → 05.3 ; calcul de plus-value sur placement → 08.9",
+   "types": [
+    "declaration-tva",
+    "declaration-is",
+    "avis-cfe-cvae",
+    "dossier-controle-fiscal",
+    "attestation-regularite-fiscale"
+   ]
   },
   {
    "code": "04.7",
@@ -759,7 +966,13 @@
    "motif_sous_chemin": "Expert-comptable | Commissaire aux comptes /Cabinet/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "honoraires facturés → 04.3"
+   "arbitrages": "honoraires facturés → 04.3",
+   "types": [
+    "lettre-mission-expert-comptable",
+    "mandat-teledeclaration",
+    "rapport-commissaire-aux-comptes",
+    "echange-de-cloture"
+   ]
   },
   {
    "code": "04.8",
@@ -778,7 +991,13 @@
    "motif_sous_chemin": "AAAA/Budget | Tresorerie | Tableaux de bord",
    "conservation": "5a",
    "registre": null,
-   "arbitrages": "prévisionnel transmis à un financeur → copie dans 05.2, 05.3 ou 05.4"
+   "arbitrages": "prévisionnel transmis à un financeur → copie dans 05.2, 05.3 ou 05.4",
+   "types": [
+    "budget-annuel",
+    "plan-de-tresorerie",
+    "tableau-de-bord-financier",
+    "business-plan-previsionnel"
+   ]
   },
   {
    "code": "04.9",
@@ -801,7 +1020,13 @@
    "motif_sous_chemin": "Plateforme agreee | Piste d'audit fiable | Exports/AAAA | Incidents",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "le CONTRAT avec la plateforme agréée → 02.5 (registre contrats), avec une copie ici ; seuls les flux, les incidents et la PAF restent ici ; les factures elles-mêmes → 04.2 et 04.3 ; logiciel de facturation → 02.5"
+   "arbitrages": "le CONTRAT avec la plateforme agréée → 02.5 (registre contrats), avec une copie ici ; seuls les flux, les incidents et la PAF restent ici ; les factures elles-mêmes → 04.2 et 04.3 ; logiciel de facturation → 02.5",
+   "types": [
+    "documentation-piste-audit-fiable",
+    "export-statuts-cycle-de-vie",
+    "preuve-e-reporting",
+    "immatriculation-plateforme-agreee"
+   ]
   },
   {
    "code": "05.1",
@@ -824,7 +1049,14 @@
    "motif_sous_chemin": "Banque - Type de compte/Releves/AAAA/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5"
+   "arbitrages": "compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5 ; un relevé ordinaire ne qualifie pas le type de compte : écrire « Compte courant » par défaut, et ne réserver _INCONNU qu'au cas où la banque elle-même n'est pas lisible",
+   "types": [
+    "releve-compte-bancaire",
+    "convention-compte-bancaire",
+    "procuration-bancaire",
+    "attestation-cloture-compte",
+    "avis-agios-frais-bancaires"
+   ]
   },
   {
    "code": "05.2",
@@ -847,7 +1079,14 @@
    "motif_sous_chemin": "AAAA - Établissement - Objet - Montant/",
    "conservation": "10a",
    "registre": "contrats",
-   "arbitrages": "caution ou nantissement adossé → 05.6 ; relevé du compte débité → 05.1"
+   "arbitrages": "caution ou nantissement adossé → 05.6 ; relevé du compte débité → 05.1",
+   "types": [
+    "contrat-pret-bancaire",
+    "tableau-amortissement-emprunt",
+    "attestation-interets-capital-restant",
+    "mainlevee-garantie-pret",
+    "contrat-affacturage-dailly"
+   ]
   },
   {
    "code": "05.3",
@@ -872,7 +1111,14 @@
    "motif_sous_chemin": "AAAA - Organisme - Dispositif/",
    "conservation": "10a après dernier versement",
    "registre": null,
-   "arbitrages": "prêt à rembourser → 05.2 ; levée de fonds privée → 05.4"
+   "arbitrages": "prêt à rembourser → 05.2 ; levée de fonds privée → 05.4",
+   "types": [
+    "convention-subvention",
+    "dossier-demande-subvention",
+    "justificatif-depenses-eligibles",
+    "dossier-cir-cii",
+    "demande-versement-subvention"
+   ]
   },
   {
    "code": "05.4",
@@ -894,7 +1140,14 @@
    "motif_sous_chemin": "AAAA - Nom de l'opération/",
    "conservation": "permanent",
    "registre": null,
-   "arbitrages": "pacte d'associés de NOTRE société → 01.6 ; subvention publique → 05.3"
+   "arbitrages": "pacte d'associés de NOTRE société → 01.6 ; subvention publique → 05.3",
+   "types": [
+    "term-sheet-levee",
+    "due-diligence-levee",
+    "contrat-investissement",
+    "bulletin-souscription-levee",
+    "reporting-investisseurs"
+   ]
   },
   {
    "code": "05.5",
@@ -919,7 +1172,14 @@
    "motif_sous_chemin": "Moyen ou prestataire/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "relevé de compte bancaire → 05.1"
+   "arbitrages": "relevé de compte bancaire → 05.1",
+   "types": [
+    "releve-prestataire-paiement",
+    "mandat-prelevement-sepa",
+    "contrat-monetique-tpe",
+    "contrat-carte-bancaire-pro",
+    "contestation-chargeback"
+   ]
   },
   {
    "code": "05.6",
@@ -942,7 +1202,14 @@
    "motif_sous_chemin": "Donnees | Recues /Contrepartie ou contrat garanti/",
    "conservation": "10a après mainlevée",
    "registre": null,
-   "arbitrages": "contrat de prêt garanti → 05.2 ; bail garanti → 02.4"
+   "arbitrages": "contrat de prêt garanti → 05.2 ; bail garanti → 02.4",
+   "types": [
+    "caution-personnelle-dirigeant",
+    "garantie-bancaire-donnee",
+    "nantissement-hypotheque",
+    "garantie-recue-tiers",
+    "mainlevee-attestation-fin-garantie"
+   ]
   },
   {
    "code": "06.1",
@@ -959,7 +1226,13 @@
    "motif_sous_chemin": "Assureur - N° contrat/",
    "conservation": "10a après fin",
    "registre": "assurances",
-   "arbitrages": "sinistre → 06.7"
+   "arbitrages": "sinistre → 06.7",
+   "types": [
+    "contrat-rc-pro",
+    "questionnaire-souscription-rc-pro",
+    "attestation-rc-pro",
+    "quittance-rc-pro"
+   ]
   },
   {
    "code": "06.2",
@@ -978,7 +1251,13 @@
    "motif_sous_chemin": "Assureur - N° contrat/",
    "conservation": "10a après fin",
    "registre": "assurances",
-   "arbitrages": "bail et états des lieux → 02.4"
+   "arbitrages": "bail et états des lieux → 02.4",
+   "types": [
+    "contrat-multirisque-locaux",
+    "attestation-multirisque",
+    "inventaire-biens-assures",
+    "quittance-multirisque"
+   ]
   },
   {
    "code": "06.3",
@@ -996,7 +1275,14 @@
    "motif_sous_chemin": "Assureur - N° contrat/",
    "conservation": "5a après fin",
    "registre": "assurances",
-   "arbitrages": "carte grise et entretien → 07.4 ; constat et sinistre → 06.7"
+   "arbitrages": "carte grise et entretien → 07.4 ; constat et sinistre → 06.7",
+   "types": [
+    "contrat-flotte-automobile",
+    "carte-verte-vehicule",
+    "releve-information-bonus-malus",
+    "contrat-assurance-mission",
+    "quittance-assurance-vehicule"
+   ]
   },
   {
    "code": "06.4",
@@ -1016,7 +1302,13 @@
    "motif_sous_chemin": "Assureur - N° contrat/",
    "conservation": "permanent",
    "registre": "assurances",
-   "arbitrages": "DUE, notices et affiliations des salariés → 03.4 et 03.2"
+   "arbitrages": "DUE, notices et affiliations des salariés → 03.4 et 03.2",
+   "types": [
+    "contrat-prevoyance-collective",
+    "contrat-prevoyance-dirigeant",
+    "attestation-contrat-responsable",
+    "quittance-prevoyance-sante"
+   ]
   },
   {
    "code": "06.5",
@@ -1032,7 +1324,13 @@
    "motif_sous_chemin": "Assureur - N° contrat/",
    "conservation": "10a après fin",
    "registre": "assurances",
-   "arbitrages": "politique de sécurité → 01.8 ; incident survenu → 06.7"
+   "arbitrages": "politique de sécurité → 01.8 ; incident survenu → 06.7",
+   "types": [
+    "contrat-assurance-cyber",
+    "questionnaire-securite-cyber",
+    "procedure-declaration-sinistre-cyber",
+    "quittance-assurance-cyber"
+   ]
   },
   {
    "code": "06.6",
@@ -1048,7 +1346,13 @@
    "motif_sous_chemin": "Assureur - N° contrat/",
    "conservation": "10a après fin",
    "registre": "assurances",
-   "arbitrages": "mandats et nominations → 01.5"
+   "arbitrages": "mandats et nominations → 01.5",
+   "types": [
+    "contrat-rcms-dirigeants",
+    "contrat-homme-cle",
+    "contrat-protection-juridique",
+    "quittance-assurance-dirigeant"
+   ]
   },
   {
    "code": "06.7",
@@ -1069,7 +1373,14 @@
    "motif_sous_chemin": "AAAA-MM-JJ - Contrat - Objet/",
    "conservation": "10a après règlement",
    "registre": null,
-   "arbitrages": "litige judiciaire qui en découle → 01.9"
+   "arbitrages": "litige judiciaire qui en découle → 01.9",
+   "types": [
+    "declaration-sinistre",
+    "rapport-expertise-sinistre",
+    "decompte-indemnisation-sinistre",
+    "dossier-sinistre-dommage-corporel",
+    "recours-contre-tiers-sinistre"
+   ]
   },
   {
    "code": "06.8",
@@ -1093,7 +1404,14 @@
    "motif_sous_chemin": "Assureur - N° contrat/ puis AAAA - Client - Chantier/",
    "conservation": "10a après réception",
    "registre": "assurances",
-   "arbitrages": "sinistre déclaré → 06.7 ; contrat client → 02.1 ; sous-traitance → 02.3"
+   "arbitrages": "sinistre déclaré → 06.7 ; contrat client → 02.1 ; sous-traitance → 02.3",
+   "types": [
+    "contrat-assurance-decennale",
+    "attestation-decennale",
+    "pv-reception-travaux",
+    "garantie-parfait-achevement",
+    "doe-diuo-chantier"
+   ]
   },
   {
    "code": "07.1",
@@ -1120,7 +1438,14 @@
    "motif_sous_chemin": "Organisme/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "impôts → 04.6 ; URSSAF et OPCO → 03.4 ; formalités statutaires → 01.2"
+   "arbitrages": "impôts → 04.6 ; URSSAF et OPCO → 03.4 ; formalités statutaires → 01.2",
+   "types": [
+    "fiche-identifiants-entreprise",
+    "avis-situation-sirene",
+    "recepisse-formalite-organisme",
+    "autorisation-administrative-locale",
+    "courrier-organisme-public"
+   ]
   },
   {
    "code": "07.2",
@@ -1139,7 +1464,13 @@
    "motif_sous_chemin": "AAAA/Entrant | Sortant",
    "conservation": "5a, 10a pour les recommandés",
    "registre": "recommandés",
-   "arbitrages": "si le courrier concerne un dossier existant, il va DANS ce dossier"
+   "arbitrages": "si le courrier concerne un dossier existant, il va DANS ce dossier",
+   "types": [
+    "courrier-entrant-general",
+    "courrier-sortant-general",
+    "lettre-recommandee-avec-ar",
+    "recommande-electronique-lre"
+   ]
   },
   {
    "code": "07.3",
@@ -1170,7 +1501,14 @@
    "motif_sous_chemin": "Site/",
    "conservation": "occupation + 10a",
    "registre": null,
-   "arbitrages": "bail → 02.4 ; contrats énergie et ménage → 02.5 ; assurance → 06.2"
+   "arbitrages": "bail → 02.4 ; contrats énergie et ménage → 02.5 ; assurance → 06.2",
+   "types": [
+    "registre-securite-site",
+    "rapport-verification-periodique",
+    "registre-public-accessibilite",
+    "registre-suivi-dechets",
+    "declaration-operat-tertiaire"
+   ]
   },
   {
    "code": "07.4",
@@ -1195,7 +1533,14 @@
    "motif_sous_chemin": "Immatriculation - Marque Modèle/",
    "conservation": "détention + 10a",
    "registre": null,
-   "arbitrages": "assurance du véhicule → 06.3 ; indemnités kilométriques → 04.4"
+   "arbitrages": "assurance du véhicule → 06.3 ; indemnités kilométriques → 04.4",
+   "types": [
+    "certificat-immatriculation-vehicule",
+    "certificat-cession-vehicule",
+    "controle-technique-vehicule",
+    "entretien-reparation-vehicule",
+    "avis-contravention-vehicule"
+   ]
   },
   {
    "code": "07.5",
@@ -1220,7 +1565,14 @@
    "motif_sous_chemin": "Certification ou label/",
    "conservation": "permanent",
    "registre": null,
-   "arbitrages": "formations suivies par les salariés → 03.6"
+   "arbitrages": "formations suivies par les salariés → 03.6",
+   "types": [
+    "certificat-certification",
+    "rapport-audit-certification",
+    "preuve-audit-certification",
+    "plan-actions-non-conformite",
+    "declaration-activite-formation"
+   ]
   },
   {
    "code": "07.6",
@@ -1244,7 +1596,14 @@
    "motif_sous_chemin": "Inventaire | Remises et restitutions | Garanties | Licences | Mises au rebut",
    "conservation": "détention + 10a",
    "registre": "matériel",
-   "arbitrages": "facture d'achat → 04.3 et 04.5 ; abonnement SaaS → 02.5"
+   "arbitrages": "facture d'achat → 04.3 et 04.5 ; abonnement SaaS → 02.5",
+   "types": [
+    "inventaire-du-materiel",
+    "fiche-remise-materiel",
+    "garantie-constructeur-materiel",
+    "licence-logicielle-detenue",
+    "mise-au-rebut-materiel"
+   ]
   },
   {
    "code": "07.7",
@@ -1271,7 +1630,14 @@
    "motif_sous_chemin": "Dossier permanent/ puis AAAA-MM - Acheteur - Objet/",
    "conservation": "10a après exécution",
    "registre": null,
-   "arbitrages": "client privé → 02.1 ; attestations en cours de validité → 97 Kit administratif"
+   "arbitrages": "client privé → 02.1 ; attestations en cours de validité → 97 Kit administratif",
+   "types": [
+    "dossier-candidature-dc1-dc2",
+    "memoire-technique",
+    "offre-marche-public",
+    "certificat-capacite-reference",
+    "decision-attribution-rejet"
+   ]
   },
   {
    "code": "08.1",
@@ -1291,7 +1657,13 @@
    "motif_sous_chemin": "Decisions/AAAA/ | Intermediaires/Nom/",
    "conservation": "permanent",
    "registre": null,
-   "arbitrages": "le contrat du placement → sous-dossier de sa ligne, 08.2 à 08.8"
+   "arbitrages": "le contrat du placement → sous-dossier de sa ligne, 08.2 à 08.8",
+   "types": [
+    "politique-de-placement",
+    "note-decision-placement",
+    "mandat-gestion-placement",
+    "rapport-adequation-conseil"
+   ]
   },
   {
    "code": "08.2",
@@ -1311,7 +1683,14 @@
    "motif_sous_chemin": "AAAA - Banque - Support - Montant - Échéance/",
    "conservation": "10a après dénouement",
    "registre": "placements",
-   "arbitrages": "compte courant d'exploitation → 05.1 ; CAT nanti → garantie dans 05.6"
+   "arbitrages": "compte courant d'exploitation → 05.1 ; CAT nanti → garantie dans 05.6",
+   "types": [
+    "contrat-compte-a-terme",
+    "avis-souscription-placement-bancaire",
+    "releve-placement-bancaire",
+    "attestation-valorisation-placement-bancaire",
+    "denouement-placement-bancaire"
+   ]
   },
   {
    "code": "08.3",
@@ -1339,7 +1718,14 @@
    "motif_sous_chemin": "Établissement - N° de compte/Avis d'opere/AAAA/",
    "conservation": "détention + 10a",
    "registre": "placements",
-   "arbitrages": "titre de participation non coté → 08.8 ; SCPI → 08.6 ; fonds non coté → 08.7"
+   "arbitrages": "titre de participation non coté → 08.8 ; SCPI → 08.6 ; fonds non coté → 08.7 ; un avis d'opéré portant un cours et une date d'exécution désigne un titre négocié sur un marché : il va en 08.3 quel que soit le mot « fonds » dans le libellé du support, car 08.7 ne reçoit pas d'avis d'opéré mais des bulletins de souscription et des appels de capitaux",
+   "types": [
+    "convention-compte-titres",
+    "avis-opere-titres",
+    "releve-compte-titres",
+    "avis-operation-sur-titres",
+    "calcul-plus-value-titres"
+   ]
   },
   {
    "code": "08.4",
@@ -1359,7 +1745,14 @@
    "motif_sous_chemin": "Assureur - N° de contrat/",
    "conservation": "durée + 10a",
    "registre": "placements",
-   "arbitrages": "assurances de l'entreprise → 06 ; prévoyance → 06.4"
+   "arbitrages": "assurances de l'entreprise → 06 ; prévoyance → 06.4",
+   "types": [
+    "bulletin-souscription-capitalisation",
+    "avenant-versement-arbitrage-capitalisation",
+    "releve-situation-capitalisation",
+    "calcul-imposition-annuelle-capitalisation",
+    "rachat-contrat-capitalisation"
+   ]
   },
   {
    "code": "08.5",
@@ -1388,7 +1781,14 @@
    "motif_sous_chemin": "Prestataire ou portefeuille/Exports/AAAA/ | Consolidation/AAAA/",
    "conservation": "sans purge tant que détenu",
    "registre": "placements",
-   "arbitrages": "clés privées et phrases de récupération : JAMAIS ici ; matériel de minage → 04.3"
+   "arbitrages": "clés privées et phrases de récupération : JAMAIS ici ; matériel de minage → 04.3",
+   "types": [
+    "verification-agrement-prestataire-crypto",
+    "export-transactions-crypto",
+    "inventaire-portefeuilles-crypto",
+    "valorisation-cloture-crypto",
+    "incident-crypto"
+   ]
   },
   {
    "code": "08.6",
@@ -1409,7 +1809,14 @@
    "motif_sous_chemin": "SCPI - Nom | SCI - Nom | Immeuble - Adresse/",
    "conservation": "permanent pour les actes",
    "registre": "placements",
-   "arbitrages": "local occupé par l'entreprise → 02.4 ; immeuble d'exploitation → 04.5"
+   "arbitrages": "local occupé par l'entreprise → 02.4 ; immeuble d'exploitation → 04.5",
+   "types": [
+    "bulletin-souscription-scpi",
+    "acte-notarie-immeuble-placement",
+    "bulletin-trimestriel-scpi",
+    "valorisation-immobilier-placement",
+    "cession-parts-immobilier-placement"
+   ]
   },
   {
    "code": "08.7",
@@ -1431,7 +1838,14 @@
    "motif_sous_chemin": "AAAA - Gestionnaire - Nom du fonds/",
    "conservation": "détention + 10a",
    "registre": "placements",
-   "arbitrages": "prise de contrôle ou influence notable → 08.8 ; emprunt reçu → 05.2"
+   "arbitrages": "prise de contrôle ou influence notable → 08.8 ; emprunt reçu → 05.2",
+   "types": [
+    "bulletin-souscription-fonds",
+    "appel-de-capitaux-fonds",
+    "contrat-pret-consenti-tiers",
+    "reporting-valeur-liquidative",
+    "sortie-ligne-non-cotee"
+   ]
   },
   {
    "code": "08.8",
@@ -1455,7 +1869,14 @@
    "motif_sous_chemin": "Nom de la société (SIREN)/",
    "conservation": "permanent",
    "registre": "placements",
-   "arbitrages": "votre propre capital → 01.6 ; titres cotés de trésorerie → 08.3"
+   "arbitrages": "votre propre capital → 01.6 ; titres cotés de trésorerie → 08.3",
+   "types": [
+    "acte-acquisition-titres-participation",
+    "convention-intragroupe",
+    "attestation-inscription-titres",
+    "comptes-annuels-societe-detenue",
+    "convention-compte-courant-filiale"
+   ]
   },
   {
    "code": "08.9",
@@ -1475,27 +1896,14 @@
    "motif_sous_chemin": "AAAA/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "bilan et liasse → 04.1 ; déclarations → 04.6"
-  },
-  {
-   "code": "97",
-   "nom": "Référentiel",
-   "chemin_dossier": "97 - REFERENTIEL",
-   "cles": [
-    "Kbis de moins de 3 mois",
-    "copie à jour de notre attestation de vigilance",
-    "attestation de régularité fiscale",
-    "attestation RC Pro",
-    "RIB de l'entreprise",
-    "avis de situation SIRENE",
-    "liste des bénéficiaires effectifs",
-    "pièce d'identité du dirigeant",
-    "fiche d'identité de l'entreprise"
-   ],
-   "motif_sous_chemin": "Kit administratif/ à plat",
-   "conservation": "version en cours seulement",
-   "registre": null,
-   "arbitrages": "l'original et l'historique restent dans leur domaine : 01.1, 03.4, 04.6, 06.1, 05.1"
+   "arbitrages": "bilan et liasse → 04.1 ; déclarations → 04.6",
+   "types": [
+    "etat-recapitulatif-placements",
+    "attestation-valorisation-annuelle",
+    "calcul-plus-values-exercice",
+    "calcul-provision-depreciation",
+    "elements-annexe-placements"
+   ]
   },
   {
    "code": "97",
@@ -1515,7 +1923,11 @@
    "motif_sous_chemin": "Kit administratif/ à plat",
    "conservation": "version en cours seulement",
    "registre": null,
-   "arbitrages": "l'original et l'historique restent dans leur domaine : 01.1, 03.4, 04.6, 06.1, 05.1"
+   "arbitrages": "l'original et l'historique restent dans leur domaine : 01.1, 03.4, 04.6, 06.1, 05.1",
+   "types": [
+    "copie-attestation-a-jour",
+    "fiche-identite-kit-administratif"
+   ]
   },
   {
    "code": "98",
@@ -1533,7 +1945,10 @@
    "motif_sous_chemin": "AAAA de clôture/ + chemin d'origine reproduit",
    "conservation": "durée du domaine d'origine",
    "registre": "archives",
-   "arbitrages": "ce qui ne se détruit jamais reste dans son dossier d'origine"
+   "arbitrages": "ce qui ne se détruit jamais reste dans son dossier d'origine",
+   "types": [
+    "dossier-clos-archive"
+   ]
   },
   {
    "code": "99",
@@ -1550,7 +1965,10 @@
    "motif_sous_chemin": "AAAA-MM-JJ - Objet du lot/",
    "conservation": "délai de grâce 30j",
    "registre": "archives",
-   "arbitrages": "jamais un document encore dans sa durée, ni un document sous litige ou contrôle"
+   "arbitrages": "jamais un document encore dans sa durée, ni un document sous litige ou contrôle",
+   "types": [
+    "proposition-de-suppression"
+   ]
   }
  ]
 }

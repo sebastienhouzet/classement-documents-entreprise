@@ -1,3 +1,87 @@
+---
+schema: classement-documents/3.0
+id: "08.2"
+parent: "08"
+niveau: sous-dossier
+titre: 08.2 - Placements bancaires
+usage: >-
+  Les placements sans risque en capital logés chez une banque : comptes à terme (CAT / DAT),
+  comptes sur livret, bons de caisse, comptes courants rémunérés.
+classement: par-contrat
+sensibilite: confidentielle
+documents:
+  - type: contrat-compte-a-terme
+    libelle: Contrat de compte à terme ou de livret
+    description: "Contrat d'ouverture d'un compte à terme, d'un dépôt à terme, d'un compte sur livret ou d'un bon de caisse — rémunération, durée, pénalité de sortie anticipée, conditions de renouvellement."
+    indices: [compte a terme, cat, dat, depot a terme, compte sur livret, bon de caisse, penalite de sortie anticipee]
+    champs: [date-signature, banque, numero-compte, designation, montant, taux, echeance]
+    nommage: "{date}_Contrat-compte-a-terme_{banque}_{designation}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code de commerce art. L.110-4
+      sort-final: D
+    registre: { fichier: Registre-des-placements.csv, cle: designation }
+  - type: avis-souscription-placement-bancaire
+    libelle: "Avis de souscription d'un placement bancaire"
+    description: "Avis d'opéré ou confirmation de souscription d'un placement bancaire — montant, date de valeur, taux, échéance — et avenants, renouvellements et modifications de taux."
+    indices: [confirmation de souscription, "avis d'opere bancaire", date de valeur, renouvellement tacite, modification de taux]
+    champs: [date, banque, numero-compte, designation, montant, taux, echeance]
+    nommage: "{date}_Avis-de-souscription_{banque}_{designation}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Code de commerce art. L.123-22
+      sort-final: D
+    registre: { fichier: Registre-des-placements.csv, cle: designation }
+  - type: releve-placement-bancaire
+    libelle: "Relevé et avis d'échéance d'un placement bancaire"
+    description: "Relevés périodiques, avis d'échéance et décomptes d'intérêts versés d'un compte à terme ou d'un livret."
+    indices: [releve periodique, "avis d'echeance", interets verses, "decompte d'interets", releve bancaire]
+    champs: [date, banque, numero-compte, periode, montant]
+    nommage: "{date}_Releve-placement-bancaire_{banque}_{periode}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code de commerce art. L.123-22
+      sort-final: D
+    registre: null
+  - type: attestation-valorisation-placement-bancaire
+    libelle: Attestation de valorisation au 31/12
+    description: "Attestation de valorisation au 31/12 et détail des intérêts courus non échus, pièce de clôture d'un placement bancaire. Les intérêts d'un CAT se rattachent à l'exercice au prorata."
+    indices: [attestation de valorisation, interets courus non echus, icne, piece de cloture, valorisation au 31/12]
+    champs: [date, banque, numero-compte, exercice, montant]
+    nommage: "{date}_Attestation-de-valorisation_{banque}_{exercice}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Code de commerce art. L.123-22
+      sort-final: D
+    registre: null
+  - type: denouement-placement-bancaire
+    libelle: "Dénouement d'un placement bancaire"
+    description: "Instruction de sortie anticipée, décompte de pénalité, avis de clôture et virement de restitution d'un compte à terme ou d'un livret."
+    indices: [denouement, sortie anticipee, avis de cloture, virement de restitution, decompte de penalite]
+    champs: [date, banque, numero-compte, designation, montant, motif]
+    nommage: "{date}_Denouement-placement_{banque}_{designation}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code de commerce art. L.123-22
+      sort-final: D
+    registre: { fichier: Registre-des-placements.csv, cle: designation }
+va-ailleurs:
+  - motif: "Comptes courants d'exploitation"
+    vers: "05.1"
+  - motif: Contrat de prêt garanti par le CAT
+    vers: "05.2"
+---
+
 # 08.2 - Placements bancaires
 
 > Chemin : `08 - PLACEMENTS & PARTICIPATIONS/08.2 - Placements bancaires`

@@ -1,3 +1,78 @@
+---
+schema: classement-documents/3.0
+id: "08.1"
+parent: "08"
+niveau: sous-dossier
+titre: "08.1 - Politique de placement & décisions"
+usage: >-
+  Le « pourquoi » des placements : le cadre que l'entreprise se donne et la trace de chaque
+  décision d'investir. C'est le dossier qui protège en cas de contrôle fiscal ou de désaccord
+  entre associés, parce qu'il montre que le placement a été décidé, par la bonne personne, dans
+  l'intérêt de la société.
+classement: chronologique
+sensibilite: confidentielle
+documents:
+  - type: politique-de-placement
+    libelle: Politique de placement de la trésorerie
+    description: "Version datée de la politique de placement — horizon, part de trésorerie mobilisable, niveau de risque accepté, supports autorisés et interdits, plafond par ligne et par contrepartie."
+    indices: [politique de placement, horizon, niveau de risque, supports autorises, plafond par ligne, version datee]
+    champs: [date, date-effet, version, objet]
+    nommage: "{date}_Politique-de-placement_{version}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: elaboration-version
+      base: Code civil art. 2224
+      sort-final: C
+    registre: null
+  - type: note-decision-placement
+    libelle: "Note de décision d'investissement"
+    description: "Note datée et signée pour chaque investissement — montant, support, intention de détention, durée visée, justification de l'intérêt social. L'intention conditionne le traitement comptable pendant toute la détention."
+    indices: [note de decision, "decision d'investissement", intention de detention, interet social, horizon de placement]
+    champs: [date, montant, support, intention-detention, duree, signataire]
+    nommage: "{date}_Decision-placement_{support}_{montant}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: date-document
+      base: CGI art. 39
+      sort-final: C
+    registre: null
+  - type: mandat-gestion-placement
+    libelle: Mandat de gestion ou convention de conseil
+    description: "Mandat de gestion, convention de conseil en investissement ou lettre de mission du conseiller ou du banquier privé."
+    indices: [mandat de gestion, convention de conseil en investissement, lettre de mission, banquier prive, conseiller financier]
+    champs: [date-signature, gestionnaire, numero-contrat, objet, duree]
+    nommage: "{date}_Mandat-de-gestion_{gestionnaire}_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-mandat
+      base: Code monétaire et financier art. L.533-11
+      sort-final: C
+    registre: null
+  - type: rapport-adequation-conseil
+    libelle: Documents réglementaires avant souscription
+    description: "Document d'entrée en relation, questionnaire de connaissance et d'expérience, profil de risque, catégorisation de la personne morale et rapport d'adéquation remis avant souscription."
+    indices: ["rapport d'adequation", profil de risque, questionnaire de connaissance, "document d'entree en relation", categorisation]
+    champs: [date, gestionnaire, objet, reference]
+    nommage: "{date}_Rapport-d-adequation_{gestionnaire}_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: date-document
+      base: Code monétaire et financier art. L.533-11
+      sort-final: T
+    registre: null
+va-ailleurs:
+  - motif: "PV d'assemblée originaux"
+    vers: "01.3"
+  - motif: Le contrat de chaque placement
+    vers: "08.2"
+  - motif: Budget et plan de trésorerie
+    vers: "04.8"
+---
+
 # 08.1 - Politique de placement & décisions
 
 > Chemin : `08 - PLACEMENTS & PARTICIPATIONS/08.1 - Politique de placement & décisions`

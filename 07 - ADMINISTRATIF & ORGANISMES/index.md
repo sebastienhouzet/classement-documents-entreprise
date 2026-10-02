@@ -1,3 +1,17 @@
+---
+schema: classement-documents/3.0
+id: "07"
+parent: null
+niveau: domaine
+titre: "07 - Administratif & organismes"
+usage: >-
+  Le « reste » de la gestion : relations avec les administrations non fiscales et non sociales,
+  courrier, locaux au quotidien, véhicules, certifications, matériel.
+classement: par-tiers
+sensibilite: normale
+documents: []
+---
+
 # 07 - Administratif & organismes
 
 > Chemin : `07 - ADMINISTRATIF & ORGANISMES`

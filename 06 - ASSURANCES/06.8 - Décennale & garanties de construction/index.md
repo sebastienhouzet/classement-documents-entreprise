@@ -1,3 +1,90 @@
+---
+schema: classement-documents/3.0
+id: "06.8"
+parent: "06"
+niveau: sous-dossier
+titre: "06.8 - Décennale & garanties de construction"
+usage: >-
+  Assurance décennale et garanties de construction des entreprises du bâtiment : contrat et
+  attestations décennales, procès-verbaux de réception de travaux, garantie de parfait
+  achèvement, DOE et DIUO par chantier.
+classement: par-operation
+sensibilite: normale
+documents:
+  - type: contrat-assurance-decennale
+    libelle: "Contrat d'assurance décennale"
+    description: "Contrat d'assurance décennale (et dommages-ouvrage le cas échéant) — conditions particulières et générales, et surtout la liste des activités déclarées, seules garanties."
+    indices: [assurance decennale, dommages-ouvrage, activites declarees, conditions particulieres, "obligation d'assurance"]
+    champs: [date-effet, assureur, numero-contrat, objet, montant, plafond-garantie, franchise]
+    nommage: "{date}_Contrat-assurance-decennale_{assureur}_{numero-contrat}"
+    conservation:
+      legale: 2a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code des assurances art. L241-1
+      sort-final: C
+    registre: { fichier: Registre-des-assurances.csv, cle: numero-contrat }
+  - type: attestation-decennale
+    libelle: "Attestation d'assurance décennale"
+    description: "Attestation annuelle de décennale, à joindre aux devis et aux factures et à obtenir avant l'ouverture du chantier (copie de l'année en cours dans 97/Kit administratif)."
+    indices: [attestation decennale, avant ouverture de chantier, a joindre au devis, activites garanties, attestation du sous-traitant]
+    champs: [exercice, assureur, numero-contrat, objet, echeance]
+    nommage: "{exercice}_Attestation-decennale_{assureur}"
+    conservation:
+      legale: 2a
+      recommandee: 10a
+      declencheur: reception-travaux
+      base: Code des assurances art. L241-1
+      sort-final: C
+    registre: null
+  - type: pv-reception-travaux
+    libelle: Procès-verbal de réception des travaux
+    description: "Procès-verbal de réception du chantier, avec ou sans réserves, et procès-verbal de levée des réserves — le délai décennal court à compter du lendemain de sa signature."
+    indices: [pv de reception, reception des travaux, reserves, levee de reserves, point de depart de la decennale]
+    champs: [date, client, chantier, adresse, statut]
+    nommage: "{date}_PV-de-reception_{client}_{chantier}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: reception-travaux
+      base: Code civil art. 1792-6
+      sort-final: C
+    registre: null
+  - type: garantie-parfait-achevement
+    libelle: Garantie de parfait achèvement
+    description: "Courriers de signalement, interventions et preuves de reprise au titre de la garantie de parfait achèvement, qui couvre l'année suivant la réception."
+    indices: [parfait achevement, reprise de desordre, signalement apres reception, intervention sous garantie]
+    champs: [date, client, chantier, objet, montant]
+    nommage: "{date}_Garantie-parfait-achevement_{client}_{chantier}"
+    conservation:
+      legale: 1a
+      recommandee: 10a
+      declencheur: reception-travaux
+      base: Code civil art. 1792-6
+      sort-final: T
+    registre: null
+  - type: doe-diuo-chantier
+    libelle: DOE et DIUO du chantier
+    description: "Dossier des ouvrages exécutés (plans conformes à l'exécution, notices, fiches produits) et dossier d'intervention ultérieure sur l'ouvrage ; ils suivent la durée de vie de l'ouvrage."
+    indices: [doe, diuo, "plans conformes a l'execution", notices, fiches produits, ppsps]
+    champs: [date, client, chantier, adresse, designation]
+    nommage: "{date}_DOE-DIUO_{client}_{chantier}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: reception-travaux
+      base: Code du travail art. L4532-16
+      sort-final: C
+    registre: null
+va-ailleurs:
+  - motif: "Déclaration et suivi d'un sinistre"
+    vers: "06.7"
+  - motif: Contrat client et devis
+    vers: "02.1"
+  - motif: Contrats de sous-traitance
+    vers: "02.3"
+---
+
 # 06.8 - Décennale & garanties de construction
 
 > Chemin : `06 - ASSURANCES/06.8 - Décennale & garanties de construction`

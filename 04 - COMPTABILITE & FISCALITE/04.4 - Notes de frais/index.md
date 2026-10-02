@@ -1,3 +1,56 @@
+---
+schema: classement-documents/3.0
+id: "04.4"
+parent: "04"
+niveau: sous-dossier
+titre: 04.4 - Notes de frais
+usage: >-
+  Les dépenses avancées par le dirigeant ou les salariés et remboursées par l'entreprise :
+  déplacements, repas, hébergement, petits achats, indemnités kilométriques.
+classement: chronologique
+sensibilite: rh
+documents:
+  - type: note-de-frais
+    libelle: Note de frais
+    description: "Note de frais mensuelle signée d'une personne, regroupant ses justificatifs de dépenses avancées."
+    indices: [note de frais, frais de déplacement, "repas d'affaires", hôtel, péage, train]
+    champs: [periode, salarie, numero, montant-tva, montant-ttc]
+    nommage: "{periode}_Note-de-frais_{salarie}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Code de commerce L123-22
+      sort-final: D
+    registre: null
+  - type: releve-indemnites-kilometriques
+    libelle: "Relevé d'indemnités kilométriques"
+    description: "Relevé des trajets (date, motif, distance), barème appliqué et copie de la carte grise du véhicule utilisé."
+    indices: [indemnité kilométrique, barème kilométrique, trajets, carburant remboursé, carte grise]
+    champs: [periode, salarie, immatriculation, quantite, taux, montant]
+    nommage: "{periode}_Indemnites-kilometriques_{salarie}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Arrêté du 20 décembre 2002
+      sort-final: D
+    registre: null
+  - type: politique-frais-professionnels
+    libelle: "Politique de frais de l'entreprise"
+    description: Version datée des plafonds et des règles de remboursement applicables aux frais professionnels.
+    indices: [politique de frais, plafonds, règles de remboursement, barème, version datée]
+    champs: [date, objet, date-effet, montant]
+    nommage: "{date}_Politique-de-frais"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: date-document
+      base: Arrêté du 20 décembre 2002
+      sort-final: C
+    registre: null
+---
+
 # 04.4 - Notes de frais
 
 > Chemin : `04 - COMPTABILITE & FISCALITE/04.4 - Notes de frais`

@@ -1,3 +1,75 @@
+---
+schema: classement-documents/3.0
+id: "01.4"
+parent: "01"
+niveau: sous-dossier
+titre: 01.4 - Registres légaux
+usage: >-
+  Les registres obligatoires de la société, tenus de façon continue. Ils peuvent être tenus sous
+  forme papier (cotés et paraphés) ou dématérialisée (avec horodatage) ; dans les deux cas, on
+  garde ici une version PDF figée à chaque mise à jour.
+classement: alphabetique
+sensibilite: confidentielle
+documents:
+  - type: registre-mouvements-titres
+    libelle: Registre des mouvements de titres
+    description: "Registre des mouvements de titres et comptes individuels d'associés, exporté en PDF figé à chaque mise à jour."
+    indices: [registre des mouvements de titres, "compte d'actionnaire", "compte individuel d'associe", registre cote et paraphe, export date]
+    champs: [date, associe, quantite, numero]
+    nommage: "{date}_Registre-mouvements-titres_{numero}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-utilisation
+      base: Code de commerce art. R228-8
+      sort-final: C
+    registre: null
+  - type: ordre-mouvement-titres
+    libelle: Ordre de mouvement de titres
+    description: "Ordre de mouvement signé constatant l'inscription d'un transfert de titres au registre."
+    indices: [ordre de mouvement, transfert de titres, inscription en compte, signature du cedant]
+    champs: [date, associe, quantite, numero, signataire]
+    nommage: "{date}_Ordre-de-mouvement_{associe}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-utilisation
+      base: Code de commerce art. L228-1
+      sort-final: C
+    registre: null
+  - type: registre-des-decisions-sociales
+    libelle: Registre des décisions et délibérations
+    description: "Registre des décisions des associés ou des délibérations du conseil, en feuilles numérotées ou en export horodaté."
+    indices: [registre des decisions, registre des proces-verbaux, feuilles numerotees, deliberations du conseil, horodatage]
+    champs: [date, objet, signataire, numero]
+    nommage: "{date}_Registre-des-decisions_{numero}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-utilisation
+      base: Code de commerce art. L228-1
+      sort-final: C
+    registre: null
+  - type: declaration-beneficiaires-effectifs
+    libelle: Déclaration des bénéficiaires effectifs
+    description: Déclarations successives des bénéficiaires effectifs et récépissés du greffe correspondants.
+    indices: [beneficiaires effectifs, dbe, registre des beneficiaires effectifs, recepisse du greffe, changement de detention]
+    champs: [date, organisme, associe, taux]
+    nommage: "{date}_Declaration-beneficiaires-effectifs_{organisme}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-utilisation
+      base: Code de commerce art. L561-46
+      sort-final: C
+    registre: null
+va-ailleurs:
+  - motif: "Conventions réglementées : il n'existe pas de registre légal à ce nom en SAS ni en SARL. L'obligation est le rapport sur les conventions réglementées présenté à l'assemblée d'approbation des comptes"
+    vers: "01.3"
+  - motif: Registre unique du personnel
+    vers: "03.1"
+---
+
 # 01.4 - Registres légaux
 
 > Chemin : `01 - JURIDIQUE & GOUVERNANCE/01.4 - Registres légaux`

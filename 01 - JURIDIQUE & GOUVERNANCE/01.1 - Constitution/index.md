@@ -1,3 +1,87 @@
+---
+schema: classement-documents/3.0
+id: "01.1"
+parent: "01"
+niveau: sous-dossier
+titre: 01.1 - Constitution
+usage: >-
+  Les pièces d'origine de la société, produites une seule fois lors de sa création. Elles ne
+  changent jamais ; les évolutions ultérieures vont dans 01.2 (statuts) et 01.3 (décisions).
+classement: alphabetique
+sensibilite: normale
+documents:
+  - type: statuts-constitutifs
+    libelle: Statuts constitutifs
+    description: "Statuts signés et paraphés lors de la création de la société, version d'origine."
+    indices: [statuts, statuts constitutifs, constitution, paraphe, souscripteurs]
+    champs: [date-signature, signataire, objet]
+    nommage: "{date}_Statuts_Constitution_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: radiation-societe
+      base: Code civil art. 2224
+      sort-final: C
+    registre: null
+  - type: attestation-depot-capital
+    libelle: Attestation de dépôt du capital
+    description: "Attestation bancaire ou notariale de dépôt des apports en numéraire, avec la liste des souscripteurs."
+    indices: [depot de capital, souscripteurs, liberation des apports, attestation de depot, commissaire aux apports]
+    champs: [date, banque, montant, signataire]
+    nommage: "{date}_Attestation-depot-capital_{banque}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: radiation-societe
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: null
+  - type: recepisse-immatriculation
+    libelle: "Récépissé d'immatriculation et premier Kbis"
+    description: "Récépissé de dépôt du dossier de création, premier extrait Kbis et attestation de parution de l'annonce légale de constitution."
+    indices: [immatriculation, kbis, recepisse, guichet unique, greffe, annonce legale de constitution]
+    champs: [date, organisme, siren, objet]
+    nommage: "{date}_Recepisse-immatriculation_{organisme}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: radiation-societe
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: null
+  - type: formulaire-creation-m0
+    libelle: Formulaire de création M0 et options fiscales
+    description: "Déclaration de création de la société et options fiscales prises à la création, avec la première déclaration des bénéficiaires effectifs."
+    indices: [m0, declaration de creation, options fiscales, "regime d'imposition", premiere dbe]
+    champs: [date, organisme, siren, nature]
+    nommage: "{date}_Formulaire-M0_{organisme}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: radiation-societe
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: null
+  - type: declaration-non-condamnation
+    libelle: Déclaration de non-condamnation et filiation
+    description: Déclaration de non-condamnation du dirigeant et attestation de filiation exigées à la création.
+    indices: [non-condamnation, attestation de filiation, "declaration sur l'honneur", dirigeant fondateur]
+    champs: [date, dirigeant, lieu]
+    nommage: "{date}_Declaration-non-condamnation_{dirigeant}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: radiation-societe
+      base: Code civil art. 2224
+      sort-final: C
+    registre: null
+va-ailleurs:
+  - motif: Statuts modifiés
+    vers: "01.2"
+  - motif: Kbis récents
+    vers: "97.1"
+---
+
 # 01.1 - Constitution
 
 > Chemin : `01 - JURIDIQUE & GOUVERNANCE/01.1 - Constitution`

@@ -1,0 +1,42 @@
+name: Contrôle des en-têtes
+
+# Les en-têtes YAML des index.md sont la partie machine du gabarit : un en-tête
+# invalide casse silencieusement le compilateur et l'agent de classement. Ce
+# contrôle tourne donc à chaque poussée et à chaque demande de fusion.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  entetes:
+    name: Schéma, catalogue de champs et tableau de gestion
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Dépendances
+        run: pip install --quiet pyyaml 'jsonschema>=4'
+
+      - name: Lint des en-têtes
+        run: python3 scripts/lint.py .
+
+      - name: Le référentiel compilé est à jour
+        run: |
+          python3 scripts/compiler.py . -o /tmp/dossiers.json
+          # Seule la date de génération peut différer : on la neutralise.
+          python3 - <<'PY'
+          import json, sys
+          a = json.load(open('referentiel/dossiers.json', encoding='utf-8'))
+          b = json.load(open('/tmp/dossiers.json', encoding='utf-8'))
+          a.pop('genere_le', None); b.pop('genere_le', None)
+          if a != b:
+              sys.exit("referentiel/dossiers.json n'est pas à jour : "
+                       "relancez python3 scripts/compiler.py .")
+          print("referentiel/dossiers.json est à jour")
+          PY

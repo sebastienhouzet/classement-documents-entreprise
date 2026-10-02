@@ -1,3 +1,18 @@
+---
+schema: classement-documents/3.0
+id: "03"
+parent: null
+niveau: domaine
+titre: 03 - Ressources humaines
+usage: >-
+  Tout ce qui concerne les personnes qui travaillent pour l'entreprise : obligations de
+  l'employeur, dossiers individuels, paie, organismes sociaux, recrutement, formation, temps de
+  travail, santé et sécurité, représentation du personnel.
+classement: alphabetique
+sensibilite: rh
+documents: []
+---
+
 # 03 - Ressources humaines
 
 > Chemin : `03 - RESSOURCES HUMAINES`

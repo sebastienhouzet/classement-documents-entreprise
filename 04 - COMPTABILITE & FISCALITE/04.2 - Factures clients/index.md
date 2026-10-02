@@ -1,3 +1,75 @@
+---
+schema: classement-documents/3.0
+id: "04.2"
+parent: "04"
+niveau: sous-dossier
+titre: 04.2 - Factures clients
+usage: >-
+  Toutes les factures et avoirs émis par l'entreprise, avec les éléments qui les justifient
+  (devis accepté, bon de commande, PV de recette) quand ils ne sont pas déjà dans le dossier
+  client.
+classement: chronologique
+sensibilite: confidentielle
+documents:
+  - type: facture-client
+    libelle: Facture client
+    description: "Facture émise par l'entreprise, dans le format envoyé au client. Numérotation chronologique et continue."
+    indices: [facture émise, facture de vente, facture client, numérotation, tva]
+    champs: [date, client, numero, montant-ht, montant-tva, montant-ttc, echeance]
+    nommage: "{date}_Facture_{client}_{numero}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Code de commerce L123-22
+      sort-final: D
+    registre: null
+  - type: avoir-client
+    libelle: Avoir client
+    description: Note de crédit annulant ou réduisant une facture émise.
+    indices: [avoir client, note de crédit, annulation, rectification, facture émise]
+    champs: [date, client, numero, reference, montant-ht, montant-tva, montant-ttc]
+    nommage: "{date}_Avoir_{client}_{numero}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Code de commerce L441-9
+      sort-final: D
+    registre: null
+  - type: facture-acompte-client
+    libelle: "Facture d'acompte client"
+    description: "Facture d'acompte émise avant exécution, rattachée ensuite à la facture définitive."
+    indices: ["facture d'acompte", acompte, avance, tva sur encaissement, échéancier]
+    champs: [date, client, numero, reference, montant-ht, montant-ttc]
+    nommage: "{date}_Facture-acompte_{client}_{numero}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: CGI art. 289
+      sort-final: D
+    registre: null
+  - type: journal-des-ventes
+    libelle: Journal des ventes
+    description: "Export mensuel du journal des ventes produit par l'outil de facturation."
+    indices: [journal des ventes, export, facturation, mensuel, "chiffre d'affaires"]
+    champs: [periode, montant-ht, montant-tva, montant-ttc]
+    nommage: "{periode}_Journal-des-ventes"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Code de commerce L123-22
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: Impayés passés en recouvrement contentieux
+    vers: "01.9"
+  - motif: Contrats et devis signés
+    vers: "02.1"
+---
+
 # 04.2 - Factures clients
 
 > Chemin : `04 - COMPTABILITE & FISCALITE/04.2 - Factures clients`

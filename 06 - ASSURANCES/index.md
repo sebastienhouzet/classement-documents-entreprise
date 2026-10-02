@@ -1,3 +1,17 @@
+---
+schema: classement-documents/3.0
+id: "06"
+parent: null
+niveau: domaine
+titre: 06 - Assurances
+usage: >-
+  Tous les contrats d'assurance de l'entreprise et les sinistres. Chaque contrat a la même
+  structure interne : le contrat, les attestations annuelles, les quittances, les avenants.
+classement: par-contrat
+sensibilite: normale
+documents: []
+---
+
 # 06 - Assurances
 
 > Chemin : `06 - ASSURANCES`

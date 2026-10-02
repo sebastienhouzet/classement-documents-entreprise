@@ -1,0 +1,101 @@
+# Catalogue des champs extractibles — gabarit classement-documents 3.x
+#
+# Un champ a la même définition dans tous les dossiers. Les schémas d'extraction
+# JSON de la plateforme sont générés à partir de ce fichier, et le lint refuse
+# tout `documents[].champs` qui référencerait un nom absent d'ici.
+#
+# type     : date | periode | texte | tiers | decimal | entier | identifiant | enum | booleen
+# format   : pour les dates et les identifiants, le motif attendu
+# unite    : pour les décimaux
+# valeurs  : pour les enum
+schema: classement-documents/3.0
+
+champs:
+
+  # --- temps -----------------------------------------------------------------
+  date:            { type: date, format: AAAA-MM-JJ, description: Date portée par le document }
+  periode:         { type: periode, format: AAAA-MM, description: Mois ou période couverte }
+  exercice:        { type: periode, format: AAAA, description: Exercice comptable de rattachement }
+  date-debut:      { type: date, format: AAAA-MM-JJ, description: Début d'effet ou de période }
+  date-fin:        { type: date, format: AAAA-MM-JJ, description: Fin d'effet ou de période }
+  echeance:        { type: date, format: AAAA-MM-JJ, description: Date limite de paiement, de dénonciation ou de terme }
+  duree:           { type: texte, description: Durée exprimée telle qu'écrite au document }
+  date-signature:  { type: date, format: AAAA-MM-JJ, description: Date de signature par la dernière partie }
+  date-effet:      { type: date, format: AAAA-MM-JJ, description: Date à laquelle l'acte prend effet }
+  date-consultation: { type: date, format: AAAA-MM-JJ, description: Date à laquelle une source externe a été consultée (registre d'agrément, base publique) }
+
+  # --- parties ---------------------------------------------------------------
+  emetteur:        { type: tiers, description: Personne ou organisme qui émet le document }
+  destinataire:    { type: tiers, description: Personne ou organisme destinataire }
+  tiers:           { type: tiers, description: Contrepartie, quand elle n'est ni émettrice ni destinataire }
+  client:          { type: tiers, description: Client de l'entreprise }
+  fournisseur:     { type: tiers, description: Fournisseur ou prestataire }
+  organisme:       { type: tiers, description: Administration, organisme social ou autorité }
+  banque:          { type: tiers, description: Établissement bancaire ou teneur de compte (courtier, société de bourse, néobanque) }
+  assureur:        { type: tiers, description: Compagnie d'assurance ou courtier }
+  salarie:         { type: tiers, description: Salarié, stagiaire ou alternant concerné }
+  dirigeant:       { type: tiers, description: Mandataire social concerné }
+  associe:         { type: tiers, description: Associé ou actionnaire }
+  signataire:      { type: tiers, description: Personne qui signe pour l'entreprise }
+  societe-detenue: { type: tiers, description: Société dans laquelle l'entreprise détient des titres }
+  gestionnaire:    { type: tiers, description: Société de gestion d'un fonds ou d'une SCPI }
+  plateforme:      { type: tiers, description: Plateforme agréée, prestataire de paiement ou place de marché }
+  acheteur-public: { type: tiers, description: Pouvoir adjudicateur d'un marché public }
+  organisme-formation: { type: tiers, description: Organisme de formation ou certificateur }
+  candidat:        { type: tiers, description: Personne qui postule, hors effectif }
+  beneficiaire:    { type: tiers, description: Bénéficiaire d'une attribution, d'une garantie ou d'un versement }
+  bailleur:        { type: tiers, description: Propriétaire ou gestionnaire du local loué }
+  prestataire:     { type: tiers, description: Prestataire technique, hors fournisseur de biens }
+  titulaire:       { type: tiers, description: Titulaire d'un compte, d'une carte ou d'une habilitation }
+
+  # --- identifiants ----------------------------------------------------------
+  numero:          { type: identifiant, description: Numéro propre au document }
+  reference:       { type: identifiant, description: Référence interne ou du tiers }
+  siren:           { type: identifiant, format: "9 chiffres" }
+  siret:           { type: identifiant, format: "14 chiffres" }
+  numero-tva:      { type: identifiant, format: "FR + 11 caractères" }
+  numero-contrat:  { type: identifiant, description: Numéro de police ou de contrat }
+  numero-compte:   { type: identifiant, description: Numéro de compte bancaire ou de compte-titres }
+  iban:            { type: identifiant, format: IBAN }
+  numero-sinistre: { type: identifiant }
+  immatriculation: { type: identifiant, format: "AA-123-AA" }
+  isin:            { type: identifiant, format: "ISIN 12 caractères" }
+  rum:             { type: identifiant, description: Référence unique de mandat SEPA }
+  numero-dossier:  { type: identifiant, description: Numéro de dossier, d'affaire ou de consultation }
+  version:         { type: identifiant, description: Version d'un document versionné (CGV, DUERP, modèle, procédure) }
+  numero-depot:    { type: identifiant, description: Numéro de dépôt ou d'enregistrement auprès d'un office (INPI, EUIPO) }
+  numero-serie:    { type: identifiant, description: Numéro de série d'un matériel ou d'une licence }
+  numero-recommande: { type: identifiant, description: Numéro de suivi d'un envoi recommandé, papier ou électronique }
+
+  # --- montants et quantités -------------------------------------------------
+  montant-ht:      { type: decimal, unite: EUR }
+  montant-tva:     { type: decimal, unite: EUR }
+  montant-ttc:     { type: decimal, unite: EUR }
+  montant:         { type: decimal, unite: EUR, description: Montant unique, quand la ventilation HT/TVA ne s'applique pas. Pour un bulletin de paie, le net à payer }
+  devise:          { type: enum, valeurs: [EUR, USD, GBP, CHF, autre] }
+  taux:            { type: decimal, unite: "%" }
+  plafond-garantie: { type: decimal, unite: EUR, description: Plafond de garantie ou capital assuré }
+  franchise:       { type: decimal, unite: EUR, description: Franchise restant à la charge de l'entreprise }
+  coefficient:     { type: decimal, description: Coefficient sans unité (bonus-malus, coefficient de réduction-majoration) }
+  quantite:        { type: decimal, description: Nombre de titres, de parts ou d'unités }
+  cours:           { type: decimal, unite: EUR, description: Prix unitaire d'un titre ou d'une part }
+  effectif:        { type: entier, description: Nombre de personnes concernées }
+  surface:         { type: decimal, unite: "m2" }
+
+  # --- qualification ---------------------------------------------------------
+  objet:           { type: texte, description: Objet du document en quelques mots }
+  nature:          { type: texte, description: Nature de l'acte ou de l'opération }
+  lieu:            { type: texte, description: Ville ou site concerné }
+  adresse:         { type: texte, description: Adresse complète }
+  adresse-publique: { type: texte, description: Adresse publique d'un portefeuille ou d'un compte sur registre distribué }
+  chantier:        { type: texte, description: Désignation ou adresse du chantier }
+  designation:     { type: texte, description: Désignation d'un bien, d'un actif ou d'une ligne }
+  support:         { type: texte, description: Support de placement ou d'épargne }
+  intitule-poste:  { type: texte }
+  motif:           { type: texte, description: Motif invoqué (absence, refus, rejet, suppression) }
+  statut:          { type: enum, valeurs: [projet, signe, accepte, refuse, clos, en-cours] }
+  statut-facture:  { type: enum, valeurs: [deposee, rejetee, encaissee, annulee], description: Statut de cycle de vie d'une facture électronique }
+  sens:            { type: enum, valeurs: [entrant, sortant] }
+  methode-valorisation: { type: enum, valeurs: [fifo, cump, cours-de-cloture, valeur-liquidative, autre], description: Méthode de valorisation ou de calcul du prix de revient }
+  intention-detention: { type: enum, valeurs: [court-terme, durable, participation] }
+  confidentiel:    { type: booleen, description: Le document porte une mention de confidentialité }

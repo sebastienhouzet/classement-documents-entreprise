@@ -1,3 +1,20 @@
+---
+schema: classement-documents/3.0
+id: "05"
+parent: null
+niveau: domaine
+titre: "05 - Banque & financement"
+usage: >-
+  Les relations avec les banques et tous les financements de l'entreprise : comptes, emprunts,
+  aides et subventions, investisseurs, moyens de paiement, garanties.
+classement: par-tiers
+sensibilite: confidentielle
+documents: []
+va-ailleurs:
+  - motif: "Comptes à terme, titres, contrats de capitalisation, crypto-actifs, SCPI, participations"
+    vers: "08"
+---
+
 # 05 - Banque & financement
 
 > Chemin : `05 - BANQUE & FINANCEMENT`

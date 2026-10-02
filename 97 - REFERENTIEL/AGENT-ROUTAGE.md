@@ -11,6 +11,13 @@ Le second mode divise le coût par environ six, au prix d'un aller-retour.
 
 Ne lire le `index.md` d'un dossier que si la table ne suffit pas à trancher. C'est l'exception.
 
+**Deux fichiers complètent celui-ci**, et se lisent par fragments plutôt qu'en entier :
+`referentiel/dossiers.json` (compilé des en-têtes YAML des 78 `index.md`) donne, dossier par dossier,
+les typologies documentaires, les champs à extraire, les gabarits de nom et les durées — c'est ce
+qu'on lit à l'étape 6, pour un seul identifiant ; `97 - REFERENTIEL/champs.yaml` définit chaque champ
+une fois pour toutes, avec son type et son format attendus. L'en-tête de chaque `index.md` porte les
+mêmes données au plus près du dossier.
+
 ## Procédure
 
 1. **Identifier le type de document**, pas son sujet. Une facture d'avocat est une facture (`04.3`),
@@ -22,17 +29,34 @@ Ne lire le `index.md` d'un dossier que si la table ne suffit pas à trancher. C'
    écrits pour trancher exactement ces cas. La section « Pièges » couvre les confusions coûteuses.
 5. **Construire le chemin** : `<dossier de tête>/<code> - <nom>/` + le motif de la colonne `chemin`,
    en remplaçant les variables par ce que dit le document (tiers, année, mois, objet).
-   **Si une variable du motif est absente du document**, écrire `_INCONNU` à sa place, plafonner la
-   confiance à 0,65 et router en `00` avec le motif `variable de chemin manquante : <nom>`. Ne jamais
-   inventer un nom de tiers, de banque ou d'assureur qui n'est pas écrit sur le document : c'est
-   ainsi qu'un même assureur finit sous trois orthographes.
-6. **Nommer le fichier** : `AAAA-MM-JJ_Type_Tiers_Objet.ext`, quatre segments, pas d'accent ni de
-   caractère spécial, pas de point hors extension. Suffixes utiles : `_signe`, `_copie`, `_projet`.
+   **Si une variable du motif est absente du document**, le dossier reste le bon : écrire `_INCONNU`
+   à sa place dans le chemin, `INCONNU` sans tiret bas dans le nom de fichier (le tiret bas y sépare
+   les segments), plafonner la confiance à 0,70 et ajouter `variable de chemin manquante : <nom>` à
+   `actions`. Ne pas router en `00` pour cette seule raison : `00` est réservé au type de document
+   non reconnu et aux destinations ex æquo. Ne jamais inventer un nom de tiers, de banque ou
+   d'assureur qui n'est pas écrit sur le document : c'est ainsi qu'un même assureur finit sous trois
+   orthographes. Une donnée que le document permet de **calculer** sans ambiguïté — une échéance à
+   partir d'une date de signature et d'une durée écrite — se calcule ; l'interdiction porte sur ce
+   qui s'invente, pas sur ce qui se déduit.
+6. **Qualifier la typologie** en lisant `referentiel/dossiers.json` au seul identifiant retenu :
+   `dossiers[<id>].documents` liste les types de ce dossier, chacun avec sa clé `type`, ses `indices`,
+   les `champs` à extraire, son gabarit `nommage` et sa `conservation`. Renvoyer cette clé dans
+   `type`, et les champs lus dans `champs`. Si aucun type ne correspond, laisser `type` à `null` et
+   plafonner la confiance à 0,65 : le dossier est probablement bon, la pièce est inhabituelle.
+   Un champ de la liste que le document ne porte pas vaut `null` — jamais `_INCONNU`, qui est
+   réservé aux chemins et aux noms de fichiers, et jamais `0`. `champs.yaml` donne le type et le
+   format attendus de chaque champ : un montant est un nombre, une date s'écrit `AAAA-MM-JJ`, une
+   période `AAAA-MM`. Cette lecture ne porte que sur un dossier, pas sur le gabarit entier.
+7. **Nommer le fichier** avec le gabarit `nommage` du type retenu à l'étape 6, qui fait foi — il
+   compte deux, trois ou quatre segments selon la pièce et commence par `{date}`, `{periode}` ou
+   `{exercice}`. Sans type reconnu, appliquer la convention générale `AAAA-MM-JJ_Type_Tiers_Objet`.
+   Dans les deux cas : pas d'accent ni de caractère spécial, pas de point hors extension, le tiret
+   bas sépare les segments. Suffixes utiles : `_signe`, `_copie`, `_projet`.
    **Si le document ne porte pas de date propre**, utiliser la date de l'événement qu'il atteste
-   (réception, période couverte, début de validité) ; à défaut seulement, la date de réception
-   préfixée `r` (`r2026-10-02_...`). La date du scan n'est jamais la date du document, sauf en `00`
-   où elle est la seule disponible.
-7. **Si la confiance est inférieure à 0,7, router vers `00`** avec le motif du doute. Un document mal
+   (période couverte, début de validité, date de l'opération) ; à défaut seulement, la date à
+   laquelle nous l'avons reçu, préfixée `r` (`r2026-10-02_...`). La date du scan n'est jamais la date
+   du document, sauf en `00` où elle est la seule disponible.
+8. **Si la confiance est inférieure à 0,7, router vers `00`** avec le motif du doute. Un document mal
    classé coûte plus cher qu'un document resté dans le sas.
 
 ### Barème de confiance
@@ -41,8 +65,8 @@ Ne lire le `index.md` d'un dossier que si la table ne suffit pas à trancher. C'
 |---|---|
 | 0,95 | Déclencheur littéral, une seule destination possible, toutes les variables du chemin lues |
 | 0,85 | Déclencheur littéral et un arbitrage écrit qui tranche |
-| 0,70 | Déclencheur reconnu par synonyme, ou type certain mais une variable de chemin manquante |
-| < 0,70 | Deux destinations plausibles sans arbitrage écrit, ou type de document non reconnu |
+| 0,70 | Déclencheur reconnu par synonyme, ou dossier certain mais une variable de chemin manquante, ou aucune typologie du dossier ne correspond à la pièce |
+| < 0,70 | Deux destinations plausibles sans arbitrage écrit, ou type de document non reconnu — seuls ces deux cas partent en `00` |
 
 ## Règles invariantes
 
@@ -56,10 +80,15 @@ Ne lire le `index.md` d'un dossier que si la table ne suffit pas à trancher. C'
   le dossier du document qu'il modifie**, jamais dans un dossier à lui.
 - **Une attestation, une pièce de vigilance ou un certificat fourni par un tiers va dans le dossier
   de ce tiers**, à la destination où son contrat est classé. Nos propres attestations suivent la
-  règle inverse : l'original dans son domaine, une copie à jour dans `97`.
-- La colonne `reg` dit quel registre *peut* être concerné ; ne le renseigner que si le document
+  règle inverse : l'original dans son domaine, une copie à jour dans `97.1` (Kit administratif).
+- `registre` est une **liste** : un contrat de prêt envoyé en recommandé en alimente deux. Les noms
+  à renvoyer sont ceux des fichiers, tels que `dossiers.json` les écrit
+  (`Registre-des-contrats.csv`, `Registre-des-recommandes.csv`…), et non les libellés abrégés de la
+  colonne `reg`. La colonne `reg` dit quel registre *peut* être concerné ; ne le renseigner que si le document
   **crée ou modifie un engagement** (contrat, avenant, souscription, résiliation, garantie). Une
-  simple attestation ou un relevé ne crée rien. Les registres existants : `contrats`, `assurances`,
+  simple attestation ou un relevé ne crée rien. Le registre des recommandés fait exception : il est
+  global, et tout document parti ou arrivé en recommandé y est inscrit, même s'il ne crée aucun
+  engagement — une mise en demeure reçue, par exemple. Les registres existants : `contrats`, `assurances`,
   `immobilisations`, `matériel`, `placements`, `recommandés` (global : tout envoi ou réception
   recommandé y est inscrit, quel que soit le dossier de classement), `archives`, `tableau de
   gestion`.
@@ -162,7 +191,7 @@ Colonnes : `code|nom|cles|chemin|cons|reg|arb`
 ### 05 - BANQUE & FINANCEMENT
 
 ```
-05.1|Comptes bancaires|relevé de compte, relevé bancaire, convention de compte, RIB, IBAN, procuration bancaire, habilitation, KYC bancaire, agios, échelle d'intérêts, clôture de compte, attestation de solde|Banque - Type de compte/Releves/AAAA/|10a|-|compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5
+05.1|Comptes bancaires|relevé de compte, relevé bancaire, convention de compte, RIB, IBAN, procuration bancaire, habilitation, KYC bancaire, agios, échelle d'intérêts, clôture de compte, attestation de solde|Banque - Type de compte/Releves/AAAA/|10a|-|compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5 ; un relevé ordinaire ne qualifie pas le type de compte : écrire « Compte courant » par défaut, et ne réserver _INCONNU qu'au cas où la banque elle-même n'est pas lisible
 05.2|Emprunts & crédits|contrat de prêt, offre de prêt, tableau d'amortissement d'emprunt, PGE, prêt d'honneur, crédit-bail financier, affacturage, Dailly, découvert autorisé, assurance emprunteur, remboursement anticipé, mainlevée|AAAA - Établissement - Objet - Montant/|10a|contrats|caution ou nantissement adossé → 05.6 ; relevé du compte débité → 05.1
 05.3|Aides & subventions|subvention, convention de subvention, Bpifrance, ADEME, fonds européens, conseil régional, CIR, CII, JEI, 2069-A, aide à l'embauche, ASP, demande de versement, rapport d'avancement|AAAA - Organisme - Dispositif/|10a après dernier versement|-|prêt à rembourser → 05.2 ; levée de fonds privée → 05.4
 05.4|Investisseurs & levées de fonds|term sheet, lettre d'intention, contrat d'investissement, BSA-AIR, obligation convertible, bulletin de souscription de NOS titres, attestation de dépôt des fonds, due diligence de NOTRE levée, data room de NOTRE levée, reporting investisseurs, closing|AAAA - Nom de l'opération/|permanent|-|pacte d'associés de NOTRE société → 01.6 ; subvention publique → 05.3
@@ -200,7 +229,7 @@ Colonnes : `code|nom|cles|chemin|cons|reg|arb`
 ```
 08.1|Politique de placement & décisions|politique de placement, note de décision d'investissement, intention de détention, mandat de gestion, convention de conseil en investissement, profil de risque, rapport d'adéquation, questionnaire de connaissance, arbitrage de portefeuille|Decisions/AAAA/ | Intermediaires/Nom/|permanent|-|le contrat du placement → sous-dossier de sa ligne, 08.2 à 08.8
 08.2|Placements bancaires|compte à terme, CAT, DAT, dépôt à terme, compte sur livret, bon de caisse, intérêts courus d'une ligne, pénalité de sortie anticipée, dénouement|AAAA - Banque - Support - Montant - Échéance/|10a après dénouement|placements|compte courant d'exploitation → 05.1 ; CAT nanti → garantie dans 05.6
-08.3|Comptes-titres & valeurs mobilières|compte-titres, avis d'opéré, achat de titres, vente de titres, action, obligation, OPCVM, SICAV, FCP, ETF, ISIN, dividende, coupon, DIC, PRIIPS, dépréciation de titres, bordereau de transfert|Établissement - N° de compte/Avis d'opere/AAAA/|détention + 10a|placements|titre de participation non coté → 08.8 ; SCPI → 08.6 ; fonds non coté → 08.7
+08.3|Comptes-titres & valeurs mobilières|compte-titres, avis d'opéré, achat de titres, vente de titres, action, obligation, OPCVM, SICAV, FCP, ETF, ISIN, dividende, coupon, DIC, PRIIPS, dépréciation de titres, bordereau de transfert|Établissement - N° de compte/Avis d'opere/AAAA/|détention + 10a|placements|titre de participation non coté → 08.8 ; SCPI → 08.6 ; fonds non coté → 08.7 ; un avis d'opéré portant un cours et une date d'exécution désigne un titre négocié sur un marché : il va en 08.3 quel que soit le mot « fonds » dans le libellé du support, car 08.7 ne reçoit pas d'avis d'opéré mais des bulletins de souscription et des appels de capitaux
 08.4|Contrats de capitalisation|contrat de capitalisation, bulletin de souscription d'un contrat de capitalisation, unité de compte, fonds en euros, arbitrage, rachat partiel, rachat total, imposition annuelle forfaitaire, taux de référence|Assureur - N° de contrat/|durée + 10a|placements|assurances de l'entreprise → 06 ; prévoyance → 06.4
 08.5|Crypto-actifs|crypto, crypto-actif, bitcoin, ether, stablecoin, jeton, actif numérique, PSCA, MiCA, PSAN, export de transactions, historique de transactions, portefeuille, wallet, adresse publique, staking, airdrop, valeur vénale|Prestataire ou portefeuille/Exports/AAAA/ | Consolidation/AAAA/|sans purge tant que détenu|placements|clés privées et phrases de récupération : JAMAIS ici ; matériel de minage → 04.3
 08.6|Immobilier de placement & SCPI|SCPI, OPCI, bulletin de souscription de parts de SCPI, part de SCI, immeuble de rapport, prix de retrait, bulletin trimestriel, relevé de distribution, société de gestion, acte notarié d'investissement|SCPI - Nom | SCI - Nom | Immeuble - Adresse/|permanent pour les actes|placements|local occupé par l'entreprise → 02.4 ; immeuble d'exploitation → 04.5
@@ -248,7 +277,9 @@ Colonnes : `code|nom|cles|chemin|cons|reg|arb`
 - **Courrier recommandé.** S'il concerne un dossier existant, il va dans ce dossier. `07.2` ne
   reçoit que le courrier général et le registre des recommandés.
 - **Attestation en cours de validité.** L'original va dans son domaine (`03.4` pour l'URSSAF, `06.1`
-  pour la RC Pro) ; une copie va dans `97`, qui ne garde que la version du moment.
+  pour la RC Pro) ; une copie va dans le Kit administratif, dont l'identifiant est `97.1` et non
+  `97` — le domaine `97` ne reçoit aucune pièce d'entreprise. Le kit ne garde que la version du
+  moment : la copie précédente est remplacée, pas archivée.
 - **Avis d'opéré de titres.** Conservé tant que la ligne est détenue : c'est lui qui porte le prix de
   revient. Ne jamais le proposer à la suppression.
 - **Document dont la durée est écoulée.** Il ne part pas directement en `99` : il passe par `98`
@@ -260,11 +291,11 @@ Mesuré sur ce fichier, estimation à 10 % près.
 
 | Ce qu'on charge | Tokens |
 |---|---|
-| Le fichier entier | ~10074 |
-| Tout sauf la table (procédure, règles, aiguillage, pièges, sortie) | ~3236 |
-| La table entière | ~6838 |
+| Le fichier entier | ~11675 |
+| Tout sauf la table (procédure, règles, aiguillage, pièges, sortie) | ~4696 |
+| La table entière | ~6979 |
 | Le plus gros bloc de domaine | ~1094 |
-| **Mode deux temps : tout sauf la table, puis un bloc** | **~4330 au pire** |
+| **Mode deux temps : tout sauf la table, puis un bloc** | **~5790 au pire** |
 
 En préfixe stable d'un prompt, le fichier entier est mis en cache : le coût réel après le premier
 appel tombe à une fraction de ces chiffres. Le mode deux temps n'a d'intérêt que sans cache, ou
@@ -279,30 +310,41 @@ Cas simple, une facture reçue :
   "dossier": "04.3",
   "chemin": "04 - COMPTABILITE & FISCALITE/04.3 - Factures fournisseurs/2026/2026-03",
   "nom_fichier": "2026-03-04_Facture_Hebergeur-Alpha_Hebergement-mars-2026.pdf",
+  "type": "facture-fournisseur",
+  "declencheur": "cloture-exercice",
+  "champs": {"date": "2026-03-04", "fournisseur": "Hebergeur Alpha", "numero": "F-2026-0310",
+             "montant-ht": 240.00, "montant-ttc": 288.00},
+  "sort_final": "D",
   "confiance": 0.95,
   "motif": "mentions TVA et numero de facture, emetteur tiers, a notre nom",
   "conservation": "10a",
-  "registre": null,
+  "registre": [],
   "echeances": [],
   "copies": [],
   "actions": []
 }
 ```
 
-Cas avec copie obligatoire, une attestation que nous recevons de notre assureur :
+Cas avec une variable de chemin manquante et une copie obligatoire : une attestation reçue de notre
+assureur, dont le numéro de contrat n'est écrit nulle part sur la page.
 
 ```json
 {
   "dossier": "06.1",
-  "chemin": "06 - ASSURANCES/06.1 - Responsabilite civile professionnelle/<Assureur> - <N contrat>",
-  "nom_fichier": "2026-01-15_Attestation_Assureur-Alpha_RC-Pro-2026.pdf",
+  "chemin": "06 - ASSURANCES/06.1 - Responsabilite civile professionnelle/Assureur-Alpha - _INCONNU",
+  "nom_fichier": "2026_Attestation-RC-pro_Assureur-Alpha.pdf",
+  "type": "attestation-rc-pro",
+  "champs": {"exercice": "2026", "assureur": "Assureur Alpha", "numero-contrat": null,
+             "objet": "Responsabilite civile professionnelle", "echeance": "2026-12-31"},
+  "sort_final": "D",
   "confiance": 0.70,
-  "motif": "attestation RC Pro ; assureur et numero de contrat absents du document",
-  "conservation": "10a apres fin",
-  "registre": null,
+  "motif": "attestation RC Pro ; numero de contrat absent du document, le dossier reste 06.1",
+  "conservation": "2a",
+  "declencheur": "fin-contrat",
+  "registre": [],
   "echeances": [{"type": "validite", "date": "2026-12-31"}],
-  "copies": [{"dossier": "97", "chemin": "97 - REFERENTIEL/Kit administratif"}],
-  "actions": ["variable de chemin manquante"]
+  "copies": [{"dossier": "97.1", "chemin": "97 - REFERENTIEL/Kit administratif"}],
+  "actions": ["variable de chemin manquante : N contrat"]
 }
 ```
 
@@ -312,21 +354,34 @@ Cas de repli, un scan multi-documents :
 {
   "dossier": "00",
   "chemin": "00 - INBOX/Scans bruts",
-  "nom_fichier": "r2026-10-02_Scan_Interne_38-pages-a-decouper.pdf",
+  "nom_fichier": "r2026-10-02_Document-entrant_Interne_38-pages-a-decouper.pdf",
+  "type": "document-entrant-non-classe",
+  "champs": {"date": "2026-10-02", "emetteur": "Interne", "sens": "entrant",
+             "objet": "38 pages a decouper"},
+  "sort_final": "D",
   "confiance": 0.98,
   "motif": "contient une facture, deux releves bancaires et un courrier : un fichier = un document",
-  "conservation": "sas, 30j max",
-  "registre": null,
+  "conservation": "aucune",
+  "declencheur": "aucun",
+  "registre": [],
   "echeances": [],
   "copies": [],
   "actions": ["a_decouper"]
 }
 ```
 
-`conservation` reprend la valeur de la colonne `cons`, ou celle qu'un arbitrage impose en exception.
-`registre` ne porte un nom que si le document crée ou modifie un engagement, sinon `null`.
+`type` est la clé du type documentaire lu à l'étape 6, ou `null` si aucune ne correspond.
+`champs` reprend exactement les noms déclarés par ce type, un champ absent du document valant `null`.
+`conservation` est le **minimum légal** du type (`conservation.legale` dans `dossiers.json`), écrit
+tel quel (`10a`, `5a`, `permanent`), et `declencheur` dit à partir de quand il court. La colonne
+`cons` de la table donne la même information en français au niveau du dossier : elle sert à la
+première passe, pas à la sortie. Sans type reconnu, reprendre la colonne `cons`.
+`sort_final` vaut `C` (conserver définitivement), `D` (détruire au terme) ou `T` (trier à l'échéance),
+et se lit dans `conservation.sort-final` du type. Il n'est jamais déduit du dossier.
+`registre` est une liste de noms de fichiers de registres, vide quand le document n'en alimente aucun.
 `echeances` est une liste, car un même document peut en porter plusieurs ; `type` est pris dans
-`contrat`, `preavis`, `placement`, `validite`, `paiement`, `garantie`, `retention`, `purge`.
+`contrat`, `preavis`, `placement`, `validite`, `paiement`, `garantie`, `retention`, `purge`,
+`declaration` (un délai légal pour déclarer), `mise-a-jour` (une révision périodique obligatoire).
 `copies` liste les destinations où une copie suffixée `_copie` doit être déposée.
 `actions` est prise dans `a_decouper`, `a_renommer`, `variable de chemin manquante`,
 `alerte_secret` (le document contient un mot de passe ou une clé : ne pas le classer).

@@ -1,3 +1,62 @@
+---
+schema: classement-documents/3.0
+id: "01.2"
+parent: "01"
+niveau: sous-dossier
+titre: "01.2 - Statuts & modifications"
+usage: >-
+  L'historique complet des statuts : chaque version consolidée, et pour chaque modification, la
+  décision et les formalités qui l'accompagnent (annonce légale, dépôt au greffe, Kbis mis à
+  jour).
+classement: par-operation
+sensibilite: normale
+documents:
+  - type: statuts-a-jour
+    libelle: Statuts mis à jour
+    description: "Version consolidée des statuts après une modification, certifiée conforme par le dirigeant."
+    indices: [statuts a jour, statuts modifies, version consolidee, certifie conforme, statuts en vigueur]
+    champs: [date, objet, signataire, date-effet]
+    nommage: "{date}_Statuts-a-jour_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: radiation-societe
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: null
+  - type: formalite-modification-greffe
+    libelle: Formalité de modification au greffe
+    description: "Formulaire de modification (M2 ou guichet unique), récépissé du greffe et Kbis postérieur à la modification."
+    indices: [m2, guichet unique, recepisse greffe, kbis apres modification, transfert de siege, changement de denomination, transformation]
+    champs: [date, organisme, objet, nature, siren]
+    nommage: "{date}_Formalite-modification_{organisme}_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: radiation-societe
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: null
+  - type: annonce-legale-modification
+    libelle: Annonce légale de modification
+    description: "Avis publié au journal d'annonces légales pour une modification statutaire, et attestation de parution."
+    indices: [annonce legale de modification, "journal d'annonces legales", attestation de parution, publicite legale, "changement d'objet"]
+    champs: [date, emetteur, objet, montant]
+    nommage: "{date}_Annonce-legale_{emetteur}_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: radiation-societe
+      base: Code civil art. 2224
+      sort-final: C
+    registre: null
+va-ailleurs:
+  - motif: "PV d'AG originaux"
+    vers: "01.3"
+  - motif: Registre des décisions
+    vers: "01.4"
+---
+
 # 01.2 - Statuts & modifications
 
 > Chemin : `01 - JURIDIQUE & GOUVERNANCE/01.2 - Statuts & modifications`

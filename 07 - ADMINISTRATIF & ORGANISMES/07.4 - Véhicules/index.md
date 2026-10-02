@@ -1,3 +1,89 @@
+---
+schema: classement-documents/3.0
+id: "07.4"
+parent: "07"
+niveau: sous-dossier
+titre: 07.4 - Véhicules
+usage: >-
+  Chaque véhicule détenu ou loué par l'entreprise : documents d'immatriculation, contrat de
+  location, entretien, contrôle technique, amendes.
+classement: par-tiers
+sensibilite: normale
+documents:
+  - type: certificat-immatriculation-vehicule
+    libelle: "Certificat d'immatriculation"
+    description: "Carte grise du véhicule détenu ou loué par l'entreprise."
+    indices: [carte grise, immatriculation, certificat, vehicule]
+    champs: [date, immatriculation, designation, tiers]
+    nommage: "{date}_Carte-grise_{immatriculation}_{designation}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: sortie-bien
+      base: Code de commerce L123-22
+      sort-final: D
+    registre: null
+  - type: certificat-cession-vehicule
+    libelle: Certificat de cession de véhicule
+    description: "Certificat de cession établi à l'achat et à la revente du véhicule, preuve du transfert de propriété."
+    indices: [certificat de cession, revente du vehicule, achat du vehicule, transfert de propriete]
+    champs: [date, immatriculation, tiers, montant, date-effet]
+    nommage: "{date}_Certificat-de-cession_{immatriculation}_{tiers}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: sortie-bien
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: null
+  - type: controle-technique-vehicule
+    libelle: Procès-verbal de contrôle technique
+    description: "Procès-verbal de contrôle technique du véhicule, avec la date de la visite suivante."
+    indices: [controle technique, visite technique, proces-verbal de controle, contre-visite]
+    champs: [date, immatriculation, prestataire, echeance]
+    nommage: "{date}_Controle-technique_{immatriculation}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: sortie-bien
+      base: Code de commerce art. L.123-22
+      sort-final: D
+    registre: null
+  - type: entretien-reparation-vehicule
+    libelle: Entretien et réparation du véhicule
+    description: "Carnet d'entretien et copies des factures d'entretien et de réparation du véhicule. Les originaux restent en 04.3."
+    indices: ["carnet d'entretien", entretien du vehicule, reparation, revision, pneumatiques]
+    champs: [date, immatriculation, fournisseur, designation, montant-ht]
+    nommage: "{date}_Entretien-vehicule_{immatriculation}_{designation}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: sortie-bien
+      base: Code de commerce art. L.123-22
+      sort-final: D
+    registre: null
+  - type: avis-contravention-vehicule
+    libelle: Avis de contravention et désignation du conducteur
+    description: "Avis de contravention reçu par la société et preuve de la désignation du conducteur, obligatoire sous 45 jours sous peine d'amende majorée."
+    indices: [amende, avis de contravention, designation du conducteur, amende majoree, antai]
+    champs: [date, immatriculation, organisme, montant, salarie]
+    nommage: "{date}_Avis-de-contravention_{immatriculation}"
+    conservation:
+      legale: 3a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code de la route art. L.121-6
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: Assurance du véhicule
+    vers: "06.3"
+  - motif: "Constat d'accident et sinistre"
+    vers: "06.7"
+  - motif: Indemnités kilométriques (véhicules personnels)
+    vers: "04.4"
+---
+
 # 07.4 - Véhicules
 
 > Chemin : `07 - ADMINISTRATIF & ORGANISMES/07.4 - Véhicules`

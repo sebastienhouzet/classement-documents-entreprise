@@ -1,3 +1,74 @@
+---
+schema: classement-documents/3.0
+id: "03.4"
+parent: "03"
+niveau: sous-dossier
+titre: 03.4 - Organismes sociaux
+usage: >-
+  La relation avec chaque organisme social : immatriculations, attestations, courriers,
+  contrôles, échéanciers, adhésions.
+classement: par-tiers
+sensibilite: rh
+documents:
+  - type: attestation-vigilance-entreprise
+    libelle: Notre attestation de vigilance URSSAF
+    description: "Attestation de vigilance délivrée à l'entreprise par l'URSSAF, remise à ses clients et donneurs d'ordre."
+    indices: [attestation de vigilance, urssaf, vigilance, régularité sociale, "donneur d'ordre"]
+    champs: [date, organisme, numero, date-fin]
+    nommage: "{date}_Attestation-vigilance_{organisme}"
+    conservation:
+      legale: 6a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code du travail L8222-1
+      sort-final: D
+    registre: null
+  - type: controle-urssaf
+    libelle: Dossier de contrôle URSSAF
+    description: "Avis de contrôle, lettre d'observations, réponses de l'entreprise et mise en recouvrement."
+    indices: [contrôle urssaf, "lettre d'observations", mise en demeure, rescrit social, redressement]
+    champs: [date, organisme, numero-dossier, objet, montant]
+    nommage: "{date}_Controle_{organisme}_{numero-dossier}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: date-document
+      base: Code de la sécurité sociale L243-7
+      sort-final: C
+    registre: null
+  - type: due-regime-social
+    libelle: DUE ou accord mettant en place un régime social
+    description: "Décision unilatérale de l'employeur ou accord instituant la prévoyance et la mutuelle, et les notices d'information remises aux salariés."
+    indices: [due, décision unilatérale, mutuelle obligatoire, prévoyance, "notice d'information"]
+    champs: [date, organisme, assureur, objet, date-effet]
+    nommage: "{date}_DUE_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-contrat
+      base: Code de la sécurité sociale L243-16
+      sort-final: C
+    registre: null
+  - type: adhesion-organisme-social
+    libelle: Adhésion ou immatriculation à un organisme social
+    description: "Immatriculation URSSAF, adhésion AGIRC-ARRCO, SPST, OPCO, affiliation SSI du dirigeant."
+    indices: [adhésion, immatriculation, agirc-arrco, opco, spst, médecine du travail, ssi]
+    champs: [date, organisme, numero, reference, date-effet]
+    nommage: "{date}_Adhesion_{organisme}"
+    conservation:
+      legale: 6a
+      recommandee: permanent
+      declencheur: date-document
+      base: Code de la sécurité sociale L243-16
+      sort-final: C
+    registre: null
+va-ailleurs:
+  - motif: Bordereaux mensuels de cotisations
+    vers: "03.3"
+  - motif: "Contrats d'assurance mutuelle et prévoyance"
+    vers: "06.4"
+---
+
 # 03.4 - Organismes sociaux
 
 > Chemin : `03 - RESSOURCES HUMAINES/03.4 - Organismes sociaux`

@@ -1,3 +1,18 @@
+---
+schema: classement-documents/3.0
+id: "97"
+parent: null
+niveau: systeme
+titre: 97 - Référentiel
+usage: >-
+  Ce dossier décrit le système de classement lui-même : la convention de nommage, le tableau des
+  durées de conservation et le « kit administratif » (les attestations à jour que l'on transmet
+  régulièrement aux clients, banques ou administrations).
+classement: alphabetique
+sensibilite: normale
+documents: []
+---
+
 # 97 - Référentiel
 
 > Chemin : `97 - REFERENTIEL`

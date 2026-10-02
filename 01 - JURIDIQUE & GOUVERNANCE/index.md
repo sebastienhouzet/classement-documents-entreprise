@@ -1,3 +1,17 @@
+---
+schema: classement-documents/3.0
+id: "01"
+parent: null
+niveau: domaine
+titre: "01 - Juridique & gouvernance"
+usage: >-
+  Tout ce qui concerne l'existence légale de la société, ses organes de décision, ses associés,
+  sa propriété intellectuelle, sa conformité et ses litiges.
+classement: alphabetique
+sensibilite: confidentielle
+documents: []
+---
+
 # 01 - Juridique & gouvernance
 
 > Chemin : `01 - JURIDIQUE & GOUVERNANCE`

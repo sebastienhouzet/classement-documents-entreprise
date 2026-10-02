@@ -1,3 +1,92 @@
+---
+schema: classement-documents/3.0
+id: "08.5"
+parent: "08"
+niveau: sous-dossier
+titre: 08.5 - Crypto-actifs
+usage: >-
+  Crypto-actifs détenus par l'entreprise : bitcoin, ether, stablecoins, jetons. Preuve
+  d'agrément du prestataire, inventaire des portefeuilles, exports de transactions,
+  valorisations de clôture et incidents. Aucun secret d'accès n'est stocké ici.
+classement: par-tiers
+sensibilite: confidentielle
+documents:
+  - type: verification-agrement-prestataire-crypto
+    libelle: "Vérification de l'agrément du prestataire"
+    description: "Preuve de l'agrément MiCA du prestataire de services sur crypto-actifs, consultée sur le registre de l'AMF ou de l'ESMA, avec la date de consultation. Le régime PSAN a pris fin le 1er juillet 2026."
+    indices: [mica, psca, agrement, amf, esma, psan, registre des prestataires]
+    champs: [date, plateforme, reference, numero, date-consultation]
+    nommage: "{date}_Verification-agrement-crypto_{plateforme}"
+    conservation:
+      legale: aucune
+      recommandee: 10a
+      declencheur: cession-ligne
+      base: Règlement européen MiCA
+      sort-final: D
+    registre: null
+  - type: export-transactions-crypto
+    libelle: "Export de l'historique des transactions"
+    description: "Export CSV ou API de l'historique complet d'une plateforme — achats, ventes, échanges, frais, transferts entre portefeuilles, staking, airdrops. À produire à chaque clôture et avant tout changement de prestataire."
+    indices: [export de transactions, historique de transactions, staking, airdrop, transfert entre portefeuilles, frais de plateforme]
+    champs: [date, plateforme, periode, designation, quantite, methode-valorisation]
+    nommage: "{date}_Export-transactions-crypto_{plateforme}_{periode}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cession-ligne
+      base: Code de commerce art. L.123-22
+      sort-final: D
+    registre: null
+  - type: inventaire-portefeuilles-crypto
+    libelle: Inventaire des portefeuilles
+    description: "Inventaire des portefeuilles détenus — type (plateforme ou auto-hébergé), adresse publique, actifs détenus, accès. Jamais de clé privée ni de phrase de récupération, seulement l'endroit où elles sont conservées."
+    indices: [inventaire des portefeuilles, portefeuille, wallet, adresse publique, portefeuille froid, auto-heberge]
+    champs: [date, plateforme, designation, adresse-publique, quantite]
+    nommage: "{date}_Inventaire-des-portefeuilles-crypto_{plateforme}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cession-ligne
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: { fichier: Registre-des-placements.csv, cle: designation }
+  - type: valorisation-cloture-crypto
+    libelle: Valorisation des crypto-actifs à la clôture
+    description: "Valorisation à la valeur vénale à la clôture — cours retenus, source du cours et horodatage, méthode de prix de revient appliquée de façon constante, éléments destinés à l'annexe."
+    indices: [valeur venale, cours retenu, source du cours, horodatage, cout unitaire moyen pondere, ecart latent]
+    champs: [date, exercice, designation, cours, montant, methode-valorisation]
+    nommage: "{date}_Valorisation-crypto_{exercice}_{designation}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Règlement ANC 2026-01
+      sort-final: D
+    registre: null
+  - type: incident-crypto
+    libelle: Incident sur crypto-actifs
+    description: "Perte de clés, piratage ou défaillance d'une plateforme — plainte, déclarations, échanges avec le prestataire et pièces de suivi."
+    indices: [perte de cles, piratage, defaillance de la plateforme, plainte, incident]
+    champs: [date, plateforme, designation, montant, motif]
+    nommage: "{date}_Incident-crypto_{plateforme}_{motif}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cession-ligne
+      base: Code de commerce art. L.123-22
+      sort-final: T
+    registre: null
+va-ailleurs:
+  - motif: "Phrases de récupération, clés privées, mots de passe, codes d'authentification : jamais dans ce dossier, ni dans aucun dossier synchronisé. Ils vont dans un gestionnaire de mots de passe ou sur un support hors ligne ; ce dossier n'indique que l'endroit où ils sont conservés"
+    vers: null
+  - motif: Crypto-actifs détenus personnellement par le dirigeant
+    vers: null
+  - motif: "Factures d'achat de matériel"
+    vers: "04.3"
+  - motif: Assurance cyber et sinistre
+    vers: "06.5"
+---
+
 # 08.5 - Crypto-actifs
 
 > Chemin : `08 - PLACEMENTS & PARTICIPATIONS/08.5 - Crypto-actifs`

@@ -1,3 +1,37 @@
+---
+schema: classement-documents/3.0
+id: "99"
+parent: null
+niveau: systeme
+titre: 99 - Suppression
+usage: >-
+  Le sas de sortie, symétrique de l'inbox. On n'y supprime rien : on y dépose ce qu'on propose
+  de supprimer, le temps qu'une personne habilitée valide.
+classement: par-operation
+sensibilite: confidentielle
+documents:
+  - type: proposition-de-suppression
+    libelle: Proposition de suppression
+    description: "Lot proposé à la suppression avec sa Proposition-de-suppression.md — ce qui est proposé, pourquoi, par qui, à quelle date, et la vérification qu'aucun litige, contrôle ou réclamation n'est en cours. Délai de grâce de 30 jours entre le dépôt et la suppression effective, puis traçage dans le registre des archives."
+    indices: [proposition de suppression, duree ecoulee, doublon, purge rgpd, "demande d'effacement", scan illisible]
+    champs: [date, reference, objet, motif, signataire]
+    nommage: "{date}_Proposition-de-suppression_{objet}"
+    conservation:
+      legale: aucune
+      recommandee: 30j
+      declencheur: date-document
+      base: RGPD art. 5.1.e
+      sort-final: D
+    registre: { fichier: Registre-des-archives.csv, cle: reference }
+va-ailleurs:
+  - motif: "Tout ce dont la durée de conservation n'est pas écoulée"
+    vers: "98"
+  - motif: "Les documents à conservation permanente (statuts, PV, registres, bilans, actes de propriété, cessions de titres) : ils ne passent jamais par ici"
+    vers: null
+  - motif: "Les documents concernés par un litige, un contrôle fiscal, une réclamation ou une procédure en cours, même expirés : la suppression est suspendue jusqu'à la clôture de la procédure"
+    vers: null
+---
+
 # 99 - Suppression
 
 > Chemin : `99 - SUPPRESSION`

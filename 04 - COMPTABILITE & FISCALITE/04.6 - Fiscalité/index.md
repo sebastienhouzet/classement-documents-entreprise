@@ -1,3 +1,89 @@
+---
+schema: classement-documents/3.0
+id: "04.6"
+parent: "04"
+niveau: sous-dossier
+titre: 04.6 - Fiscalité
+usage: >-
+  Toutes les déclarations et tous les échanges avec l'administration fiscale : TVA, impôt sur
+  les sociétés, CFE/CVAE, taxes diverses, contrôles fiscaux, rescrits, attestations.
+classement: chronologique
+sensibilite: confidentielle
+documents:
+  - type: declaration-tva
+    libelle: Déclaration de TVA
+    description: "CA3 ou CA12 et son accusé, demande de remboursement de crédit de TVA, état récapitulatif intracommunautaire."
+    indices: [ca3, ca12, déclaration de tva, crédit de tva, deb, emebi]
+    champs: [periode, organisme, numero, montant-ht, montant-tva]
+    nommage: "{periode}_Declaration-TVA"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: date-document
+      base: LPF L102 B
+      sort-final: D
+    registre: null
+  - type: declaration-is
+    libelle: "Déclaration d'impôt sur les sociétés"
+    description: "Relevés d'acomptes 2571, relevé de solde 2572, avis d'imposition et options exercées."
+    indices: ["acompte d'is", "solde d'is", "2571", "2572", "avis d'imposition", report en arrière]
+    champs: [exercice, organisme, numero, montant, echeance]
+    nommage: "{exercice}_Declaration-IS"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: date-document
+      base: LPF L102 B
+      sort-final: D
+    registre: null
+  - type: avis-cfe-cvae
+    libelle: Avis et déclaration CFE / CVAE
+    description: "Avis de CFE, déclaration 1447, CVAE et demandes d'exonération, par année et par établissement."
+    indices: [cfe, cvae, "1447", exonération, avis, établissement]
+    champs: [exercice, organisme, numero, lieu, montant]
+    nommage: "{exercice}_Avis-CFE_{lieu}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: date-document
+      base: LPF L102 B
+      sort-final: D
+    registre: null
+  - type: dossier-controle-fiscal
+    libelle: Dossier de contrôle fiscal
+    description: "Avis de vérification, demandes de renseignements, propositions de rectification, réponses, réclamations, décisions et rescrits."
+    indices: [contrôle fiscal, avis de vérification, proposition de rectification, rescrit, réclamation]
+    champs: [date, organisme, numero-dossier, objet, exercice, montant]
+    nommage: "{date}_Controle-fiscal_{numero-dossier}"
+    conservation:
+      legale: 10a
+      recommandee: permanent
+      declencheur: date-document
+      base: LPF L102 B
+      sort-final: C
+    registre: null
+  - type: attestation-regularite-fiscale
+    libelle: Attestation de régularité fiscale
+    description: "Attestation de régularité fiscale ou de résidence fiscale, classée par date de délivrance."
+    indices: [attestation de régularité fiscale, résidence fiscale, sie, régularité, attestation]
+    champs: [date, organisme, numero, date-fin]
+    nommage: "{date}_Attestation-regularite-fiscale"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: date-document
+      base: LPF L102 B
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: Liasses fiscales
+    vers: "04.1"
+  - motif: Dossiers CIR / CII / JEI complets
+    vers: "05.3"
+  - motif: Calculs de plus-values et valorisations de placements
+    vers: "08.9"
+---
+
 # 04.6 - Fiscalité
 
 > Chemin : `04 - COMPTABILITE & FISCALITE/04.6 - Fiscalité`

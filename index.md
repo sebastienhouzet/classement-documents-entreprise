@@ -7,6 +7,16 @@ administratif, juridique, RH, contrats, assurances, comptabilité, banque, place
 Chaque dossier contient un fichier `index.md` qui explique à quoi il sert, quels documents y ranger,
 comment les classer et combien de temps les conserver.
 
+Ces `index.md` ont deux étages. Un **en-tête YAML**, entre deux lignes `---`, déclare la même chose
+sous forme de données : l'identifiant du dossier, sa méthode de classement, son niveau de
+confidentialité, et la liste des types de documents qu'il accueille — chacun avec les informations à
+en extraire, le gabarit de son nom de fichier et sa durée de conservation. C'est ce que lisent les
+programmes et les agents de classement. En dessous, le **corps Markdown** dit la même chose en
+français, et c'est lui qu'on lit quand on cherche où ranger une pièce. Vous pouvez modifier le corps
+librement ; si vous touchez à l'en-tête, lancez `python3 scripts/lint.py .` pour vérifier qu'il reste
+valide. Le format est décrit dans `97 - REFERENTIEL/schema-index.json` et le vocabulaire des champs
+dans `97 - REFERENTIEL/champs.yaml`.
+
 ## Le cycle de vie d'un document
 
 Tout document suit le même trajet. Il entre par `00 - INBOX`, il est nommé puis rangé dans l'un des huit domaines

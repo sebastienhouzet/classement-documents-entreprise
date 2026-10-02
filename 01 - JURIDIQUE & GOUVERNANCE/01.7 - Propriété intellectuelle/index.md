@@ -1,3 +1,86 @@
+---
+schema: classement-documents/3.0
+id: "01.7"
+parent: "01"
+niveau: sous-dossier
+titre: 01.7 - Propriété intellectuelle
+usage: >-
+  Les actifs immatériels de l'entreprise et la preuve qu'elle en est bien titulaire : marques,
+  noms de domaine, logiciels, créations, et surtout les cessions de droits d'auteur signées par
+  les freelances et prestataires (sans cession écrite, les droits restent à l'auteur).
+classement: par-tiers
+sensibilite: normale
+documents:
+  - type: certificat-enregistrement-marque
+    libelle: "Dépôt et certificat d'enregistrement de marque"
+    description: "Dossier de dépôt et certificat d'enregistrement d'une marque auprès de l'INPI, de l'EUIPO ou de l'OMPI."
+    indices: [marque, inpi, euipo, ompi, depot de marque, "certificat d'enregistrement", classes de produits]
+    champs: [date, numero-depot, organisme, designation, echeance]
+    nommage: "{date}_Certificat-marque_{organisme}_{designation}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-protection
+      base: Code de la propriété intellectuelle
+      sort-final: C
+    registre: null
+  - type: renouvellement-marque
+    libelle: Renouvellement de marque
+    description: "Preuve de renouvellement décennal d'une marque, et pièces d'opposition le cas échéant."
+    indices: [renouvellement de marque, redevance de renouvellement, opposition, echeance decennale, inpi]
+    champs: [date, numero-depot, organisme, echeance, designation]
+    nommage: "{date}_Renouvellement-marque_{designation}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-protection
+      base: Code de la propriété intellectuelle
+      sort-final: C
+    registre: null
+  - type: preuve-propriete-nom-domaine
+    libelle: "Preuve de propriété d'un nom de domaine"
+    description: "Contrat registrar, relevé whois et pièces de transfert attestant la titularité d'un nom de domaine."
+    indices: [nom de domaine, registrar, whois, transfert de domaine, preuve de propriete]
+    champs: [date, designation, fournisseur, echeance]
+    nommage: "{date}_Preuve-propriete-domaine_{designation}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-protection
+      base: Code de la propriété intellectuelle
+      sort-final: C
+    registre: null
+  - type: cession-droits-auteur
+    libelle: "Cession de droits d'auteur"
+    description: "Cession de droits signée par un freelance, une agence ou un prestataire, et licences de contenus concédées ou obtenues."
+    indices: ["cession de droits d'auteur", freelance, developpeur, photographe, titularite, licence de contenu]
+    champs: [date-signature, tiers, objet, designation]
+    nommage: "{date}_Cession-droits-auteur_{tiers}_{designation}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-protection
+      base: Code de la propriété intellectuelle
+      sort-final: C
+    registre: null
+  - type: depot-probatoire
+    libelle: Dépôt probatoire
+    description: "Enveloppe e-Soleau, dépôt APP d'un logiciel ou horodatage servant de preuve d'antériorité."
+    indices: [e-soleau, enveloppe soleau, depot app, horodatage, "preuve d'anteriorite", brevet]
+    champs: [date, numero-depot, organisme, designation]
+    nommage: "{date}_Depot-probatoire_{organisme}_{designation}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: fin-protection
+      base: Code de la propriété intellectuelle
+      sort-final: C
+    registre: null
+va-ailleurs:
+  - motif: Factures de dépôt et de renouvellement
+    vers: "04.3"
+---
+
 # 01.7 - Propriété intellectuelle
 
 > Chemin : `01 - JURIDIQUE & GOUVERNANCE/01.7 - Propriété intellectuelle`

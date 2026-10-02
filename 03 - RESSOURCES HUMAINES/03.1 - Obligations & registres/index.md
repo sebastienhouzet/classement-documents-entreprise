@@ -1,3 +1,69 @@
+---
+schema: classement-documents/3.0
+id: "03.1"
+parent: "03"
+niveau: sous-dossier
+titre: "03.1 - Obligations & registres"
+usage: >-
+  Les documents que l'inspection du travail ou l'URSSAF peuvent demander à tout moment, et les
+  textes collectifs qui s'appliquent à tous les salariés.
+classement: alphabetique
+sensibilite: rh
+documents:
+  - type: registre-unique-personnel
+    libelle: Registre unique du personnel
+    description: "Registre obligatoire dès le premier salarié, fichier vivant et ses exports datés."
+    indices: [registre unique, registre du personnel, personnel, effectif, doeth, index égalité]
+    champs: [date, effectif, objet]
+    nommage: "{date}_Registre-du-personnel_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: depart-salarie
+      base: Code du travail R1221-26
+      sort-final: C
+    registre: null
+  - type: duerp
+    libelle: DUERP et ses versions successives
+    description: "Document unique d'évaluation des risques professionnels, chaque version datée et la preuve de sa mise à disposition."
+    indices: [duerp, document unique, papripact, risques professionnels, prévention]
+    champs: [date, reference, objet, effectif, signataire]
+    nommage: "{date}_DUERP_{reference}"
+    conservation:
+      legale: 40a
+      recommandee: permanent
+      declencheur: date-document
+      base: Code du travail L4121-3-1 et R4121-4
+      sort-final: C
+    registre: null
+  - type: rapport-verification-electrique
+    libelle: Rapport de vérification des installations électriques
+    description: "Rapport de l'organisme accrédité et registre des vérifications périodiques des installations électriques."
+    indices: [vérification électrique, registre de sécurité du personnel, organisme accrédité, installations, contrôle périodique]
+    champs: [date, emetteur, objet, lieu]
+    nommage: "{date}_Verification-electrique_{emetteur}"
+    conservation:
+      legale: 5a
+      recommandee: 5a
+      declencheur: date-document
+      base: Code du travail R4226-19 et D4711-3
+      sort-final: D
+    registre: null
+  - type: accord-collectif-et-reglement-interieur
+    libelle: "Accord d'entreprise, DUE et règlement intérieur"
+    description: "Textes collectifs applicables à tous les salariés, avec leur dépôt sur TéléAccords et les chartes annexées."
+    indices: ["accord d'entreprise", téléaccords, règlement intérieur, convention collective, idcc, décision unilatérale]
+    champs: [date, objet, date-effet, duree, signataire]
+    nommage: "{date}_Accord-entreprise_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: 5a
+      declencheur: fin-contrat
+      base: Code du travail L1311-2
+      sort-final: C
+    registre: null
+---
+
 # 03.1 - Obligations & registres
 
 > Chemin : `03 - RESSOURCES HUMAINES/03.1 - Obligations & registres`

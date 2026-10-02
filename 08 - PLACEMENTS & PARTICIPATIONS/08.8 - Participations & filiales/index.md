@@ -1,3 +1,92 @@
+---
+schema: classement-documents/3.0
+id: "08.8"
+parent: "08"
+niveau: sous-dossier
+titre: "08.8 - Participations & filiales"
+usage: >-
+  Les titres détenus dans d'autres sociétés avec l'intention de les conserver durablement, parce
+  qu'ils donnent le contrôle ou une influence sur l'activité : filiales, sociétés sœurs,
+  participations minoritaires stratégiques, holding.
+classement: par-tiers
+sensibilite: confidentielle
+documents:
+  - type: acte-acquisition-titres-participation
+    libelle: "Acte d'acquisition de titres de participation"
+    description: "Acte d'acquisition ou de souscription des titres d'une société détenue, ordre de mouvement, agrément des associés, audit d'acquisition, garantie d'actif et de passif et acte de cession ultérieur."
+    indices: [titre de participation, "acte d'acquisition", ordre de mouvement, due diligence, "garantie d'actif et de passif", filiale]
+    champs: [date-signature, societe-detenue, designation, quantite, montant, siren]
+    nommage: "{date}_Acte-acquisition-titres_{societe-detenue}_{designation}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: cession-ligne
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: { fichier: Registre-des-placements.csv, cle: designation }
+  - type: convention-intragroupe
+    libelle: Convention intragroupe
+    description: "Convention de prestations de services, de management fees, de trésorerie ou de refacturation intragroupe, avec la justification de la réalité de la prestation et de son prix."
+    indices: [management fees, convention de tresorerie, refacturation intragroupe, prestation de services, realite de la prestation]
+    champs: [date-signature, societe-detenue, montant, taux, objet]
+    nommage: "{date}_Convention-intragroupe_{societe-detenue}_{objet}"
+    conservation:
+      legale: 10a
+      recommandee: permanent
+      declencheur: derniere-operation
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: null
+  - type: attestation-inscription-titres
+    libelle: "Attestation d'inscription en compte"
+    description: "Attestation d'inscription en compte ou extrait du registre des mouvements de titres de la société détenue, et statuts de cette société avec le pacte d'associés le cas échéant."
+    indices: ["attestation d'inscription en compte", registre des mouvements de la societe detenue, statuts de la filiale, "pacte d'associes"]
+    champs: [date, societe-detenue, quantite, numero, siren]
+    nommage: "{date}_Attestation-inscription-titres_{societe-detenue}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: cession-ligne
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: null
+  - type: comptes-annuels-societe-detenue
+    libelle: Comptes annuels et assemblées de la société détenue
+    description: "PV d'assemblée de la société détenue, comptes annuels reçus, rapports de gestion, décisions de distribution et avis de versement de dividendes."
+    indices: [comptes annuels recus, "pv d'assemblee de la filiale", distribution de dividendes, rapport de gestion, tableau des filiales]
+    champs: [date, societe-detenue, exercice, montant, objet]
+    nommage: "{date}_Comptes-annuels-societe-detenue_{societe-detenue}_{exercice}"
+    conservation:
+      legale: 10a
+      recommandee: permanent
+      declencheur: cloture-exercice
+      base: Code de commerce art. R.123-197
+      sort-final: T
+    registre: null
+  - type: convention-compte-courant-filiale
+    libelle: "Compte courant d'associé consenti à la filiale"
+    description: "Convention d'avance en compte courant consentie à une société détenue, échéancier, convention de blocage et calcul des intérêts et du taux maximal déductible."
+    indices: [compte courant consenti a la filiale, convention de blocage, taux maximal deductible, avance en compte courant, echeancier]
+    champs: [date-signature, societe-detenue, montant, taux, echeance]
+    nommage: "{date}_Convention-compte-courant-filiale_{societe-detenue}"
+    conservation:
+      legale: 10a
+      recommandee: permanent
+      declencheur: fin-contrat
+      base: Code de commerce art. L.123-22
+      sort-final: C
+    registre: null
+va-ailleurs:
+  - motif: "Le capital de votre propre société, votre pacte d'associés, vos BSPCE"
+    vers: "01.6"
+  - motif: Titres cotés détenus pour placer la trésorerie
+    vers: "08.3"
+  - motif: Parts de fonds sans influence sur la gestion
+    vers: "08.7"
+  - motif: Levée de fonds dans votre société
+    vers: "05.4"
+---
+
 # 08.8 - Participations & filiales
 
 > Chemin : `08 - PLACEMENTS & PARTICIPATIONS/08.8 - Participations & filiales`

@@ -1,3 +1,74 @@
+---
+schema: classement-documents/3.0
+id: "06.5"
+parent: "06"
+niveau: sous-dossier
+titre: 06.5 - Cyber-risques
+usage: >-
+  L'assurance contre les incidents informatiques : intrusion, rançongiciel, fuite de données,
+  interruption d'activité, frais de notification RGPD.
+classement: par-contrat
+sensibilite: confidentielle
+documents:
+  - type: contrat-assurance-cyber
+    libelle: "Contrat d'assurance cyber-risques"
+    description: "Contrat cyber — conditions, plafonds, exclusions et avenants — intrusion, rançongiciel, fuite de données, interruption d'activité, frais de notification RGPD."
+    indices: [assurance cyber, cyber-risques, rancongiciel, fuite de donnees, "interruption d'activite", frais de notification]
+    champs: [date-effet, assureur, numero-contrat, montant, objet, plafond-garantie, franchise]
+    nommage: "{date}_Contrat-assurance-cyber_{assureur}_{numero-contrat}"
+    conservation:
+      legale: 2a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code des assurances art. L.124-5
+      sort-final: C
+    registre: { fichier: Registre-des-assurances.csv, cle: numero-contrat }
+  - type: questionnaire-securite-cyber
+    libelle: Questionnaire de sécurité du contrat cyber
+    description: "Questionnaire de souscription détaillé décrivant les mesures de sécurité déclarées (sauvegardes, MFA, mises à jour) et ses mises à jour annuelles — l'assureur les vérifie en cas de sinistre."
+    indices: [questionnaire de securite, mesures declarees, sauvegardes, mfa, mises a jour, declaration de risque]
+    champs: [date, assureur, numero-contrat, version, objet]
+    nommage: "{date}_Questionnaire-securite-cyber_{assureur}_{version}"
+    conservation:
+      legale: 2a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code des assurances art. L.114-1
+      sort-final: C
+    registre: null
+  - type: procedure-declaration-sinistre-cyber
+    libelle: Procédure de déclaration et assistance 24/7
+    description: "Procédure de déclaration de sinistre cyber et numéro d'assistance 24/7, à conserver aussi sous forme imprimée."
+    indices: [procedure de declaration, assistance 24/7, "numero d'urgence", cellule de crise, version imprimee]
+    champs: [date, assureur, numero-contrat, reference]
+    nommage: "{date}_Procedure-declaration-cyber_{assureur}"
+    conservation:
+      legale: 2a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code des assurances art. L.124-5
+      sort-final: D
+    registre: null
+  - type: quittance-assurance-cyber
+    libelle: Quittance de prime cyber
+    description: "Quittance ou appel de prime du contrat cyber, attestations et courriers de l'assureur."
+    indices: [quittance cyber, appel de prime, attestation cyber, "avis d'echeance", "courrier de l'assureur"]
+    champs: [periode, assureur, numero-contrat, montant]
+    nommage: "{periode}_Quittance-assurance-cyber_{assureur}"
+    conservation:
+      legale: 2a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code des assurances art. L.114-1
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: Politique de sécurité et charte informatique
+    vers: "01.8"
+  - motif: Incident survenu
+    vers: "06.7"
+---
+
 # 06.5 - Cyber-risques
 
 > Chemin : `06 - ASSURANCES/06.5 - Cyber-risques`

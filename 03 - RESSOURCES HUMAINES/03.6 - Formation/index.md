@@ -1,3 +1,87 @@
+---
+schema: classement-documents/3.0
+id: "03.6"
+parent: "03"
+niveau: sous-dossier
+titre: 03.6 - Formation
+usage: >-
+  Les actions de formation des salariés et du dirigeant : plan de développement des compétences,
+  conventions, convocations, attestations, prises en charge OPCO.
+classement: chronologique
+sensibilite: rh
+documents:
+  - type: convention-de-formation
+    libelle: Convention de formation
+    description: "Convention signée avec l'organisme de formation, son programme et le devis accepté."
+    indices: [convention de formation, organisme de formation, programme, devis accepté, convocation]
+    champs: [date, organisme-formation, objet, montant, date-debut, date-fin]
+    nommage: "{date}_Convention-de-formation_{organisme-formation}_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code du travail L6321-1
+      sort-final: D
+    registre: null
+  - type: attestation-formation
+    libelle: Attestation de fin de formation
+    description: "Attestation de présence, de fin de formation ou certificat individuel, avec une copie au dossier du salarié."
+    indices: [attestation de formation, certificat de formation, émargement, présence, certificat]
+    champs: [date, salarie, organisme-formation, objet]
+    nommage: "{date}_Attestation-de-formation_{salarie}_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: depart-salarie
+      base: Code du travail L6321-1
+      sort-final: D
+    registre: null
+  - type: attestation-formation-securite
+    libelle: Attestation de formation sécurité
+    description: "SST, habilitation électrique, incendie : attestation et date de recyclage."
+    indices: [sst, habilitation électrique, incendie, recyclage, formation obligatoire]
+    champs: [date, salarie, organisme-formation, objet, echeance]
+    nommage: "{date}_Attestation-securite_{salarie}_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: depart-salarie
+      base: Code du travail L6321-1
+      sort-final: C
+    registre: null
+  - type: prise-en-charge-opco
+    libelle: Prise en charge OPCO
+    description: "Demande et accord de prise en charge par l'OPCO, et le remboursement correspondant."
+    indices: [opco, prise en charge, remboursement, financement, dossier]
+    champs: [date, organisme, numero-dossier, montant]
+    nommage: "{date}_Prise-en-charge-OPCO_{organisme}_{numero-dossier}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code du travail L6321-1
+      sort-final: D
+    registre: null
+  - type: plan-developpement-competences
+    libelle: Plan de développement des compétences
+    description: Plan annuel de formation et sa consultation du CSE le cas échéant.
+    indices: [plan de développement des compétences, plan de formation, entretien professionnel, consultation, annuel]
+    champs: [exercice, objet, effectif, montant]
+    nommage: "{exercice}_Plan-de-developpement-des-competences"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code du travail L6321-1
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: Factures de formation
+    vers: "04.3"
+  - motif: "Certification Qualiopi de l'entreprise (si elle est elle-même organisme de formation)"
+    vers: "07.5"
+---
+
 # 03.6 - Formation
 
 > Chemin : `03 - RESSOURCES HUMAINES/03.6 - Formation`

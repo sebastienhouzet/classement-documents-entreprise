@@ -1,3 +1,93 @@
+---
+schema: classement-documents/3.0
+id: "07.3"
+parent: "07"
+niveau: sous-dossier
+titre: "07.3 - Locaux & services généraux"
+usage: >-
+  La vie quotidienne des locaux : sécurité, accès, maintenance, vérifications périodiques,
+  consignes. Le bail est dans 02.4, les contrats de fournisseurs (énergie, ménage, maintenance)
+  dans 02.5 / 02.2, l'assurance dans 06.2 ; ici les documents pratiques et réglementaires liés à
+  l'occupation.
+classement: par-tiers
+sensibilite: normale
+documents:
+  - type: registre-securite-site
+    libelle: Registre de sécurité du site
+    description: "Registre de sécurité d'un site — vérifications des extincteurs, de l'installation électrique et de l'alarme, exercices d'évacuation."
+    indices: [registre de securite, extincteur, alarme, desenfumage, "exercice d'evacuation", consignes de securite]
+    champs: [date, lieu, objet, reference]
+    nommage: "{date}_Registre-de-securite_{lieu}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: fin-occupation
+      base: Code du travail art. R4224-17
+      sort-final: D
+    registre: null
+  - type: rapport-verification-periodique
+    libelle: Rapport de vérification périodique
+    description: "Rapport d'un organisme de contrôle sur une installation du site — électricité, gaz, ascenseur, climatisation — et attestation de conformité correspondante."
+    indices: [verification periodique, rapport de verification, attestation de conformite, ascenseur, installation electrique]
+    champs: [date, prestataire, lieu, objet, echeance]
+    nommage: "{date}_Rapport-de-verification_{prestataire}_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: fin-occupation
+      base: Code du travail art. R4226-16
+      sort-final: D
+    registre: null
+  - type: registre-public-accessibilite
+    libelle: "Registre public d'accessibilité"
+    description: "Registre public d'accessibilité d'un ERP — dispositions prises, attestations, calendrier de maintenance — tenu à l'entrée principale. Distinct du registre de sécurité."
+    indices: ["registre public d'accessibilite", erp, accessibilite, dispositions prises, calendrier de maintenance]
+    champs: [date, lieu, objet, date-effet]
+    nommage: "{date}_Registre-public-accessibilite_{lieu}"
+    conservation:
+      legale: aucune
+      recommandee: 10a
+      declencheur: fin-occupation
+      base: Décret n° 2017-431 du 28 mars 2017
+      sort-final: D
+    registre: null
+  - type: registre-suivi-dechets
+    libelle: Registre de suivi des déchets
+    description: "Registre de suivi des déchets — quantité, nature, origine, destination, mode de traitement — à produire sur demande. Déclarer sur Trackdéchets dispense d'un registre séparé."
+    indices: [registre des dechets, tri 8 flux, trackdechets, mode de traitement, collecteur, valorisation]
+    champs: [date, periode, prestataire, quantite, nature]
+    nommage: "{date}_Registre-des-dechets_{prestataire}"
+    conservation:
+      legale: 3a
+      recommandee: 10a
+      declencheur: date-document
+      base: "Code de l'environnement art. R541-43"
+      sort-final: D
+    registre: null
+  - type: declaration-operat-tertiaire
+    libelle: Déclaration OPERAT
+    description: "Déclaration annuelle sur la plateforme OPERAT pour un site tertiaire de 1 000 m² ou plus, location comprise — année de référence, relevés de consommation, attestation annuelle générée. Échéance au 30 septembre."
+    indices: [operat, decret tertiaire, annee de reference, releve de consommation, attestation annuelle, site tertiaire]
+    champs: [date, lieu, surface, periode, reference]
+    nommage: "{date}_Declaration-OPERAT_{lieu}"
+    conservation:
+      legale: aucune
+      recommandee: 10a
+      declencheur: fin-occupation
+      base: Décret dit « tertiaire » et plateforme OPERAT
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: "Bail, états des lieux, charges"
+    vers: "02.4"
+  - motif: "Contrats énergie, télécom, ménage"
+    vers: "02.5"
+  - motif: Assurance des locaux
+    vers: "06.2"
+  - motif: Matériel
+    vers: "07.6"
+---
+
 # 07.3 - Locaux & services généraux
 
 > Chemin : `07 - ADMINISTRATIF & ORGANISMES/07.3 - Locaux & services généraux`

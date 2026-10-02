@@ -1,3 +1,63 @@
+---
+schema: classement-documents/3.0
+id: "04.5"
+parent: "04"
+niveau: sous-dossier
+titre: 04.5 - Immobilisations
+usage: >-
+  Les biens durables de l'entreprise (matériel informatique, mobilier, véhicules, logiciels,
+  agencements, site web capitalisé) : leur acquisition, leur amortissement et leur sortie.
+classement: par-tiers
+sensibilite: confidentielle
+documents:
+  - type: tableau-amortissement-immobilisation
+    libelle: "Tableau d'amortissement d'une immobilisation"
+    description: "Plan d'amortissement d'un bien durable, le plus souvent fourni par l'expert-comptable. Alimente le registre des immobilisations."
+    indices: [immobilisation, "tableau d'amortissement", amortissement, durée, bien durable]
+    champs: [exercice, designation, fournisseur, montant-ht, duree, date-debut]
+    nommage: "{exercice}_Tableau-amortissement_{designation}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: sortie-bien
+      base: PCG art. 214-1
+      sort-final: D
+    registre: { fichier: Registre-des-immobilisations.csv, cle: designation }
+  - type: contrat-credit-bail-immobilisation
+    libelle: Contrat de crédit-bail ou LOA
+    description: "Contrat de crédit-bail ou de location avec option d'achat portant sur un bien, et la levée d'option."
+    indices: [crédit-bail, loa, "option d'achat", loyer, leasing, "levée d'option"]
+    champs: [date, designation, fournisseur, numero-contrat, montant-ht, duree, echeance]
+    nommage: "{date}_Credit-bail_{fournisseur}_{designation}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: sortie-bien
+      base: Code de commerce L123-22
+      sort-final: D
+    registre: { fichier: Registre-des-immobilisations.csv, cle: designation }
+  - type: sortie-immobilisation
+    libelle: "Sortie d'immobilisation"
+    description: "Cession, mise au rebut, vol ou destruction d'un bien : facture de vente, PV de mise au rebut, attestation de destruction."
+    indices: ["cession d'immobilisation", mise au rebut, destruction, vol, sortie du bien]
+    champs: [date, designation, tiers, motif, montant-ht]
+    nommage: "{date}_Sortie-immobilisation_{designation}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: sortie-bien
+      base: Code de commerce L123-22
+      sort-final: D
+    registre: { fichier: Registre-des-immobilisations.csv, cle: designation }
+va-ailleurs:
+  - motif: Inventaire physique et attribution du matériel aux salariés
+    vers: "07.6"
+  - motif: "Véhicules (carte grise, entretien)"
+    vers: "07.4"
+  - motif: "Immobilisations financières (titres, participations, placements durables)"
+    vers: "08"
+---
+
 # 04.5 - Immobilisations
 
 > Chemin : `04 - COMPTABILITE & FISCALITE/04.5 - Immobilisations`

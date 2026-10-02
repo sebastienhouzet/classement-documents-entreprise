@@ -1,3 +1,90 @@
+---
+schema: classement-documents/3.0
+id: "01.8"
+parent: "01"
+niveau: sous-dossier
+titre: 01.8 - Conformité
+usage: >-
+  Les documents qui prouvent que l'entreprise respecte ses obligations réglementaires
+  transverses : RGPD, conditions générales, accessibilité numérique, usage de l'intelligence
+  artificielle, politiques internes.
+classement: alphabetique
+sensibilite: normale
+documents:
+  - type: version-cgv-cgu
+    libelle: Version datée des CGV ou CGU
+    description: "Chaque version des conditions générales de vente ou d'utilisation, avec sa date d'entrée en vigueur."
+    indices: [cgv, cgu, conditions generales de vente, version datee, entree en vigueur, mediateur de la consommation]
+    champs: [date, date-effet, reference, objet]
+    nommage: "{date}_CGV_{reference}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: Code de la consommation art. L213-1
+      sort-final: C
+    registre: null
+  - type: registre-traitements-rgpd
+    libelle: Registre des activités de traitement
+    description: "Registre des traitements et ses exports datés, avec les analyses d'impact et la politique de confidentialité publiée."
+    indices: [rgpd, registre des traitements, aipd, "analyse d'impact", politique de confidentialite, export date]
+    champs: [date, objet, reference, date-effet]
+    nommage: "{date}_Registre-des-traitements_{reference}"
+    conservation:
+      legale: permanent
+      recommandee: 5a
+      declencheur: aucun
+      base: RGPD art. 30
+      sort-final: C
+    registre: null
+  - type: registre-violations-donnees
+    libelle: Registre des violations de données
+    description: "Consignation de toute violation de données, notifiée ou non, avec la justification de la non-notification."
+    indices: [violation de donnees, registre des violations, notification cnil, incident de securite, non-notification]
+    champs: [date, objet, motif, effectif]
+    nommage: "{date}_Registre-des-violations_{objet}"
+    conservation:
+      legale: permanent
+      recommandee: 5a
+      declencheur: aucun
+      base: RGPD art. 33.5
+      sort-final: C
+    registre: null
+  - type: dpa-sous-traitance-donnees
+    libelle: Accord de traitement des données (DPA)
+    description: "Contrat de sous-traitance de données signé avec un prestataire qui traite des données pour l'entreprise."
+    indices: [dpa, accord de traitement, sous-traitance de donnees, article 28, clauses contractuelles types]
+    champs: [date-signature, fournisseur, objet, duree]
+    nommage: "{date}_DPA_{fournisseur}_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: fin-contrat
+      base: RGPD art. 28
+      sort-final: C
+    registre: null
+  - type: charte-usage-interne
+    libelle: Charte ou politique interne
+    description: "Charte informatique, charte d'usage de l'IA, politique de sécurité et procédure de recueil des signalements, en versions datées."
+    indices: [charte informatique, charte ia, litteratie ia, politique de securite, "lanceur d'alerte", signalement]
+    champs: [date, date-effet, objet, effectif]
+    nommage: "{date}_Charte-usage-interne_{objet}"
+    conservation:
+      legale: aucune
+      recommandee: 5a
+      declencheur: aucun
+      base: "Règlement européen sur l'IA art. 4"
+      sort-final: C
+    registre: null
+va-ailleurs:
+  - motif: Contrats clients signés (qui renvoient aux CGV)
+    vers: "02.1"
+  - motif: Charte informatique signée par chaque salarié
+    vers: "03.2"
+  - motif: "Le « registre des demandes d'exercice des droits » n'est pas un registre légal nommé : c'est une preuve d'accountability (RGPD art. 5.2 et 24). Le conserver, oui ; le présenter comme une obligation, non"
+    vers: null
+---
+
 # 01.8 - Conformité
 
 > Chemin : `01 - JURIDIQUE & GOUVERNANCE/01.8 - Conformité`

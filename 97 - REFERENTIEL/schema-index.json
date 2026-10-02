@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:classement-documents:schema-index:3.0",
+  "title": "En-tête YAML d'un index.md — gabarit classement-documents 3.x",
+  "description": "Décrit le front matter d'un index.md. Le corps Markdown n'est pas interprété. Le compilateur et le lint ne lisent que cet en-tête.",
+  "type": "object",
+  "required": ["schema", "id", "parent", "niveau", "titre", "usage", "classement", "sensibilite", "documents"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "classement-documents/3.0",
+      "description": "Version du format. Un compilateur refuse tout fichier d'une autre version."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{2}(\\.[0-9]{1,2})?$",
+      "description": "Identifiant stable du dossier. Ne change jamais, même si le dossier est renommé. Toujours entre guillemets dans le YAML, sans quoi 04 serait lu comme le nombre 4."
+    },
+    "parent": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{2}(\\.[0-9]{1,2})?$",
+      "description": "Identifiant du dossier parent, null à la racine d'un domaine."
+    },
+    "niveau": {
+      "enum": ["domaine", "dossier", "sous-dossier", "systeme"],
+      "description": "domaine et systeme sont de niveau 1 ; systeme désigne 00, 97, 98 et 99."
+    },
+    "titre": { "type": "string", "minLength": 3 },
+    "usage": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Texte vectorisé pour la pré-sélection des dossiers candidats."
+    },
+    "classement": {
+      "enum": ["chronologique", "par-tiers", "par-contrat", "par-operation", "alphabetique"],
+      "description": "Ordre de rangement sous le dossier. par-operation couvre les dossiers d'affaire : litige, sinistre, chantier, consultation, lot."
+    },
+    "sensibilite": {
+      "enum": ["normale", "confidentielle", "rh"],
+      "description": "Restriction d'accès, et anonymisation avant passage au modèle pour rh et confidentielle."
+    },
+    "documents": {
+      "type": "array",
+      "minItems": 0,
+      "items": { "$ref": "#/$defs/typeDocumentaire" },
+      "description": "Types documentaires que le dossier accueille. Vide pour un domaine, qui ne reçoit pas de document en propre."
+    },
+    "va-ailleurs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["motif", "vers"],
+        "additionalProperties": false,
+        "properties": {
+          "motif": { "type": "string", "minLength": 3 },
+          "vers": {
+            "type": ["string", "null"],
+            "pattern": "^[0-9]{2}(\\.[0-9]{1,2})?$",
+            "description": "Identifiant existant. null quand la destination est hors du gabarit."
+          }
+        }
+      },
+      "description": "Règles négatives : évite les faux classements en pointant le bon id."
+    }
+  },
+  "$defs": {
+    "typeDocumentaire": {
+      "type": "object",
+      "required": ["type", "libelle", "champs", "nommage", "conservation"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Clé stable, kebab-case sans accent, unique dans tout le gabarit."
+        },
+        "libelle": { "type": "string", "minLength": 3 },
+        "description": { "type": "string" },
+        "indices": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "description": "Mots qui aident la classification. Ce sont des indices, pas des règles."
+        },
+        "champs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "description": "Données à extraire. Chaque nom doit exister dans champs.yaml."
+        },
+        "nommage": {
+          "type": "string",
+          "pattern": "^\\{date\\}|^\\{periode\\}|^\\{exercice\\}",
+          "description": "Gabarit de nom de fichier. Commence par une variable temporelle. Les placeholders doivent figurer dans champs, plus date, periode et exercice."
+        },
+        "conservation": { "$ref": "#/$defs/conservation" },
+        "registre": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["fichier", "cle"],
+              "additionalProperties": false,
+              "properties": {
+                "fichier": {
+                  "enum": ["Registre-des-contrats.csv", "Registre-des-assurances.csv",
+                           "Registre-des-immobilisations.csv", "Registre-des-placements.csv",
+                           "Registre-des-recommandes.csv", "Inventaire-du-materiel.csv",
+                           "Registre-des-archives.csv", "Tableau-de-gestion.csv"]
+                },
+                "cle": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }
+              }
+            }
+          ],
+          "description": "Registre alimenté par ce type, quand il crée ou modifie un engagement."
+        }
+      }
+    },
+    "conservation": {
+      "type": "object",
+      "required": ["legale", "recommandee", "declencheur", "sort-final"],
+      "additionalProperties": false,
+      "properties": {
+        "legale": { "$ref": "#/$defs/duree" },
+        "recommandee": { "$ref": "#/$defs/duree" },
+        "declencheur": {
+          "enum": [
+            "date-document", "cloture-exercice", "derniere-operation",
+            "fin-contrat", "fin-utilisation", "fin-validite", "fin-occupation", "fin-mandat",
+            "fin-protection", "fin-garantie", "mainlevee",
+            "depart-salarie", "pourvoi-poste", "dernier-contact",
+            "radiation-societe", "sortie-bien", "cession-ligne",
+            "reception-travaux", "reglement-sinistre", "consolidation-dommage",
+            "cloture-dossier", "elaboration-version",
+            "destruction-validee", "aucun"
+          ],
+          "description": "Événement à partir duquel la durée court."
+        },
+        "base": { "type": "string", "description": "Référence légale, telle qu'écrite dans le corps de l'index.md." },
+        "sort-final": {
+          "enum": ["C", "D", "T"],
+          "description": "C conservation définitive, D destruction, T tri. Doit concorder avec Tableau-de-gestion.csv."
+        }
+      }
+    },
+    "duree": {
+      "type": "string",
+      "pattern": "^([0-9]{1,2}(a|m|j)|permanent|aucune)$",
+      "description": "10a, 5a, 40a, 30j, permanent, aucune."
+    }
+  }
+}

@@ -1,3 +1,87 @@
+---
+schema: classement-documents/3.0
+id: "03.3"
+parent: "03"
+niveau: sous-dossier
+titre: 03.3 - Paie
+usage: >-
+  Les documents produits chaque mois par la paie : bulletins (double employeur), journal de
+  paie, DSN et ses accusés, écritures comptables de paie.
+classement: chronologique
+sensibilite: rh
+documents:
+  - type: bulletin-paie-double-employeur
+    libelle: Bulletin de paie (double employeur)
+    description: "Exemplaire du bulletin conservé par l'employeur, y compris pour le dirigeant assimilé salarié."
+    indices: [bulletin de paie, bulletin de salaire, double employeur, paie, variables de paie]
+    champs: [periode, salarie, montant]
+    nommage: "{periode}_Bulletin_{salarie}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code du travail L3243-4
+      sort-final: C
+    registre: null
+  - type: preuve-mise-a-disposition-bulletin-electronique
+    libelle: Preuve de mise à disposition du bulletin électronique
+    description: "Trace de la mise à disposition du bulletin dématérialisé au salarié et engagement du prestataire sur sa durée de rétention. Obligation distincte du double conservé par l'employeur."
+    indices: [bulletin électronique, bulletin dématérialisé, mise à disposition, coffre-fort, prestataire de paie]
+    champs: [periode, salarie, emetteur, duree]
+    nommage: "{periode}_Bulletin-electronique_{salarie}"
+    conservation:
+      legale: 50a
+      recommandee: permanent
+      declencheur: date-document
+      base: Code du travail D3243-8
+      sort-final: C
+    registre: null
+  - type: dsn-mensuelle
+    libelle: DSN et accusé de réception
+    description: "Déclaration sociale nominative mensuelle ou événementielle, avec son accusé net-entreprises."
+    indices: [dsn, net-entreprises, déclaration sociale nominative, accusé, événementielle]
+    champs: [periode, organisme, numero, date]
+    nommage: "{periode}_DSN_{organisme}"
+    conservation:
+      legale: 6a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code de la sécurité sociale L243-16
+      sort-final: D
+    registre: null
+  - type: journal-de-paie
+    libelle: Journal de paie mensuel
+    description: "Journal ou livre de paie du mois, état des charges sociales et écritures de paie."
+    indices: [journal de paie, livre de paie, état des charges sociales, od de paie, rapprochement]
+    champs: [periode, montant, effectif]
+    nommage: "{periode}_Journal-de-paie"
+    conservation:
+      legale: 6a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code de la sécurité sociale L243-16
+      sort-final: D
+    registre: null
+  - type: bordereau-cotisations-sociales
+    libelle: Bordereau de cotisations sociales
+    description: "Bordereau ou appel de cotisations d'un organisme (URSSAF, retraite, prévoyance, mutuelle) rattaché au mois de paie."
+    indices: [bordereau de cotisations, appel de cotisations, urssaf, retraite complémentaire, prévoyance]
+    champs: [periode, organisme, montant, echeance]
+    nommage: "{periode}_Bordereau_{organisme}"
+    conservation:
+      legale: 6a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code de la sécurité sociale L243-16
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: Contrats de travail
+    vers: "03.2"
+  - motif: Contrats mutuelle/prévoyance
+    vers: "06.4"
+---
+
 # 03.3 - Paie
 
 > Chemin : `03 - RESSOURCES HUMAINES/03.3 - Paie`

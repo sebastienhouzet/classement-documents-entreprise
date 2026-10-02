@@ -1,3 +1,36 @@
+---
+schema: classement-documents/3.0
+id: "00"
+parent: null
+niveau: systeme
+titre: 00 - Inbox
+usage: >-
+  Le point d'entrée unique de tous les documents qui arrivent : courrier scanné, pièces jointes
+  de mails, photos de tickets, exports de plateformes, documents remis en main propre.
+classement: chronologique
+sensibilite: confidentielle
+documents:
+  - type: document-entrant-non-classe
+    libelle: Document entrant non classé
+    description: "Tout document entrant encore non classé, y compris les scans bruts à découper et les pièces reçues en vrac. L'inbox est un sas — la durée de conservation ne court qu'à partir du rangement dans son domaine."
+    indices: [non identifie, illisible, doute, plusieurs documents dans un fichier, scan brut, a classer, a traiter]
+    champs: [date, emetteur, objet]
+    nommage: "{date}_Document-entrant_{emetteur}_{objet}"
+    conservation:
+      legale: aucune
+      recommandee: 30j
+      declencheur: aucun
+      sort-final: D
+    registre: null
+va-ailleurs:
+  - motif: "Tout document déjà classé : il n'a plus rien à faire ici"
+    vers: null
+  - motif: "Les documents de travail en cours de rédaction : ils vivent avec leur projet, hors de ce classement"
+    vers: null
+  - motif: Les documents à supprimer
+    vers: "99"
+---
+
 # 00 - Inbox
 
 > Chemin : `00 - INBOX`

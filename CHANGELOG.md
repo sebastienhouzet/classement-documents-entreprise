@@ -6,6 +6,115 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le ve
 [SemVer](https://semver.org/lang/fr/) : une version majeure signale un changement d'arborescence qui
 oblige à renommer ou déplacer des dossiers existants.
 
+## [3.0.0] — 2026-10-02
+
+Les `index.md` deviennent lisibles par une machine. Chaque dossier porte désormais un **en-tête YAML
+normalisé** qui déclare ce qu'il accueille, pièce par pièce : la clé du type documentaire, les champs
+à extraire, le gabarit du nom de fichier, la durée de conservation et son point de départ, le sort
+final, le registre alimenté. Le corps Markdown est inchangé — rien de ce qui était écrit pour les
+humains n'a été réécrit.
+
+Version majeure parce que le **format de fichier** change : un outil qui lisait les `index.md` en
+tête de fichier trouvera maintenant un bloc `---` avant le titre. L'arborescence, elle, ne bouge pas :
+aucun dossier n'est renommé, aucun document n'est à déplacer.
+
+### Ajouté
+
+- **En-tête YAML sur les 78 `index.md`** — `schema`, `id`, `parent`, `niveau`, `titre`, `usage`,
+  `classement`, `sensibilite`, un bloc `documents[]` et des règles négatives `va-ailleurs[]`.
+  `id` est stable et indépendant du nom du dossier : renommer un dossier ne casse aucun renvoi.
+  `sensibilite` (`normale`, `confidentielle`, `rh`) permet de restreindre les accès et d'anonymiser
+  un document avant de le passer à un modèle.
+- **298 typologies documentaires** réparties sur les 78 dossiers, chacune avec sa clé stable, ses
+  indices de reconnaissance, ses champs, son gabarit de nom et sa conservation. C'est le niveau de
+  détail qui manquait : jusqu'ici, le gabarit décrivait des dossiers, il décrit maintenant des pièces.
+- **`97 - REFERENTIEL/champs.yaml`** — le catalogue des 78 champs extractibles, chacun avec son type
+  (`date`, `tiers`, `identifiant`, `decimal`, `enum`…) et son format. Un même numéro de contrat
+  s'appelle `numero-contrat` dans les 78 dossiers, et nulle part autrement.
+- **`97 - REFERENTIEL/schema-index.json`** — le JSON Schema (draft 2020-12) de l'en-tête, avec les
+  énumérations fermées : cinq méthodes de classement, vingt-trois déclencheurs de délai, trois sorts
+  finaux, les huit registres existants.
+- **`referentiel/dossiers.json`** — les 78 en-têtes compilés en un seul fichier, avec deux index :
+  `index_types` donne le dossier d'un type documentaire en une lecture, `index_chemins` donne son
+  chemin sur disque.
+- **`scripts/lint.py`** — onze contrôles sur les en-têtes : conformité au schéma, unicité des `id` et
+  des clés `type`, champs hors catalogue, variables de nommage orphelines, renvois `va-ailleurs`
+  cassés, registres inexistants, concordance des sorts finaux et des durées avec le tableau de
+  gestion. Treize mutations volontaires du gabarit ont été introduites une à une pour vérifier que
+  chacune est bien rattrapée.
+- **`scripts/compiler.py`** et **`scripts/migrer-frontmatter.py`** — le compilateur produit
+  `dossiers.json` ; le script de migration pose l'en-tête sur une copie personnalisée du gabarit
+  **sans toucher au corps Markdown** (essai à blanc par défaut, sauvegardes en `*.avant-3.0`).
+  Vérifié par aller-retour : en-têtes retirés puis reposés, l'arborescence est identique à l'octet près.
+- **`.github/workflows/lint.yml`** — le lint tourne à chaque poussée, et vérifie au passage que
+  `referentiel/dossiers.json` n'a pas pris de retard sur les `index.md`.
+
+### Modifié
+
+- **`Tableau-de-gestion.csv`** gagne une neuvième colonne, `Clé de type`, qui relie chaque ligne à la
+  typologie correspondante de l'en-tête. La table de gestion et les `index.md` se contrôlent
+  désormais l'un l'autre par jointure exacte, au lieu d'être deux listes qu'il fallait relire en
+  parallèle.
+- **`documentation.html`** affiche, sous chaque fiche de dossier, le tableau des typologies : nom du
+  document, gabarit de nom de fichier, durée légale et recommandée avec son point de départ, sort
+  final. La recherche instantanée porte aussi sur les clés de types et leurs indices.
+- **`AGENT-ROUTAGE.md`** passe à une procédure en huit points. Le nouveau point 6 qualifie la pièce :
+  une fois le dossier choisi, l'agent ne lit que ce dossier dans `dossiers.json` pour y trouver la
+  typologie, les champs et le gabarit de nom — il n'a jamais à charger les 298 typologies pour en
+  reconnaître une. Le contrat de sortie JSON porte maintenant `type`, `champs` et `sort_final`.
+  Coût mesuré : ~11 700 tokens pour le fichier entier, ~5 800 au pire en mode deux temps.
+- **`scripts/`** remplace `tools/` : les cinq scripts sont réunis au même endroit.
+
+### Corrigé
+
+Le fichier d'agent a été repassé en aveugle sur douze documents types par un agent n'ayant accès
+qu'à lui et à `dossiers.json`. Les contradictions qu'il a relevées sont corrigées :
+
+- **La variable de chemin manquante ne renvoie plus en `00`.** Trois passages se contredisaient :
+  l'étape 5 plafonnait à 0,65 et renvoyait au sas, le barème disait 0,70, l'exemple gardait le
+  dossier. Désormais une seule règle : le dossier reste le bon, `_INCONNU` prend la place de la
+  variable, la confiance plafonne à 0,70, et `00` est réservé au type non reconnu et aux
+  destinations ex æquo. Sur un lot ordinaire, c'était la moitié des documents qui avaient deux
+  destinations légitimes selon la phrase qu'on lisait.
+- **`_INCONNU` dans un nom de fichier** produisait un double tiret bas, alors que le tiret bas sépare
+  les segments : c'est `INCONNU` sans préfixe dans un nom de fichier, `_INCONNU` dans un chemin.
+- **`conservation` avait trois sources** qui ne concordaient pas. La sortie reprend le minimum légal
+  du type et son déclencheur ; la colonne `cons` de la table sert à la première passe.
+- **`sort_final` n'était défini nulle part** alors que les trois exemples le portaient, tous à `D`.
+- **`registre` devient une liste** et prend les noms de fichiers des registres : un contrat de prêt
+  envoyé en recommandé en alimente deux. Le registre des recommandés est explicitement global.
+- **Le Kit administratif est adressé `97.1`**, pas `97` : le domaine `97` ne reçoit aucune pièce.
+- **La date de réception** figurait dans les deux branches de la règle de datation, qui se mordait
+  la queue.
+- **Deux arbitrages manquaient** : un avis d'opéré portant un cours d'exécution va en `08.3` même si
+  le support s'appelle « fonds » ; un relevé bancaire ordinaire ne qualifie pas le type de compte,
+  qui vaut « Compte courant » par défaut au lieu de faire tomber le document le plus fréquent du
+  classement dans le régime dégradé.
+- **Six champs manquaient à des typologies qui en avaient besoin** : l'expéditeur et le numéro de
+  recommandé d'une mise en demeure reçue, le signataire du DUERP, le numéro de dépôt INPI, le
+  candidat d'une candidature, le statut de cycle de vie d'une facture électronique, la devise d'un
+  avis d'opéré. Et le gabarit de nom de la déclaration de sinistre exigeait un numéro de sinistre
+  que l'assureur n'attribue qu'après réception de la déclaration.
+
+### Choix à connaître
+
+- La méthode de classement compte **cinq** valeurs et non quatre : `par-operation` a été ajoutée pour
+  les onze dossiers dont la logique est un sous-dossier par affaire (litige, sinistre, chantier,
+  consultation, lot de suppression). Les ranger en « chronologique » aurait été faux.
+- Le gabarit de nommage des typologies suit la convention du dépôt — `{date}_Type_{tiers}_{objet}`,
+  le type avant le tiers — et non l'ordre inverse : les 78 `index.md`, la convention de nommage et
+  le fichier d'agent disent déjà tous la même chose, il n'y avait pas lieu de les contredire.
+- Le Kit administratif prend l'identifiant `97.1`, pour ne pas entrer en collision avec le domaine `97`.
+- `conservation.legale` porte le **minimum légal**, jamais la recommandation : les deux sont déclarés
+  séparément, et le lint vérifie que la durée d'utilité administrative du tableau de gestion tombe
+  bien entre les deux.
+
+### Migration depuis la 2.2.0
+
+Si vous utilisez le gabarit tel quel, tirez simplement la nouvelle version. Si vous avez réécrit des
+`index.md`, lancez `python3 scripts/migrer-frontmatter.py <votre-dossier>` pour voir ce qui serait
+posé, puis relancez avec `--ecrire`. Vos corps Markdown ne sont pas touchés.
+
 ## [2.2.0] — 2026-10-02
 
 Deux documentations générées depuis les `index.md` : une page pour les humains, un fichier compact

@@ -1,3 +1,69 @@
+---
+schema: classement-documents/3.0
+id: "03.10"
+parent: "03"
+niveau: sous-dossier
+titre: 03.10 - Représentation du personnel
+usage: >-
+  Les institutions représentatives du personnel : élections du CSE (obligatoires dès 11 salariés
+  pendant 12 mois consécutifs), réunions, consultations, accords.
+classement: par-operation
+sensibilite: rh
+documents:
+  - type: pv-election-cse
+    libelle: "PV d'élection du CSE"
+    description: "Procès-verbal d'élection (Cerfa) transmis au CTEP, avec les listes électorales et les candidatures."
+    indices: ["pv d'élection", élection professionnelle, cse, liste électorale, ctep, protocole préélectoral]
+    champs: [date, effectif, objet]
+    nommage: "{date}_PV-election-CSE_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: date-document
+      base: Code du travail L2314-4
+      sort-final: C
+    registre: null
+  - type: pv-carence-cse
+    libelle: PV de carence
+    description: "Procès-verbal constatant l'absence de candidat alors que le seuil de onze salariés est atteint."
+    indices: [pv de carence, carence, absence de candidat, seuil 11, cse]
+    champs: [date, effectif, objet]
+    nommage: "{date}_PV-carence-CSE"
+    conservation:
+      legale: 5a
+      recommandee: permanent
+      declencheur: date-document
+      base: Code du travail L2314-4
+      sort-final: C
+    registre: null
+  - type: pv-reunion-cse
+    libelle: PV de réunion du CSE
+    description: "Convocation, ordre du jour et procès-verbal d'une réunion du CSE, avec les avis rendus."
+    indices: [réunion du cse, convocation, ordre du jour, procès-verbal, avis, heures de délégation]
+    champs: [date, numero, objet, effectif]
+    nommage: "{date}_PV-reunion-CSE_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code du travail L2315-1
+      sort-final: D
+    registre: null
+  - type: consultation-cse
+    libelle: Consultation obligatoire du CSE
+    description: "Dossier d'une consultation obligatoire (orientations stratégiques, situation économique, politique sociale) et la BDESE."
+    indices: [consultation du cse, orientations stratégiques, politique sociale, bdese, registre des questions du cse]
+    champs: [date, objet, exercice, nature]
+    nommage: "{date}_Consultation-CSE_{objet}"
+    conservation:
+      legale: 5a
+      recommandee: 10a
+      declencheur: date-document
+      base: Code du travail L2315-1
+      sort-final: D
+    registre: null
+---
+
 # 03.10 - Représentation du personnel
 
 > Chemin : `03 - RESSOURCES HUMAINES/03.10 - Représentation du personnel`

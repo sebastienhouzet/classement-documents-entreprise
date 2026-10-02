@@ -1,3 +1,26 @@
+---
+schema: classement-documents/3.0
+id: "08"
+parent: null
+niveau: domaine
+titre: "08 - Placements & participations"
+usage: >-
+  Les emplois de la trésorerie et les investissements financiers de l'entreprise : ce que la
+  société fait de son argent quand il ne sert pas immédiatement à l'exploitation.
+classement: par-contrat
+sensibilite: confidentielle
+documents: []
+va-ailleurs:
+  - motif: "Comptes bancaires d'exploitation, emprunts, aides et levées de fonds"
+    vers: "05"
+  - motif: Capital et associés de votre société
+    vers: "01.6"
+  - motif: "Immobilisations d'exploitation (matériel, véhicules, locaux occupés)"
+    vers: "04.5"
+  - motif: "Déclarations fiscales de l'entreprise"
+    vers: "04.6"
+---
+
 # 08 - Placements & participations
 
 > Chemin : `08 - PLACEMENTS & PARTICIPATIONS`

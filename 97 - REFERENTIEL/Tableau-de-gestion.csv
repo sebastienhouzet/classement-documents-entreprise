@@ -1,29 +1,29 @@
-﻿Dossier;Typologie documentaire;Producteur;DUA (durée d'utilité administrative);Point de départ du délai;Sort final (C/D/T);Référence juridique;Remarque
-01.1;Statuts constitutifs;Dirigeant;5 ans;Radiation de la société;C;Code civil art. 2224;Conservation permanente en pratique
-01.3;PV d'assemblée générale;Dirigeant;5 ans;Fin d'utilisation du registre;C;Code de commerce L225-117;
-01.4;Registre des mouvements de titres;Dirigeant;5 ans;Fin d'utilisation;C;Code de commerce R228-8;Preuve de propriété des titres
-01.8;Versions des CGV;Dirigeant;10 ans;Remplacement de la version;C;Code de la consommation L213-1;Un client peut avoir contracté sous une version ancienne
-01.9;Dossier de contentieux;Dirigeant;10 ans;Décision définitive;T;Code civil art. 2224;Conserver les jugements (C), trier le reste
-02.1;Contrat client;Commerce;10 ans;Fin du contrat;D;Code de commerce L110-4;
-02.4;Bail commercial;Dirigeant;10 ans;Fin du bail;D;Code de commerce L145-1;Conserver les états des lieux jusqu'à la restitution du dépôt
-03.1;DUERP et ses versions;Employeur;40 ans;Élaboration de chaque version;C;Code du travail L4121-3-1;Toutes les versions, sans exception
-03.1;Registre unique du personnel;Employeur;5 ans;Départ du salarié;C;Code du travail R1221-26;Exports datés, volume négligeable
-03.2;Dossier individuel du salarié;RH;5 ans;Départ du salarié;D;Code du travail L1471-1;Accès restreint
-03.3;Bulletin de paie (double employeur);Paie;5 ans;Émission;C;Code du travail L3243-4;Souvent conservé sans limite
-03.5;Candidature non retenue;RH;5 ans;Pourvoi du poste;D;Code du travail L1134-5;Destruction sécurisée
-03.8;Déclaration d'accident du travail;Employeur;10 ans;Déclaration;C;Code du travail D4711-3;
-04.1;Comptes annuels et liasse fiscale;Expert-comptable;10 ans;Clôture de l'exercice;C;Code de commerce L123-22;
-04.1;Grand livre, journaux, FEC;Expert-comptable;10 ans;Clôture de l'exercice;D;Code de commerce L123-22;
-04.2;Facture client;Facturation;10 ans;Clôture de l'exercice;D;Code de commerce L123-22;Format natif si électronique
-04.3;Facture fournisseur;Comptabilité;10 ans;Clôture de l'exercice;D;Code de commerce L123-22;
-04.6;Déclaration fiscale;Dirigeant;10 ans;Établissement;D;LPF L102 B;Délai porté de 6 à 10 ans en 2026
-04.6;Dossier de contrôle fiscal;Dirigeant;10 ans;Clôture du contrôle;C;LPF L102 B;
-04.9;Documentation de la piste d'audit fiable;Comptabilité;10 ans;Dernière facture couverte;D;CGI art. 289 VII;
-05.1;Relevé bancaire;Comptabilité;10 ans;Date du relevé;D;Code de commerce L123-22;
-05.2;Contrat de prêt et mainlevée;Dirigeant;10 ans;Dernière échéance;C;Code civil art. 2224;Conserver la mainlevée
-06.1;Contrat de RC professionnelle;Dirigeant;10 ans;Fin du contrat;C;Code des assurances L124-5;Réclamations tardives possibles
-06.7;Dossier de sinistre;Dirigeant;10 ans;Règlement définitif;D;Code des assurances L114-1;10 ans après consolidation si dommage corporel
-06.8;PV de réception de travaux;Conduite de travaux;10 ans;Réception;C;Code civil art. 1792-6;Point de départ de la garantie décennale
-07.3;Registre de sécurité;Services généraux;10 ans;Fin d'occupation du local;D;Code du travail R4224-17;
-08.3;Avis d'opéré d'achat de titres;Dirigeant;10 ans;Cession de la ligne;D;Code de commerce L123-22;Ne jamais purger tant que la ligne est détenue
-08.8;Titres de participation et conventions intragroupe;Dirigeant;10 ans;Cession des titres;C;CGI art. 145;Premières pièces demandées en due diligence
+﻿Dossier;Typologie documentaire;Producteur;DUA (durée d'utilité administrative);Point de départ du délai;Sort final (C/D/T);Référence juridique;Remarque;Clé de type
+01.1;Statuts constitutifs;Dirigeant;5 ans;Radiation de la société;C;Code civil art. 2224;Conservation permanente en pratique;statuts-constitutifs
+01.3;PV d'assemblée générale;Dirigeant;5 ans;Fin d'utilisation du registre;C;Code de commerce L225-117;;pv-assemblee-generale
+01.4;Registre des mouvements de titres;Dirigeant;5 ans;Fin d'utilisation;C;Code de commerce R228-8;Preuve de propriété des titres;registre-mouvements-titres
+01.8;Versions des CGV;Dirigeant;10 ans;Remplacement de la version;C;Code de la consommation L213-1;Un client peut avoir contracté sous une version ancienne;version-cgv-cgu
+01.9;Dossier de contentieux;Dirigeant;10 ans;Décision définitive;T;Code civil art. 2224;Conserver les jugements (C), trier le reste;
+02.1;Contrat client;Commerce;10 ans;Fin du contrat;D;Code de commerce L110-4;;contrat-client
+02.4;Bail commercial;Dirigeant;10 ans;Fin du bail;D;Code de commerce L145-1;Conserver les états des lieux jusqu'à la restitution du dépôt;bail-commercial
+03.1;DUERP et ses versions;Employeur;40 ans;Élaboration de chaque version;C;Code du travail L4121-3-1;Toutes les versions, sans exception;duerp
+03.1;Registre unique du personnel;Employeur;5 ans;Départ du salarié;C;Code du travail R1221-26;Exports datés, volume négligeable;registre-unique-personnel
+03.2;Dossier individuel du salarié;RH;5 ans;Départ du salarié;D;Code du travail L1471-1;Accès restreint;
+03.3;Bulletin de paie (double employeur);Paie;5 ans;Émission;C;Code du travail L3243-4;Souvent conservé sans limite;bulletin-paie-double-employeur
+03.5;Candidature non retenue;RH;5 ans;Pourvoi du poste;D;Code du travail L1134-5;Destruction sécurisée;candidature-non-retenue
+03.8;Déclaration d'accident du travail;Employeur;10 ans;Déclaration;C;Code du travail D4711-3;;declaration-accident-travail
+04.1;Comptes annuels et liasse fiscale;Expert-comptable;10 ans;Clôture de l'exercice;C;Code de commerce L123-22;;comptes-annuels
+04.1;Grand livre, journaux, FEC;Expert-comptable;10 ans;Clôture de l'exercice;D;Code de commerce L123-22;;grand-livre
+04.2;Facture client;Facturation;10 ans;Clôture de l'exercice;D;Code de commerce L123-22;Format natif si électronique;facture-client
+04.3;Facture fournisseur;Comptabilité;10 ans;Clôture de l'exercice;D;Code de commerce L123-22;;facture-fournisseur
+04.6;Déclaration fiscale;Dirigeant;10 ans;Établissement;D;LPF L102 B;Délai porté de 6 à 10 ans en 2026;declaration-tva
+04.6;Dossier de contrôle fiscal;Dirigeant;10 ans;Clôture du contrôle;C;LPF L102 B;;dossier-controle-fiscal
+04.9;Documentation de la piste d'audit fiable;Comptabilité;10 ans;Dernière facture couverte;D;CGI art. 289 VII;;documentation-piste-audit-fiable
+05.1;Relevé bancaire;Comptabilité;10 ans;Date du relevé;D;Code de commerce L123-22;;releve-compte-bancaire
+05.2;Contrat de prêt et mainlevée;Dirigeant;10 ans;Dernière échéance;C;Code civil art. 2224;Conserver la mainlevée;contrat-pret-bancaire
+06.1;Contrat de RC professionnelle;Dirigeant;10 ans;Fin du contrat;C;Code des assurances L124-5;Réclamations tardives possibles;contrat-rc-pro
+06.7;Dossier de sinistre;Dirigeant;10 ans;Règlement définitif;D;Code des assurances L114-1;10 ans après consolidation si dommage corporel;
+06.8;PV de réception de travaux;Conduite de travaux;10 ans;Réception;C;Code civil art. 1792-6;Point de départ de la garantie décennale;pv-reception-travaux
+07.3;Registre de sécurité;Services généraux;10 ans;Fin d'occupation du local;D;Code du travail R4224-17;;registre-securite-site
+08.3;Avis d'opéré d'achat de titres;Dirigeant;10 ans;Cession de la ligne;D;Code de commerce L123-22;Ne jamais purger tant que la ligne est détenue;avis-opere-titres
+08.8;Titres de participation et conventions intragroupe;Dirigeant;10 ans;Cession des titres;C;CGI art. 145;Premières pièces demandées en due diligence;acte-acquisition-titres-participation

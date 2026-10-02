@@ -1,3 +1,18 @@
+---
+schema: classement-documents/3.0
+id: "04"
+parent: null
+niveau: domaine
+titre: "04 - Comptabilité & fiscalité"
+usage: >-
+  Toutes les pièces qui justifient une écriture comptable ou une déclaration fiscale : factures,
+  notes de frais, immobilisations, états financiers, déclarations d'impôts, échanges avec
+  l'expert-comptable.
+classement: chronologique
+sensibilite: confidentielle
+documents: []
+---
+
 # 04 - Comptabilité & fiscalité
 
 > Chemin : `04 - COMPTABILITE & FISCALITE`
