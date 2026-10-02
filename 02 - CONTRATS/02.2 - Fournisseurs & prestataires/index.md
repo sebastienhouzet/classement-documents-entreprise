@@ -62,6 +62,19 @@ documents:
       base: Code de commerce art. L.110-4
       sort-final: D
     registre: { fichier: Registre-des-contrats.csv, cle: numero }
+  - type: coordonnees-bancaires-fournisseur
+    libelle: "Coordonnées bancaires d'un fournisseur"
+    description: "RIB d'un fournisseur ou d'un prestataire, et la trace de la vérification faite avant de l'enregistrer ou de le modifier — rappel du tiers sur un numéro déjà connu, date, interlocuteur. Justifie le compte sur lequel les paiements ont été faits."
+    indices: [rib fournisseur, coordonnees bancaires, changement de rib, iban, bic, verification]
+    champs: [date, fournisseur, iban, bic, reference, signataire]
+    nommage: "{date}_Coordonnees-bancaires_{fournisseur}_{reference}"
+    conservation:
+      legale: 10a
+      recommandee: 10a
+      declencheur: cloture-exercice
+      base: Code de commerce L123-22
+      sort-final: D
+    registre: null
 va-ailleurs:
   - motif: Factures fournisseurs
     vers: "04.3"
@@ -71,6 +84,8 @@ va-ailleurs:
     vers: "04.7"
   - motif: "Freelances intégrés à l'équipe"
     vers: "03.9"
+  - motif: Nos propres coordonnées bancaires
+    vers: "05.1"
 ---
 
 # 02.2 - Fournisseurs & prestataires
@@ -97,6 +112,7 @@ Les contrats avec ceux qui vendent quelque chose à l'entreprise : prestataires 
 - Abonnements SaaS et licences → `02.5`
 - Expert-comptable et CAC (lettre de mission) → `04.7`
 - Freelances intégrés à l'équipe → `03.9`
+- Nos propres coordonnées bancaires → `05.1`
 
 ## Méthode de classement
 

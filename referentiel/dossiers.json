@@ -183,6 +183,10 @@
    "type": "identifiant",
    "format": "IBAN"
   },
+  "bic": {
+   "type": "identifiant",
+   "format": "BIC/SWIFT, 8 ou 11 caractères"
+  },
   "numero-sinistre": {
    "type": "identifiant"
   },
@@ -2361,6 +2365,36 @@
       "fichier": "Registre-des-contrats.csv",
       "cle": "numero"
      }
+    },
+    {
+     "type": "coordonnees-bancaires-fournisseur",
+     "libelle": "Coordonnées bancaires d'un fournisseur",
+     "description": "RIB d'un fournisseur ou d'un prestataire, et la trace de la vérification faite avant de l'enregistrer ou de le modifier — rappel du tiers sur un numéro déjà connu, date, interlocuteur. Justifie le compte sur lequel les paiements ont été faits.",
+     "indices": [
+      "rib fournisseur",
+      "coordonnees bancaires",
+      "changement de rib",
+      "iban",
+      "bic",
+      "verification"
+     ],
+     "champs": [
+      "date",
+      "fournisseur",
+      "iban",
+      "bic",
+      "reference",
+      "signataire"
+     ],
+     "nommage": "{date}_Coordonnees-bancaires_{fournisseur}_{reference}",
+     "conservation": {
+      "legale": "10a",
+      "recommandee": "10a",
+      "declencheur": "cloture-exercice",
+      "base": "Code de commerce L123-22",
+      "sort-final": "D"
+     },
+     "registre": null
     }
    ],
    "va-ailleurs": [
@@ -2379,6 +2413,10 @@
     {
      "motif": "Freelances intégrés à l'équipe",
      "vers": "03.9"
+    },
+    {
+     "motif": "Nos propres coordonnées bancaires",
+     "vers": "05.1"
     }
    ]
   },
@@ -3354,6 +3392,32 @@
       "date-fin"
      ],
      "nommage": "{date}_Certificat-de-travail_{salarie}",
+     "conservation": {
+      "legale": "5a",
+      "recommandee": "5a",
+      "declencheur": "depart-salarie",
+      "base": "Code du travail L1471-1",
+      "sort-final": "D"
+     },
+     "registre": null
+    },
+    {
+     "type": "rib-salarie",
+     "libelle": "Coordonnées bancaires du salarié",
+     "description": "RIB remis par le salarié pour le versement de son salaire. Donnée personnelle — accès restreint au même titre que le reste du dossier individuel.",
+     "indices": [
+      "rib",
+      "coordonnees bancaires",
+      "iban",
+      "virement du salaire"
+     ],
+     "champs": [
+      "date",
+      "salarie",
+      "iban",
+      "bic"
+     ],
+     "nommage": "{date}_RIB_{salarie}",
      "conservation": {
       "legale": "5a",
       "recommandee": "5a",
@@ -5731,6 +5795,36 @@
       "sort-final": "D"
      },
      "registre": null
+    },
+    {
+     "type": "rib-entreprise",
+     "libelle": "Relevé d'identité bancaire de l'entreprise",
+     "description": "RIB d'un compte de l'entreprise — IBAN, BIC, titulaire. Pièce d'identité du compte, diffusée aux clients et aux organismes. Chaque version émise est conservée.",
+     "indices": [
+      "rib",
+      "releve d'identite bancaire",
+      "iban",
+      "bic",
+      "coordonnees bancaires",
+      "domiciliation"
+     ],
+     "champs": [
+      "date",
+      "banque",
+      "titulaire",
+      "iban",
+      "bic",
+      "numero-compte"
+     ],
+     "nommage": "{date}_RIB_{banque}_{numero-compte}",
+     "conservation": {
+      "legale": "aucune",
+      "recommandee": "5a",
+      "declencheur": "fin-contrat",
+      "base": "Code civil art. 2224",
+      "sort-final": "D"
+     },
+     "registre": null
     }
    ],
    "va-ailleurs": [
@@ -5741,6 +5835,14 @@
     {
      "motif": "Comptes à terme, livrets et autres supports de placement",
      "vers": "08.2"
+    },
+    {
+     "motif": "Le RIB d'un tiers n'est jamais rangé ici. Celui d'un fournisseur ou d'un prestataire, avec la preuve de vérification de ses coordonnées",
+     "vers": "02.2"
+    },
+    {
+     "motif": "Le RIB d'un salarié",
+     "vers": "03.2"
     }
    ]
   },
@@ -10759,6 +10861,7 @@
   "convention-reglementee-dirigeant": "01.5",
   "convention-subvention": "05.3",
   "convocation-assemblee": "01.3",
+  "coordonnees-bancaires-fournisseur": "02.2",
   "copie-attestation-a-jour": "97.1",
   "courrier-entrant-general": "07.2",
   "courrier-organisme-public": "07.1",
@@ -10923,6 +11026,8 @@
   "resiliation-contrat-client": "02.1",
   "resiliation-contrat-fournisseur": "02.2",
   "revision-loyer-charges": "02.4",
+  "rib-entreprise": "05.1",
+  "rib-salarie": "03.2",
   "sanction-disciplinaire": "03.2",
   "solde-tout-compte": "03.2",
   "sortie-immobilisation": "04.5",

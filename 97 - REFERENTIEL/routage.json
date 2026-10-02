@@ -331,7 +331,8 @@
     "contrat-fournisseur",
     "attestation-vigilance-fournisseur",
     "devis-accepte-fournisseur",
-    "resiliation-contrat-fournisseur"
+    "resiliation-contrat-fournisseur",
+    "coordonnees-bancaires-fournisseur"
    ]
   },
   {
@@ -533,7 +534,8 @@
     "avenant-contrat-travail",
     "sanction-disciplinaire",
     "solde-tout-compte",
-    "certificat-de-travail"
+    "certificat-de-travail",
+    "rib-salarie"
    ]
   },
   {
@@ -1037,7 +1039,10 @@
     "relevé bancaire",
     "convention de compte",
     "RIB",
+    "relevé d'identité bancaire",
     "IBAN",
+    "BIC",
+    "coordonnées bancaires",
     "procuration bancaire",
     "habilitation",
     "KYC bancaire",
@@ -1049,13 +1054,14 @@
    "motif_sous_chemin": "Banque - Type de compte/Releves/AAAA/",
    "conservation": "10a",
    "registre": null,
-   "arbitrages": "compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5 ; un relevé ordinaire ne qualifie pas le type de compte : écrire « Compte courant » par défaut, et ne réserver _INCONNU qu'au cas où la banque elle-même n'est pas lisible",
+   "arbitrages": "compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5 ; un RIB n'arrive ici que s'il est au nom de NOTRE entreprise : le RIB d'un fournisseur → 02.2, celui d'un salarié → 03.2 ; un relevé ordinaire ne qualifie pas le type de compte : écrire « Compte courant » par défaut, et ne réserver _INCONNU qu'au cas où la banque elle-même n'est pas lisible",
    "types": [
     "releve-compte-bancaire",
     "convention-compte-bancaire",
     "procuration-bancaire",
     "attestation-cloture-compte",
-    "avis-agios-frais-bancaires"
+    "avis-agios-frais-bancaires",
+    "rib-entreprise"
    ]
   },
   {

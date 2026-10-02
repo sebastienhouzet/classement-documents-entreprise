@@ -191,7 +191,7 @@ Colonnes : `code|nom|cles|chemin|cons|reg|arb`
 ### 05 - BANQUE & FINANCEMENT
 
 ```
-05.1|Comptes bancaires|relevé de compte, relevé bancaire, convention de compte, RIB, IBAN, procuration bancaire, habilitation, KYC bancaire, agios, échelle d'intérêts, clôture de compte, attestation de solde|Banque - Type de compte/Releves/AAAA/|10a|-|compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5 ; un relevé ordinaire ne qualifie pas le type de compte : écrire « Compte courant » par défaut, et ne réserver _INCONNU qu'au cas où la banque elle-même n'est pas lisible
+05.1|Comptes bancaires|relevé de compte, relevé bancaire, convention de compte, RIB, relevé d'identité bancaire, IBAN, BIC, coordonnées bancaires, procuration bancaire, habilitation, KYC bancaire, agios, échelle d'intérêts, clôture de compte, attestation de solde|Banque - Type de compte/Releves/AAAA/|10a|-|compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5 ; un RIB n'arrive ici que s'il est au nom de NOTRE entreprise : le RIB d'un fournisseur → 02.2, celui d'un salarié → 03.2 ; un relevé ordinaire ne qualifie pas le type de compte : écrire « Compte courant » par défaut, et ne réserver _INCONNU qu'au cas où la banque elle-même n'est pas lisible
 05.2|Emprunts & crédits|contrat de prêt, offre de prêt, tableau d'amortissement d'emprunt, PGE, prêt d'honneur, crédit-bail financier, affacturage, Dailly, découvert autorisé, assurance emprunteur, remboursement anticipé, mainlevée|AAAA - Établissement - Objet - Montant/|10a|contrats|caution ou nantissement adossé → 05.6 ; relevé du compte débité → 05.1
 05.3|Aides & subventions|subvention, convention de subvention, Bpifrance, ADEME, fonds européens, conseil régional, CIR, CII, JEI, 2069-A, aide à l'embauche, ASP, demande de versement, rapport d'avancement|AAAA - Organisme - Dispositif/|10a après dernier versement|-|prêt à rembourser → 05.2 ; levée de fonds privée → 05.4
 05.4|Investisseurs & levées de fonds|term sheet, lettre d'intention, contrat d'investissement, BSA-AIR, obligation convertible, bulletin de souscription de NOS titres, attestation de dépôt des fonds, due diligence de NOTRE levée, data room de NOTRE levée, reporting investisseurs, closing|AAAA - Nom de l'opération/|permanent|-|pacte d'associés de NOTRE société → 01.6 ; subvention publique → 05.3
@@ -291,9 +291,9 @@ Mesuré sur ce fichier, estimation à 10 % près.
 
 | Ce qu'on charge | Tokens |
 |---|---|
-| Le fichier entier | ~11675 |
+| Le fichier entier | ~11737 |
 | Tout sauf la table (procédure, règles, aiguillage, pièges, sortie) | ~4696 |
-| La table entière | ~6979 |
+| La table entière | ~7041 |
 | Le plus gros bloc de domaine | ~1094 |
 | **Mode deux temps : tout sauf la table, puis un bloc** | **~5790 au pire** |
 

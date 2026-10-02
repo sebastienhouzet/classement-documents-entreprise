@@ -76,6 +76,19 @@ documents:
       base: Code du travail L1471-1
       sort-final: D
     registre: null
+  - type: rib-salarie
+    libelle: Coordonnées bancaires du salarié
+    description: RIB remis par le salarié pour le versement de son salaire. Donnée personnelle — accès restreint au même titre que le reste du dossier individuel.
+    indices: [rib, coordonnees bancaires, iban, virement du salaire]
+    champs: [date, salarie, iban, bic]
+    nommage: "{date}_RIB_{salarie}"
+    conservation:
+      legale: 5a
+      recommandee: 5a
+      declencheur: depart-salarie
+      base: Code du travail L1471-1
+      sort-final: D
+    registre: null
 va-ailleurs:
   - motif: Bulletins de paie
     vers: "03.3"

@@ -57,6 +57,7 @@ champs:
   numero-contrat:  { type: identifiant, description: Numéro de police ou de contrat }
   numero-compte:   { type: identifiant, description: Numéro de compte bancaire ou de compte-titres }
   iban:            { type: identifiant, format: IBAN }
+  bic:             { type: identifiant, format: "BIC/SWIFT, 8 ou 11 caractères" }
   numero-sinistre: { type: identifiant }
   immatriculation: { type: identifiant, format: "AA-123-AA" }
   isin:            { type: identifiant, format: "ISIN 12 caractères" }

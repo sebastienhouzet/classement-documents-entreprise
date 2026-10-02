@@ -20,6 +20,7 @@
 04.6;Dossier de contrôle fiscal;Dirigeant;10 ans;Clôture du contrôle;C;LPF L102 B;;dossier-controle-fiscal
 04.9;Documentation de la piste d'audit fiable;Comptabilité;10 ans;Dernière facture couverte;D;CGI art. 289 VII;;documentation-piste-audit-fiable
 05.1;Relevé bancaire;Comptabilité;10 ans;Date du relevé;D;Code de commerce L123-22;;releve-compte-bancaire
+05.1;Relevé d'identité bancaire (RIB);Dirigeant;5 ans;Clôture du compte;D;Code civil art. 2224;Garder chaque version émise. Le RIB d'un tiers se range chez ce tiers;rib-entreprise
 05.2;Contrat de prêt et mainlevée;Dirigeant;10 ans;Dernière échéance;C;Code civil art. 2224;Conserver la mainlevée;contrat-pret-bancaire
 06.1;Contrat de RC professionnelle;Dirigeant;10 ans;Fin du contrat;C;Code des assurances L124-5;Réclamations tardives possibles;contrat-rc-pro
 06.7;Dossier de sinistre;Dirigeant;10 ans;Règlement définitif;D;Code des assurances L114-1;10 ans après consolidation si dommage corporel;

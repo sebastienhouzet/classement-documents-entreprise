@@ -121,9 +121,9 @@ R = {
          "Plateforme agreee | Piste d'audit fiable | Exports/AAAA | Incidents", "10a", "",
          "le CONTRAT avec la plateforme agréée → 02.5 (registre contrats), avec une copie ici ; seuls les flux, les incidents et la PAF restent ici ; les factures elles-mêmes → 04.2 et 04.3 ; logiciel de facturation → 02.5"),
 
-"05.1": ("relevé de compte, relevé bancaire, convention de compte, RIB, IBAN, procuration bancaire, habilitation, KYC bancaire, agios, échelle d'intérêts, clôture de compte, attestation de solde",
+"05.1": ("relevé de compte, relevé bancaire, convention de compte, RIB, relevé d'identité bancaire, IBAN, BIC, coordonnées bancaires, procuration bancaire, habilitation, KYC bancaire, agios, échelle d'intérêts, clôture de compte, attestation de solde",
          "Banque - Type de compte/Releves/AAAA/", "10a", "",
-         "compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5 ; un relevé ordinaire ne qualifie pas le type de compte : écrire « Compte courant » par défaut, et ne réserver _INCONNU qu'au cas où la banque elle-même n'est pas lisible"),
+         "compte à terme et livret → 08.2 ; relevé de prestataire de paiement → 05.5 ; un RIB n'arrive ici que s'il est au nom de NOTRE entreprise : le RIB d'un fournisseur → 02.2, celui d'un salarié → 03.2 ; un relevé ordinaire ne qualifie pas le type de compte : écrire « Compte courant » par défaut, et ne réserver _INCONNU qu'au cas où la banque elle-même n'est pas lisible"),
 "05.2": ("contrat de prêt, offre de prêt, tableau d'amortissement d'emprunt, PGE, prêt d'honneur, crédit-bail financier, affacturage, Dailly, découvert autorisé, assurance emprunteur, remboursement anticipé, mainlevée",
          "AAAA - Établissement - Objet - Montant/", "10a", "contrats",
          "caution ou nantissement adossé → 05.6 ; relevé du compte débité → 05.1"),

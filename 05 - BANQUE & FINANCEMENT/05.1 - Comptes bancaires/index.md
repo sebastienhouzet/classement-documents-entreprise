@@ -75,11 +75,28 @@ documents:
       base: Code de commerce art. L.110-4
       sort-final: D
     registre: null
+  - type: rib-entreprise
+    libelle: "Relevé d'identité bancaire de l'entreprise"
+    description: "RIB d'un compte de l'entreprise — IBAN, BIC, titulaire. Pièce d'identité du compte, diffusée aux clients et aux organismes. Chaque version émise est conservée."
+    indices: [rib, "releve d'identite bancaire", iban, bic, coordonnees bancaires, domiciliation]
+    champs: [date, banque, titulaire, iban, bic, numero-compte]
+    nommage: "{date}_RIB_{banque}_{numero-compte}"
+    conservation:
+      legale: aucune
+      recommandee: 5a
+      declencheur: fin-contrat
+      base: Code civil art. 2224
+      sort-final: D
+    registre: null
 va-ailleurs:
   - motif: Relevés des prestataires de paiement en ligne
     vers: "05.5"
   - motif: "Comptes à terme, livrets et autres supports de placement"
     vers: "08.2"
+  - motif: "Le RIB d'un tiers n'est jamais rangé ici. Celui d'un fournisseur ou d'un prestataire, avec la preuve de vérification de ses coordonnées"
+    vers: "02.2"
+  - motif: "Le RIB d'un salarié"
+    vers: "03.2"
 ---
 
 # 05.1 - Comptes bancaires
@@ -93,7 +110,7 @@ Chaque compte bancaire de l'entreprise (compte courant, compte d'épargne, compt
 ## Documents à y ranger
 
 - Convention de compte, conditions tarifaires (chaque version), avenants
-- RIB / IBAN
+- Relevé d'identité bancaire (RIB) de chaque compte : IBAN, BIC, titulaire. Garder chaque version émise, pas seulement la dernière — c'est elle qui prouve quel compte était désigné à une date donnée
 - Procurations et mandats (qui peut signer, plafonds), habilitations à la banque en ligne
 - Relevés de compte mensuels (PDF), relevés annuels de frais
 - Réponses aux demandes KYC de la banque (justificatifs fournis, avec la date)
@@ -104,6 +121,8 @@ Chaque compte bancaire de l'entreprise (compte courant, compte d'épargne, compt
 
 - Relevés des prestataires de paiement en ligne → `05.5`
 - Comptes à terme, livrets et autres supports de placement → `08.2`
+- **Le RIB d'un tiers n'est jamais rangé ici.** Celui d'un fournisseur ou d'un prestataire, avec la preuve de vérification de ses coordonnées → `02.2`
+- Le RIB d'un salarié → `03.2` (dossier individuel)
 
 ## Méthode de classement
 
@@ -117,6 +136,12 @@ Chaque compte bancaire de l'entreprise (compte courant, compte d'épargne, compt
 | **Recommandé** | 10 ans pour les relevés (justificatifs du rapprochement bancaire) ; permanent pour les conventions et attestations de clôture. |
 
 Base : Code de commerce art. L.110-4 ; Code monétaire et financier art. L.312-1-1.
+
+## Conseils
+
+- Un RIB ne se conserve pas comme une pièce comptable mais comme une pièce d'identité du compte : on garde chaque version, et on ne purge qu'après la clôture du compte.
+- **Changement de RIB d'un fournisseur : ne jamais modifier les coordonnées de paiement sur la foi d'un courriel ou d'un document joint.** Rappeler le fournisseur sur le numéro déjà connu — jamais celui qui figure sur la demande — et ranger la trace de cette vérification avec le nouveau RIB dans `02.2`. C'est la fraude la plus courante et la plus coûteuse pour une petite structure.
+- Le RIB diffusé à l'extérieur est celui du Kit administratif (`97.1`), qui ne garde que la version du moment ; l'historique reste ici.
 
 ---
 
