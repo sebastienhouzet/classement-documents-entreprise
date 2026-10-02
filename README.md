@@ -21,7 +21,10 @@ qui a sa propre organisation ailleurs.
 
 1. **Récupérer le gabarit** : cloner le dépôt ou télécharger l'archive ZIP (bouton *Code → Download ZIP*),
    puis copier le dossier à l'endroit où vous rangerez vos documents.
-2. **Lire trois fichiers** (10 minutes) :
+2. **Ouvrir [`documentation.html`](documentation.html)** : le plan complet dans une seule page,
+   avec une fiche par dossier et un champ de recherche. C'est le moyen le plus rapide de savoir où
+   va un document sans parcourir l'arborescence.
+3. **Lire trois fichiers** (10 minutes) :
    - [`index.md`](index.md) — le guide de classement : le cycle de vie d'un document, les règles, la routine, les accès ;
    - [`97 - REFERENTIEL/Convention-de-nommage.md`](97%20-%20REFERENTIEL/Convention-de-nommage.md) — comment nommer fichiers et dossiers ;
    - [`97 - REFERENTIEL/Durees-de-conservation.md`](97%20-%20REFERENTIEL/Durees-de-conservation.md) — le tableau des durées légales et recommandées.
@@ -30,9 +33,9 @@ qui a sa propre organisation ailleurs.
    [`Numerisation-et-valeur-probante.md`](97%20-%20REFERENTIEL/Numerisation-et-valeur-probante.md) avant de détruire
    du papier, et [`Securite-et-sauvegarde.md`](97%20-%20REFERENTIEL/Securite-et-sauvegarde.md) au moment de choisir
    où héberger le dossier.
-3. **Remplir les registres CSV** avec l'existant (contrats, assurances, placements, matériel) : ce sont eux qui
+4. **Remplir les registres CSV** avec l'existant (contrats, assurances, placements, matériel) : ce sont eux qui
    donnent la vue d'ensemble et les dates d'échéance.
-4. **Ranger au fil de l'eau** : déposer les documents entrants dans `00 - INBOX`, puis les traiter par lot. En cas
+5. **Ranger au fil de l'eau** : déposer les documents entrants dans `00 - INBOX`, puis les traiter par lot. En cas
    de doute sur la destination, ouvrir l'`index.md` du dossier concerné. Les sous-dossiers par client, par salarié
    ou par année se créent quand le besoin apparaît, pas à l'avance.
 
@@ -54,6 +57,9 @@ jeu et ne contient aucun document d'entreprise.
 Template Entreprise/
 ├── README.md                          ← ce fichier
 ├── index.md                           ← guide de classement (cycle de vie, règles, routine, accès)
+├── documentation.html                 ← le plan complet en une page, cherchable (à ouvrir dans un navigateur)
+├── CHANGELOG.md                       ← historique des versions
+├── AUDIT-CONFORMITE-2026-09.md        ← confrontation du gabarit aux sources officielles
 ├── 00 - INBOX/                        ← sas d'entrée : tout document reçu, en attente de classement
 ├── 01 - JURIDIQUE & GOUVERNANCE/      ← constitution, statuts, AG, registres, dirigeants, associés, PI, conformité, contentieux
 ├── 02 - CONTRATS/                     ← clients, fournisseurs, sous-traitance, baux, abonnements, NDA, modèles
@@ -63,7 +69,7 @@ Template Entreprise/
 ├── 06 - ASSURANCES/                   ← un dossier par type de contrat, sinistres
 ├── 07 - ADMINISTRATIF & ORGANISMES/   ← administrations, courrier, locaux, véhicules, certifications, matériel
 ├── 08 - PLACEMENTS & PARTICIPATIONS/  ← comptes à terme, titres, capitalisation, crypto-actifs, SCPI, fonds, filiales (l'argent qui est placé)
-├── 97 - REFERENTIEL/                  ← convention de nommage, durées de conservation, kit administratif
+├── 97 - REFERENTIEL/                  ← nommage, durées, tableau de gestion, numérisation, sécurité, routage pour agent
 ├── 98 - ARCHIVES/                     ← dossiers clos en attente de destruction
 └── 99 - SUPPRESSION/                  ← lots proposés à la suppression, en attente de validation
 ```
@@ -101,6 +107,9 @@ Chaque dossier contient un `index.md` construit sur le même modèle :
 Les `index.md` ont aussi un rôle technique : Git ne versionne pas les dossiers vides, c'est leur présence qui
 permet au dépôt de contenir l'arborescence complète.
 
+Ce sont eux la source de vérité : `documentation.html` et `AGENT-ROUTAGE.md` en sont **générés**, et
+ne peuvent donc pas diverger du contenu des dossiers.
+
 ## Les registres
 
 Huit fichiers CSV (séparateur `;`, encodage UTF-8, ouvrables dans Excel, Numbers ou LibreOffice) servent de
@@ -116,6 +125,25 @@ vue d'ensemble là où les dossiers ne suffisent pas. Sept sont vides ; le table
 | `Registre-des-placements.csv` | `08 - PLACEMENTS & PARTICIPATIONS/` | Lignes détenues, prix de revient, échéances, valeur à la dernière clôture |
 | `Registre-des-archives.csv` | `98 - ARCHIVES/` | Dossiers clos et **dates de destruction prévues** |
 | `Tableau-de-gestion.csv` | `97 - REFERENTIEL/` | Une ligne par typologie : producteur, durée, **sort final** (conserver / détruire / trier), référence juridique |
+
+## Pour un agent qui classe automatiquement
+
+Le fichier [`97 - REFERENTIEL/AGENT-ROUTAGE.md`](97%20-%20REFERENTIEL/AGENT-ROUTAGE.md) est la
+version compacte du plan, écrite pour un agent d'ingestion : une procédure en sept points, une table
+de décision de 69 destinations avec leurs déclencheurs et leurs arbitrages, les pièges de
+classement les plus coûteux, un barème de confiance et un contrat de sortie JSON.
+
+Il est conçu pour être chargé en préfixe stable d'un prompt. Coût mesuré : environ **8 800 tokens**
+pour le fichier entier, ou **3 100 au pire** en deux temps — aiguillage vers un domaine, puis
+chargement du seul bloc de ce domaine. Le fichier porte lui-même le détail de ces mesures.
+
+Les mêmes données sont disponibles dans
+[`97 - REFERENTIEL/routage.json`](97%20-%20REFERENTIEL/routage.json) pour un usage programmatique :
+préfiltrage déterministe par mots-clés, puis appel au modèle sur les seuls cas ambigus.
+
+Règle de sûreté intégrée : en dessous de 0,7 de confiance, l'agent ne classe pas, il dépose dans
+`00 - INBOX` avec le motif du doute. Un document mal classé coûte plus cher qu'un document resté
+dans le sas.
 
 ## Convention de nommage (résumé)
 

@@ -6,6 +6,60 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le ve
 [SemVer](https://semver.org/lang/fr/) : une version majeure signale un changement d'arborescence qui
 oblige à renommer ou déplacer des dossiers existants.
 
+## [2.2.0] — 2026-10-02
+
+Deux documentations générées depuis les `index.md` : une page pour les humains, un fichier compact
+pour les agents. Aucun changement dans l'arborescence ni dans les règles de classement.
+
+### Ajouté
+
+- **`documentation.html`** — le plan de classement complet en une page autonome : une fiche par
+  dossier avec son rôle, ce qu'on y range, ce qui va ailleurs, la méthode de classement et les
+  durées. Navigation par domaine, recherche instantanée sur l'ensemble du contenu, lisible sur
+  téléphone, thème clair et sombre. Aucune dépendance en dehors des polices.
+- **`97 - REFERENTIEL/AGENT-ROUTAGE.md`** — la version compacte destinée à un agent d'ingestion :
+  procédure en sept points, aiguillage par domaine, table de 69 destinations avec déclencheurs,
+  motif de sous-chemin, conservation, registre et arbitrages, pièges de classement, barème de
+  confiance et contrat de sortie JSON. Coût mesuré : ~8 800 tokens en un bloc, ~3 100 au pire en
+  mode deux temps. Le fichier publie ses propres mesures.
+- **`97 - REFERENTIEL/routage.json`** — les mêmes données, exploitables par du code pour un
+  préfiltrage déterministe avant appel au modèle.
+
+### Méthode
+
+Les trois fichiers sont **générés** à partir des `index.md`, qui restent la source de vérité : ils
+ne peuvent pas diverger du contenu des dossiers, et se régénèrent après chaque modification.
+
+Le fichier de routage a été testé en aveugle sur seize documents types, dont huit cas volontairement
+ambigus, par un agent n'ayant accès à rien d'autre. Les corrections issues de ce test sont intégrées :
+
+- règle générale des **avenants** : un avenant, une résiliation, un renouvellement ou une mainlevée
+  va dans le dossier du document qu'il modifie ;
+- règle des **pièces de tiers** : une attestation ou une pièce de vigilance fournie par un tiers va
+  dans le dossier de ce tiers ; nos propres attestations vont dans leur domaine, avec une copie
+  dans `97` ;
+- **repli sur variable manquante** : quand le document ne porte pas le nom de banque, d'assureur ou
+  de tiers qu'exige le chemin, l'agent écrit `_INCONNU` et route vers `00` au lieu d'inventer un nom
+  de dossier — c'est ainsi qu'un même assureur finit sous trois orthographes ;
+- **repli sur document sans date** : date de l'événement attesté, à défaut date de réception
+  préfixée `r` ; la date du scan n'est jamais la date du document ;
+- **barème de confiance** en quatre niveaux, pour que le seuil de 0,7 ne soit pas laissé à
+  l'appréciation de chaque modèle ;
+- **contrat de sortie étendu** : `conservation`, `echeances` en liste typée, `copies` pour la règle
+  de l'original et de la copie, `actions` pour les documents à découper ou contenant un secret ;
+- **déclencheurs ambigus qualifiés** : « bulletin de souscription » de nos titres ou d'un placement,
+  « PV de recette » et « PV de réception », attestation de vigilance d'un tiers ou la nôtre, pacte
+  d'associés de notre société ou d'une société où nous entrons, et une dizaine d'autres ;
+- **arbitrage ajouté en `04.9`** : le contrat avec la plateforme agréée va en `02.5`, seuls les
+  flux, les incidents et la piste d'audit fiable restent en `04.9`.
+
+### Corrigé
+
+- La colonne « registre » ne se renseigne que si le document **crée ou modifie un engagement** : une
+  attestation ou un relevé n'alimente aucun registre.
+- Le registre des recommandés est global : un courrier recommandé y est inscrit quel que soit le
+  dossier où il est classé.
+
 ## [2.1.0] — 2026-09-21
 
 Mise en conformité du gabarit à la suite d'un audit mené contre les sources officielles françaises

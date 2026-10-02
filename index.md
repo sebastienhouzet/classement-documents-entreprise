@@ -95,12 +95,14 @@ refusé, texte à l'appui. Préparer un petit dossier « réponses VSME » reste
 
 ## Point de départ
 
-1. Lire `97 - REFERENTIEL/Convention-de-nommage.md` (5 minutes).
-2. Créer les sous-dossiers par tiers au fur et à mesure (un client, un fournisseur, un salarié, une ligne de
+1. Ouvrir `documentation.html` à la racine : le plan de classement complet, consultable et
+   cherchable, sans avoir à parcourir les dossiers un par un.
+2. Lire `97 - REFERENTIEL/Convention-de-nommage.md` (5 minutes).
+3. Créer les sous-dossiers par tiers au fur et à mesure (un client, un fournisseur, un salarié, une ligne de
    placement) — ne pas les créer à l'avance.
-3. Remplir les registres CSV avec l'existant : contrats, assurances, placements, matériel.
-4. Remplir le `Tableau-de-gestion.csv` du référentiel : il est prérempli avec les principales typologies et
+4. Remplir les registres CSV avec l'existant : contrats, assurances, placements, matériel.
+5. Remplir le `Tableau-de-gestion.csv` du référentiel : il est prérempli avec les principales typologies et
    leur sort final, à compléter avec les vôtres. C'est lui qui rend `99 - SUPPRESSION` utilisable.
-5. Supprimer les sous-dossiers qui ne concernent pas l'entreprise (`03.10` sans CSE, `07.4` sans véhicule,
+6. Supprimer les sous-dossiers qui ne concernent pas l'entreprise (`03.10` sans CSE, `07.4` sans véhicule,
    `06.8` sans activité de travaux, `07.7` sans marchés publics, `08.5` sans crypto-actifs…) ou les laisser
    vides : leur `index.md` explique quand ils deviennent nécessaires.
